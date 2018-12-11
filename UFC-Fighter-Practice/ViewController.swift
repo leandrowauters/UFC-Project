@@ -9,6 +9,9 @@
 import UIKit
 
 class ViewController: UIViewController {
+    var buttonTaps = 1
+    @IBOutlet var filterByButtons: [UIButton]!
+    
     @IBOutlet weak var fighterSearchBar: UISearchBar!
     
     @IBOutlet weak var fighterTableView: UITableView!
@@ -34,8 +37,30 @@ class ViewController: UIViewController {
         }
     }
 
-
+    @IBAction func dropDownPressed(_ sender: UIButton) {
+        filterByButtons.forEach{(button) in
+            UIView.animate(withDuration: 0.5, animations: {button.isHidden = !button.isHidden})
+            self.view.layoutIfNeeded()
+        }
+        
+    }
+    @IBAction func filterByWasTapped(_ sender: UIButton) {
+        
+        switch sender.tag {
+        case 0:
+        buttonTaps += 1
+        if buttonTaps % 2 == 0 {
+            fighters = fighters.sorted{$0.last_name < $1.last_name}
+        } else {
+            fighters = fighters.reversed()
+        }
+            
+        default:
+            print("error")
+        }
+    }
 }
+
 extension ViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return fighters.count

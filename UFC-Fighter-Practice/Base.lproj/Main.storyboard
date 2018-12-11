@@ -23,7 +23,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="R0G-SF-dyY">
-                                <rect key="frame" x="0.0" y="76" width="375" height="591"/>
+                                <rect key="frame" x="0.0" y="101" width="375" height="566"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="fighterCell" textLabel="cLk-lJ-DhF" detailTextLabel="l7W-NJ-QvL" style="IBUITableViewCellStyleSubtitle" id="FYe-RA-kgv">
@@ -52,26 +52,123 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="AEY-iw-rWY">
+                                <rect key="frame" x="0.0" y="76" width="375" height="25"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7k2-R2-v4F">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="25"/>
+                                        <color key="backgroundColor" red="0.99593228099999997" green="0.27651777859999999" blue="0.36207842829999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="25" id="4C4-N7-lhh"/>
+                                        </constraints>
+                                        <state key="normal" title="Filter By:"/>
+                                        <connections>
+                                            <action selector="dropDownPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4SI-G8-LuD"/>
+                                        </connections>
+                                    </button>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cii-ii-qxj">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="25"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="25" id="wKJ-e2-abm"/>
+                                        </constraints>
+                                        <state key="normal" title="Name"/>
+                                        <connections>
+                                            <action selector="filterByWasTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FjB-Nf-esW"/>
+                                        </connections>
+                                    </button>
+                                    <button hidden="YES" opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JH2-hP-XXr">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="25"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="25" id="xtY-nK-5Zh"/>
+                                        </constraints>
+                                        <state key="normal" title="Weight Class"/>
+                                        <connections>
+                                            <action selector="filterByWasTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cwA-eB-qtD"/>
+                                        </connections>
+                                    </button>
+                                    <button hidden="YES" opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s11-u5-Eyz">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="25"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="25" id="QKJ-A6-Z11"/>
+                                        </constraints>
+                                        <state key="normal" title="Wins"/>
+                                        <connections>
+                                            <action selector="filterByWasTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jU2-ty-iBQ"/>
+                                        </connections>
+                                    </button>
+                                    <button hidden="YES" opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qhk-gu-pje">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="25"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="25" id="Lrz-Ay-ZsU"/>
+                                        </constraints>
+                                        <state key="normal" title="Losses"/>
+                                        <connections>
+                                            <action selector="filterByWasTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NE1-v3-bC5"/>
+                                        </connections>
+                                    </button>
+                                    <button hidden="YES" opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xvf-KJ-xRj">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="25"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="25" id="JhC-mi-QcU"/>
+                                        </constraints>
+                                        <state key="normal" title="Active"/>
+                                        <connections>
+                                            <action selector="filterByWasTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="saq-Ft-Kqh"/>
+                                        </connections>
+                                    </button>
+                                    <button hidden="YES" opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BbE-7A-AJe">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="25"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="25" id="Z5a-fz-cce"/>
+                                        </constraints>
+                                        <state key="normal" title="Title Holder"/>
+                                        <connections>
+                                            <action selector="filterByWasTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tkg-S6-jlL"/>
+                                        </connections>
+                                    </button>
+                                    <button hidden="YES" opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aF2-E6-W7g">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="25"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="25" id="EYg-bA-Qjj"/>
+                                        </constraints>
+                                        <state key="normal" title="Draw"/>
+                                        <connections>
+                                            <action selector="filterByWasTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ApB-7d-Nx8"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="pba-vB-Ehh" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="0qh-Wk-Tt1"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="R0G-SF-dyY" secondAttribute="bottom" id="7gn-Sn-XNt"/>
-                            <constraint firstItem="R0G-SF-dyY" firstAttribute="top" secondItem="pba-vB-Ehh" secondAttribute="bottom" id="UwZ-uW-5SM"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="AEY-iw-rWY" secondAttribute="trailing" id="3gM-im-T2f"/>
+                            <constraint firstItem="R0G-SF-dyY" firstAttribute="top" secondItem="AEY-iw-rWY" secondAttribute="bottom" id="8Ay-c9-4eQ"/>
+                            <constraint firstItem="AEY-iw-rWY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="XdF-lS-WZZ"/>
+                            <constraint firstItem="R0G-SF-dyY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="aFH-zy-Aui"/>
                             <constraint firstItem="pba-vB-Ehh" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="ayU-E4-iSm"/>
-                            <constraint firstItem="R0G-SF-dyY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="bSy-ZT-tz8"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="R0G-SF-dyY" secondAttribute="trailing" id="lsS-WK-ZIR"/>
+                            <constraint firstItem="R0G-SF-dyY" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="gQI-4b-Ypp"/>
+                            <constraint firstItem="AEY-iw-rWY" firstAttribute="top" secondItem="pba-vB-Ehh" secondAttribute="bottom" id="vsK-eA-8kt"/>
                             <constraint firstItem="pba-vB-Ehh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="xVz-Xw-pIK"/>
+                            <constraint firstItem="R0G-SF-dyY" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="yhs-DW-0f7"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="fighterSearchBar" destination="pba-vB-Ehh" id="mdi-iT-lWa"/>
                         <outlet property="fighterTableView" destination="R0G-SF-dyY" id="6Hg-aq-gfH"/>
+                        <outletCollection property="filterByButtons" destination="Cii-ii-qxj" collectionClass="NSMutableArray" id="JWX-EX-RSj"/>
+                        <outletCollection property="filterByButtons" destination="JH2-hP-XXr" collectionClass="NSMutableArray" id="Sss-lS-h0H"/>
+                        <outletCollection property="filterByButtons" destination="s11-u5-Eyz" collectionClass="NSMutableArray" id="hgI-oJ-CbP"/>
+                        <outletCollection property="filterByButtons" destination="Qhk-gu-pje" collectionClass="NSMutableArray" id="X5G-iU-qje"/>
+                        <outletCollection property="filterByButtons" destination="Xvf-KJ-xRj" collectionClass="NSMutableArray" id="Soj-eN-q65"/>
+                        <outletCollection property="filterByButtons" destination="BbE-7A-AJe" collectionClass="NSMutableArray" id="hTO-4A-uxI"/>
+                        <outletCollection property="filterByButtons" destination="aF2-E6-W7g" collectionClass="NSMutableArray" id="v5G-1w-t95"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="132.68365817091455"/>
         </scene>
     </scenes>
 </document>
