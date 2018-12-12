@@ -46,7 +46,7 @@ class ViewController: UIViewController {
     func searchFighter (keyword: String){
         UFCAPIClient.getFighter{fighter, error in
             if let fighterResult = fighter{
-                self.fighters = fighterResult
+//                self.fighters = fighterResult
                 self.fighters = fighterResult.filter{$0.first_name.lowercased().contains(keyword.lowercased())||$0.last_name.lowercased().contains(keyword.lowercased())}
             }
         }
