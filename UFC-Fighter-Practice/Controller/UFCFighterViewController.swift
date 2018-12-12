@@ -37,7 +37,7 @@ class UFCFighterViewController: UIViewController {
                 print(error)
             }
             if let fighters = fighters {
-                dump(fighters)
+              self.fighters = fighters
             }
         }
         
