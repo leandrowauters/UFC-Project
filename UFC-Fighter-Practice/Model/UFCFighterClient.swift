@@ -17,7 +17,7 @@ enum UFCFighterErrors {
 
 
 
-final class UFCAPIClient: Codable {
+final class UFCFighterClient: Codable {
     static func getFighter (completionHandler: @escaping(([UFCFighter]?, UFCFighterErrors?) -> Void)){
         guard let url = URL.init(string: "http://ufc-data-api.ufc.com/api/v1/us/fighters") else
             {completionHandler(nil, .badURL("url failed"))
@@ -39,6 +39,27 @@ final class UFCAPIClient: Codable {
     }
 
 }
+final class UFCEventClinet: Codable{
+    static func getEvent (completionHandler: @escaping(([UFCEvent]?, UFCFighterErrors?) -> Void)){
+        guard let url = URL.init(string: "http://ufc-data-api.ufc.com/api/v1/us/events") else {completionHandler(nil, .badURL("url failed"))
+            return
+        }
+        URLSession.shared.dataTask(with: url){(data, response, error) in
+            if let error = error {
+                completionHandler(nil, .badData(error))
+            }
+            if let data = data {
+                do{
+                    let eventData = try JSONDecoder().decode([UFCEvent].self, from: data)
+                    completionHandler(eventData, nil)
+                }catch{
+                    completionHandler(nil, .badDecoding(error))
+                }
+            }
+        }.resume()
+    }
+}
+
 final class ImageClient {
     static func getImage(stringURL: String) -> UIImage? {
         guard let myImageURL = URL.init(string: stringURL) else {

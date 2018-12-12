@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class UFCFighterViewController: UIViewController {
   
     
     @IBOutlet var filterByButtons: [UIButton]!
@@ -32,12 +32,12 @@ class ViewController: UIViewController {
         fighterSearchBar.delegate = self
         super.viewDidLoad()
         fighterTableView.dataSource = self
-        UFCAPIClient.getFighter {(fighters, error) in
+        UFCFighterClient.getFighter {(fighters, error) in
             if let error = error {
                 print(error)
             }
             if let fighters = fighters {
-                self.fighters = fighters
+                dump(fighters)
             }
         }
         
@@ -52,9 +52,8 @@ class ViewController: UIViewController {
     }
     
     func searchFighter (keyword: String){
-        UFCAPIClient.getFighter{fighter, error in
+        UFCFighterClient.getFighter{fighter, error in
             if let fighterResult = fighter{
-//                self.fighters = fighterResult
                 self.fighters = fighterResult.filter{$0.first_name.lowercased().contains(keyword.lowercased())||$0.last_name.lowercased().contains(keyword.lowercased())}
             }
         }
@@ -133,7 +132,7 @@ class ViewController: UIViewController {
     }
 }
 
-extension ViewController: UITableViewDataSource{
+extension UFCFighterViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return fighters.count
     }
@@ -155,12 +154,12 @@ extension ViewController: UITableViewDataSource{
     
 }
 //MARK: TODO SEARCHBAR
-extension ViewController: UISearchBarDelegate {
+extension UFCFighterViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         DispatchQueue.main.async{
         self.searchFighter(keyword: searchText)
         if searchBar.text!.isEmpty{
-            UFCAPIClient.getFighter {(fighters, error) in
+            UFCFighterClient.getFighter {(fighters, error) in
                 if let error = error {
                     print(error)
                 }

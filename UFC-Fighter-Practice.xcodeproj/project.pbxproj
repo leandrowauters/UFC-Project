@@ -8,26 +8,30 @@
 
 /* Begin PBXBuildFile section */
 		D5445BC421BEE16300EDA9C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5445BC321BEE16300EDA9C3 /* AppDelegate.swift */; };
-		D5445BC621BEE16300EDA9C3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5445BC521BEE16300EDA9C3 /* ViewController.swift */; };
+		D5445BC621BEE16300EDA9C3 /* UFCFighterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5445BC521BEE16300EDA9C3 /* UFCFighterViewController.swift */; };
 		D5445BC921BEE16300EDA9C3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5445BC721BEE16300EDA9C3 /* Main.storyboard */; };
 		D5445BCB21BEE16400EDA9C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5445BCA21BEE16400EDA9C3 /* Assets.xcassets */; };
 		D5445BCE21BEE16400EDA9C3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5445BCC21BEE16400EDA9C3 /* LaunchScreen.storyboard */; };
 		D5445BD621BEE2DC00EDA9C3 /* UFCFighter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5445BD521BEE2DC00EDA9C3 /* UFCFighter.swift */; };
-		D5445BD821BEE42800EDA9C3 /* UFCAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5445BD721BEE42800EDA9C3 /* UFCAPIClient.swift */; };
+		D5445BD821BEE42800EDA9C3 /* UFCFighterClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5445BD721BEE42800EDA9C3 /* UFCFighterClient.swift */; };
 		D5EDA70E21C1A13A00B5F963 /* UFCFighterDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5EDA70D21C1A13A00B5F963 /* UFCFighterDetail.swift */; };
+		D5EDA71021C1AA1A00B5F963 /* UFCEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5EDA70F21C1AA1A00B5F963 /* UFCEvent.swift */; };
+		D5EDA71621C1AE6F00B5F963 /* UFCEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5EDA71521C1AE6F00B5F963 /* UFCEventViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		D5445BC021BEE16300EDA9C3 /* UFC-Fighter-Practice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "UFC-Fighter-Practice.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5445BC321BEE16300EDA9C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D5445BC521BEE16300EDA9C3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D5445BC521BEE16300EDA9C3 /* UFCFighterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UFCFighterViewController.swift; sourceTree = "<group>"; };
 		D5445BC821BEE16300EDA9C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D5445BCA21BEE16400EDA9C3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D5445BCD21BEE16400EDA9C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D5445BCF21BEE16500EDA9C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D5445BD521BEE2DC00EDA9C3 /* UFCFighter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UFCFighter.swift; sourceTree = "<group>"; };
-		D5445BD721BEE42800EDA9C3 /* UFCAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UFCAPIClient.swift; sourceTree = "<group>"; };
+		D5445BD721BEE42800EDA9C3 /* UFCFighterClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UFCFighterClient.swift; sourceTree = "<group>"; };
 		D5EDA70D21C1A13A00B5F963 /* UFCFighterDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UFCFighterDetail.swift; sourceTree = "<group>"; };
+		D5EDA70F21C1AA1A00B5F963 /* UFCEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UFCEvent.swift; sourceTree = "<group>"; };
+		D5EDA71521C1AE6F00B5F963 /* UFCEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UFCEventViewController.swift; path = "UFC-Fighter-Practice/Controller/UFCEventViewController.swift"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,17 +64,51 @@
 		D5445BC221BEE16300EDA9C3 /* UFC-Fighter-Practice */ = {
 			isa = PBXGroup;
 			children = (
-				D5445BC321BEE16300EDA9C3 /* AppDelegate.swift */,
-				D5445BC521BEE16300EDA9C3 /* ViewController.swift */,
-				D5445BD721BEE42800EDA9C3 /* UFCAPIClient.swift */,
-				D5445BD521BEE2DC00EDA9C3 /* UFCFighter.swift */,
-				D5445BC721BEE16300EDA9C3 /* Main.storyboard */,
-				D5EDA70D21C1A13A00B5F963 /* UFCFighterDetail.swift */,
-				D5445BCA21BEE16400EDA9C3 /* Assets.xcassets */,
-				D5445BCC21BEE16400EDA9C3 /* LaunchScreen.storyboard */,
+				D5EDA71121C1ADC200B5F963 /* Model */,
+				D5EDA71421C1AE0C00B5F963 /* Supporting Files */,
+				D5EDA71221C1ADF800B5F963 /* Controller */,
+				D5EDA71321C1AE0200B5F963 /* View */,
 				D5445BCF21BEE16500EDA9C3 /* Info.plist */,
 			);
 			path = "UFC-Fighter-Practice";
+			sourceTree = "<group>";
+		};
+		D5EDA71121C1ADC200B5F963 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D5445BD721BEE42800EDA9C3 /* UFCFighterClient.swift */,
+				D5445BD521BEE2DC00EDA9C3 /* UFCFighter.swift */,
+				D5EDA70F21C1AA1A00B5F963 /* UFCEvent.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D5EDA71221C1ADF800B5F963 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D5445BC521BEE16300EDA9C3 /* UFCFighterViewController.swift */,
+				D5EDA71521C1AE6F00B5F963 /* UFCEventViewController.swift */,
+				D5EDA70D21C1A13A00B5F963 /* UFCFighterDetail.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		D5EDA71321C1AE0200B5F963 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D5445BC721BEE16300EDA9C3 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D5EDA71421C1AE0C00B5F963 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D5445BC321BEE16300EDA9C3 /* AppDelegate.swift */,
+				D5445BCA21BEE16400EDA9C3 /* Assets.xcassets */,
+				D5445BCC21BEE16400EDA9C3 /* LaunchScreen.storyboard */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -144,10 +182,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D5445BD821BEE42800EDA9C3 /* UFCAPIClient.swift in Sources */,
+				D5445BD821BEE42800EDA9C3 /* UFCFighterClient.swift in Sources */,
 				D5EDA70E21C1A13A00B5F963 /* UFCFighterDetail.swift in Sources */,
-				D5445BC621BEE16300EDA9C3 /* ViewController.swift in Sources */,
+				D5EDA71621C1AE6F00B5F963 /* UFCEventViewController.swift in Sources */,
+				D5445BC621BEE16300EDA9C3 /* UFCFighterViewController.swift in Sources */,
 				D5445BD621BEE2DC00EDA9C3 /* UFCFighter.swift in Sources */,
+				D5EDA71021C1AA1A00B5F963 /* UFCEvent.swift in Sources */,
 				D5445BC421BEE16300EDA9C3 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
