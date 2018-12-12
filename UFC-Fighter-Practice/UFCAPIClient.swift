@@ -6,7 +6,7 @@
 //  Copyright © 2018 Leandro Wauters. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 enum UFCFighterErrors {
     case badURL (String)
@@ -39,4 +39,18 @@ final class UFCAPIClient: Codable {
     }
 
 }
-
+final class ImageClient {
+    static func getImage(stringURL: String) -> UIImage? {
+        guard let myImageURL = URL.init(string: stringURL) else {
+            return nil
+        }
+        do {
+            let data = try Data.init(contentsOf: myImageURL)
+            guard let image = UIImage.init(data: data) else {return nil}
+            return image
+        } catch {
+            print(error)
+            return nil
+        }
+    }
+}

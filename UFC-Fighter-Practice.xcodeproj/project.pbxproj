@@ -14,6 +14,7 @@
 		D5445BCE21BEE16400EDA9C3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5445BCC21BEE16400EDA9C3 /* LaunchScreen.storyboard */; };
 		D5445BD621BEE2DC00EDA9C3 /* UFCFighter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5445BD521BEE2DC00EDA9C3 /* UFCFighter.swift */; };
 		D5445BD821BEE42800EDA9C3 /* UFCAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5445BD721BEE42800EDA9C3 /* UFCAPIClient.swift */; };
+		D5EDA70E21C1A13A00B5F963 /* UFCFighterDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5EDA70D21C1A13A00B5F963 /* UFCFighterDetail.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		D5445BCF21BEE16500EDA9C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D5445BD521BEE2DC00EDA9C3 /* UFCFighter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UFCFighter.swift; sourceTree = "<group>"; };
 		D5445BD721BEE42800EDA9C3 /* UFCAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UFCAPIClient.swift; sourceTree = "<group>"; };
+		D5EDA70D21C1A13A00B5F963 /* UFCFighterDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UFCFighterDetail.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				D5445BD721BEE42800EDA9C3 /* UFCAPIClient.swift */,
 				D5445BD521BEE2DC00EDA9C3 /* UFCFighter.swift */,
 				D5445BC721BEE16300EDA9C3 /* Main.storyboard */,
+				D5EDA70D21C1A13A00B5F963 /* UFCFighterDetail.swift */,
 				D5445BCA21BEE16400EDA9C3 /* Assets.xcassets */,
 				D5445BCC21BEE16400EDA9C3 /* LaunchScreen.storyboard */,
 				D5445BCF21BEE16500EDA9C3 /* Info.plist */,
@@ -142,6 +145,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D5445BD821BEE42800EDA9C3 /* UFCAPIClient.swift in Sources */,
+				D5EDA70E21C1A13A00B5F963 /* UFCFighterDetail.swift in Sources */,
 				D5445BC621BEE16300EDA9C3 /* ViewController.swift in Sources */,
 				D5445BD621BEE2DC00EDA9C3 /* UFCFighter.swift in Sources */,
 				D5445BC421BEE16300EDA9C3 /* AppDelegate.swift in Sources */,

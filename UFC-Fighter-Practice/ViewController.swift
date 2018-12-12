@@ -28,6 +28,7 @@ class ViewController: UIViewController {
     }
     
     override func viewDidLoad() {
+        fighterTableView.tableFooterView = UIView()
         fighterSearchBar.delegate = self
         super.viewDidLoad()
         fighterTableView.dataSource = self
@@ -41,7 +42,14 @@ class ViewController: UIViewController {
         }
         
     }
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let indexPath = fighterTableView.indexPathForSelectedRow,
+            let ufcFighterDetail = segue.destination as? UFCFighterDetail else {
+                return
+        }
+        let fighter = fighters[indexPath.row]
+        ufcFighterDetail.fighter = fighter
+    }
     
     func searchFighter (keyword: String){
         UFCAPIClient.getFighter{fighter, error in
@@ -136,14 +144,9 @@ extension ViewController: UITableViewDataSource{
         cell.textLabel?.text = "\(fighterToSet.last_name), \(fighterToSet.first_name)"
         
         cell.detailTextLabel?.text = fighterToSet.weight_class?.replacingOccurrences(of: "_", with: " ")
-        if let url = URL.init(string: fighterToSet.thumbnail!) { // create a function, see News Project
-            do{
-                let data = try Data.init(contentsOf: url)
-                if let image = UIImage.init(data: data) {
-                    cell.imageView?.image = image
-                }
-            } catch {
-                print(error)
+        if let imageUrl = fighterToSet.thumbnail {
+            if let image = ImageClient.getImage(stringURL: imageUrl){
+                cell.imageView?.image = image
             }
         }
         return cell
