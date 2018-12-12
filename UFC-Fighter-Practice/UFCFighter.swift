@@ -19,3 +19,9 @@ struct UFCFighter: Codable {
     let fighter_status: String
     let thumbnail: String?
 }
+
+
+    
+
+
+
