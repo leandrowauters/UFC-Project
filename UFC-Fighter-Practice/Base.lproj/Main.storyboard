@@ -23,7 +23,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="R0G-SF-dyY">
-                                <rect key="frame" x="0.0" y="101" width="375" height="566"/>
+                                <rect key="frame" x="0.0" y="116" width="375" height="551"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="fighterCell" textLabel="cLk-lJ-DhF" detailTextLabel="l7W-NJ-QvL" style="IBUITableViewCellStyleSubtitle" id="FYe-RA-kgv">
@@ -37,103 +37,121 @@
                                                     <rect key="frame" x="15" y="5" width="33.5" height="20.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="l7W-NJ-QvL">
                                                     <rect key="frame" x="15" y="25.5" width="44" height="14.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="AEY-iw-rWY">
-                                <rect key="frame" x="0.0" y="76" width="375" height="25"/>
+                                <rect key="frame" x="0.0" y="76" width="375" height="40"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7k2-R2-v4F">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="25"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
                                         <color key="backgroundColor" red="0.99593228099999997" green="0.27651777859999999" blue="0.36207842829999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="25" id="4C4-N7-lhh"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="Inc-ZQ-v7J"/>
                                         </constraints>
-                                        <state key="normal" title="Filter By:"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <state key="normal" title="Sort By:">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
                                         <connections>
                                             <action selector="dropDownPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4SI-G8-LuD"/>
                                         </connections>
                                     </button>
                                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cii-ii-qxj">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="25"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="25" id="wKJ-e2-abm"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="TYO-GV-T3l"/>
                                         </constraints>
-                                        <state key="normal" title="Name"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                        <state key="normal" title="Name">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
                                         <connections>
                                             <action selector="filterByWasTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FjB-Nf-esW"/>
                                         </connections>
                                     </button>
                                     <button hidden="YES" opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JH2-hP-XXr">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="25"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
+                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="25" id="xtY-nK-5Zh"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="p4t-eu-7al"/>
                                         </constraints>
-                                        <state key="normal" title="Weight Class"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                        <state key="normal" title="Weight Class">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
                                         <connections>
                                             <action selector="filterByWasTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cwA-eB-qtD"/>
                                         </connections>
                                     </button>
                                     <button hidden="YES" opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s11-u5-Eyz">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="25"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="25" id="QKJ-A6-Z11"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="g9D-tm-x7R"/>
                                         </constraints>
-                                        <state key="normal" title="Wins"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                        <state key="normal" title="Wins">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
                                         <connections>
                                             <action selector="filterByWasTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jU2-ty-iBQ"/>
                                         </connections>
                                     </button>
                                     <button hidden="YES" opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qhk-gu-pje">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="25"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
+                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="25" id="Lrz-Ay-ZsU"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="Gjm-go-owB"/>
                                         </constraints>
-                                        <state key="normal" title="Losses"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                        <state key="normal" title="Losses">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
                                         <connections>
                                             <action selector="filterByWasTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NE1-v3-bC5"/>
                                         </connections>
                                     </button>
-                                    <button hidden="YES" opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xvf-KJ-xRj">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="25"/>
+                                    <button hidden="YES" opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aF2-E6-W7g">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="25" id="JhC-mi-QcU"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="jAJ-j7-EyH"/>
                                         </constraints>
-                                        <state key="normal" title="Active"/>
-                                        <connections>
-                                            <action selector="filterByWasTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="saq-Ft-Kqh"/>
-                                        </connections>
-                                    </button>
-                                    <button hidden="YES" opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BbE-7A-AJe">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="25"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="25" id="Z5a-fz-cce"/>
-                                        </constraints>
-                                        <state key="normal" title="Title Holder"/>
-                                        <connections>
-                                            <action selector="filterByWasTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tkg-S6-jlL"/>
-                                        </connections>
-                                    </button>
-                                    <button hidden="YES" opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aF2-E6-W7g">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="25"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="25" id="EYg-bA-Qjj"/>
-                                        </constraints>
-                                        <state key="normal" title="Draw"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                        <state key="normal" title="Draw">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
                                         <connections>
                                             <action selector="filterByWasTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ApB-7d-Nx8"/>
+                                        </connections>
+                                    </button>
+                                    <button hidden="YES" opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xvf-KJ-xRj">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
+                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="izf-3G-KaS"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                        <state key="normal" title="Active">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="filterByWasTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="saq-Ft-Kqh"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -162,7 +180,6 @@
                         <outletCollection property="filterByButtons" destination="s11-u5-Eyz" collectionClass="NSMutableArray" id="hgI-oJ-CbP"/>
                         <outletCollection property="filterByButtons" destination="Qhk-gu-pje" collectionClass="NSMutableArray" id="X5G-iU-qje"/>
                         <outletCollection property="filterByButtons" destination="Xvf-KJ-xRj" collectionClass="NSMutableArray" id="Soj-eN-q65"/>
-                        <outletCollection property="filterByButtons" destination="BbE-7A-AJe" collectionClass="NSMutableArray" id="hTO-4A-uxI"/>
                         <outletCollection property="filterByButtons" destination="aF2-E6-W7g" collectionClass="NSMutableArray" id="v5G-1w-t95"/>
                     </connections>
                 </viewController>

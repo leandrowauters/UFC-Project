@@ -37,5 +37,6 @@ final class UFCAPIClient: Codable {
             }
         }.resume()
     }
+
 }
 

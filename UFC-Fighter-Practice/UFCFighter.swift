@@ -17,7 +17,7 @@ struct UFCFighter: Codable {
     let draws: Int?
     let first_name: String
     let fighter_status: String
-    let thumbnail: String?
+    let thumbnail: String?//MAKE IT URL??
 }
 
 
