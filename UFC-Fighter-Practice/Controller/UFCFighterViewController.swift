@@ -54,7 +54,7 @@ class UFCFighterViewController: UIViewController {
     func searchFighter (keyword: String){
         UFCFighterClient.getFighter{fighter, error in
             if let fighterResult = fighter{
-                self.fighters = fighterResult.filter{$0.first_name.lowercased().contains(keyword.lowercased())||$0.last_name.lowercased().contains(keyword.lowercased())}
+                self.fighters = fighterResult.filter{$0.first_name.lowercased().contains(keyword.lowercased())||($0.last_name?.lowercased().contains(keyword.lowercased()))!}
             }
         }
         }
@@ -67,16 +67,18 @@ class UFCFighterViewController: UIViewController {
         
     }
     @IBAction func filterByWasTapped(_ sender: UIButton) {
-        
+
         switch sender.tag {
         case 0:
             buttonTaps += 1
             if buttonTaps % 2 == 0 {
-                fighters = fighters.sorted{$0.last_name.capitalized < $1.last_name.capitalized}
+                var fighterLastName = [UFCFighter]()
+                fighters.forEach{$0.last_name != nil ? fighterLastName.append($0) : print("nothing")}
+                fighters = fighterLastName.sorted{$0.last_name!.capitalized < $1.last_name!.capitalized}
             } else {
                 fighters = fighters.reversed()
             }
-        
+
         case 1:
             buttonTaps += 1
             if buttonTaps % 2 == 0 {
@@ -127,7 +129,7 @@ class UFCFighterViewController: UIViewController {
         filterByButtons.forEach{(button) in
             UIView.animate(withDuration: 0.5, animations: {button.isHidden = !button.isHidden})
             self.view.layoutIfNeeded()
-        
+
         }
     }
 }
@@ -140,7 +142,7 @@ extension UFCFighterViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = fighterTableView.dequeueReusableCell(withIdentifier: "fighterCell", for: indexPath)
         let fighterToSet = fighters[indexPath.row]
-        cell.textLabel?.text = "\(fighterToSet.last_name), \(fighterToSet.first_name)"
+        cell.textLabel?.text = "\(fighterToSet.last_name ?? "No Name"), \(fighterToSet.first_name)"
         
         cell.detailTextLabel?.text = fighterToSet.weight_class?.replacingOccurrences(of: "_", with: " ")
         if let imageUrl = fighterToSet.thumbnail {
