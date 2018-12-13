@@ -153,7 +153,6 @@ extension UFCFighterViewController: UITableViewDataSource{
     
     
 }
-//MARK: TODO SEARCHBAR
 extension UFCFighterViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         DispatchQueue.main.async{
