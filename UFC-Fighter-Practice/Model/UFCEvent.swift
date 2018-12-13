@@ -9,10 +9,9 @@
 import Foundation
 
 struct UFCEvent: Codable {
-    let event_date: String
-    let ticketurl: String
+    let event_dategmt: String
     let base_title: String
-    let title_tag_line: String
+    let title_tag_line: String?
     let feature_image: String
     let arena: String
     let location: String

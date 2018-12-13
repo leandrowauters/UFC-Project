@@ -38,7 +38,7 @@ class UFCEventViewController: UIViewController {
     }
     
     func getDates(event: UFCEvent) -> String {
-        let date = event.event_date.components(separatedBy: "T")
+        let date = event.event_dategmt.components(separatedBy: "T")
         return date[0]
     }
 }
@@ -50,7 +50,7 @@ extension UFCEventViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = eventTableView.dequeueReusableCell(withIdentifier: "eventCell", for: indexPath)
         let eventToSet = event[indexPath.row]
-        cell.textLabel?.text = "\(eventToSet.base_title): \(eventToSet.title_tag_line)"
+        cell.textLabel?.text = "\(eventToSet.base_title): \(eventToSet.title_tag_line ?? "NO TITLE")"
         let date = getDates(event: eventToSet)
         cell.detailTextLabel?.text = date
         

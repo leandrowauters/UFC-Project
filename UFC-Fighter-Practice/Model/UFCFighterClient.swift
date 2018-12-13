@@ -41,7 +41,7 @@ final class UFCFighterClient: Codable {
 }
 final class UFCEventClinet: Codable{
     static func getEvent (completionHandler: @escaping(([UFCEvent]?, UFCFighterErrors?) -> Void)){
-        guard let url = URL.init(string: "http://ufc-data-api.ufc.com/api/v1/us/events") else {completionHandler(nil, .badURL("url failed"))
+        guard let url = URL.init(string: "http://ufc-data-api.ufc.com/api/v3/us/events") else {completionHandler(nil, .badURL("url failed"))
             return
         }
         URLSession.shared.dataTask(with: url){(data, response, error) in
