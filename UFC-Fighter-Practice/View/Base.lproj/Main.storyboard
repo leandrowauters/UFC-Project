@@ -258,6 +258,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Khm-G3-saE">
+                                <rect key="frame" x="0.0" y="32" width="375" height="667"/>
+                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jlf-Bj-4JW">
                                 <rect key="frame" x="13.5" y="65" width="161" height="162"/>
                                 <constraints>
@@ -320,7 +323,10 @@
                             <constraint firstItem="m2j-wa-E1p" firstAttribute="leading" secondItem="8hx-PM-gw5" secondAttribute="leading" constant="16" id="Cgv-GK-0ie"/>
                             <constraint firstItem="G4L-c0-Rtf" firstAttribute="leading" secondItem="jlf-Bj-4JW" secondAttribute="trailing" constant="20" id="GNQ-dS-jo4"/>
                             <constraint firstItem="jlf-Bj-4JW" firstAttribute="centerY" secondItem="8hx-PM-gw5" secondAttribute="centerY" multiplier="0.4" id="HJv-mU-RLs"/>
+                            <constraint firstItem="Khm-G3-saE" firstAttribute="centerY" secondItem="8hx-PM-gw5" secondAttribute="centerY" id="HcG-WY-Kf4"/>
                             <constraint firstItem="fa7-nP-WlJ" firstAttribute="leading" secondItem="jlf-Bj-4JW" secondAttribute="trailing" constant="20" id="J7B-Em-IET"/>
+                            <constraint firstItem="Khm-G3-saE" firstAttribute="centerX" secondItem="8hx-PM-gw5" secondAttribute="centerX" id="JPu-xZ-Raf"/>
+                            <constraint firstItem="Khm-G3-saE" firstAttribute="height" secondItem="9mM-w8-rit" secondAttribute="height" id="O7P-qB-XoW"/>
                             <constraint firstItem="8hx-PM-gw5" firstAttribute="trailing" secondItem="m2j-wa-E1p" secondAttribute="trailing" constant="11" id="Q00-5Q-Uyy"/>
                             <constraint firstItem="6zN-7I-Yv4" firstAttribute="top" secondItem="m2j-wa-E1p" secondAttribute="bottom" constant="50" id="S9w-Un-t98"/>
                             <constraint firstItem="8hx-PM-gw5" firstAttribute="trailing" secondItem="73Q-Vz-4Jg" secondAttribute="trailing" constant="11" id="ayn-ZU-UnQ"/>
@@ -332,11 +338,13 @@
                             <constraint firstItem="8hx-PM-gw5" firstAttribute="trailing" secondItem="6zN-7I-Yv4" secondAttribute="trailing" constant="11" id="mcA-UP-ydM"/>
                             <constraint firstItem="8hx-PM-gw5" firstAttribute="trailing" secondItem="s5c-Ar-omk" secondAttribute="trailing" constant="11" id="o0q-rt-hmu"/>
                             <constraint firstItem="ZjX-S4-VQ9" firstAttribute="top" secondItem="6zN-7I-Yv4" secondAttribute="bottom" constant="50" id="uDe-Ty-ztM"/>
+                            <constraint firstItem="Khm-G3-saE" firstAttribute="width" secondItem="9mM-w8-rit" secondAttribute="width" id="xuZ-7K-uhT"/>
                             <constraint firstItem="73Q-Vz-4Jg" firstAttribute="top" secondItem="jlf-Bj-4JW" secondAttribute="bottom" constant="70" id="y9s-tu-s5S"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="8hx-PM-gw5"/>
                     </view>
                     <connections>
+                        <outlet property="fighterBackgroundImage" destination="Khm-G3-saE" id="r2B-ih-mFU"/>
                         <outlet property="fighterDraws" destination="6zN-7I-Yv4" id="Aqv-vM-J94"/>
                         <outlet property="fighterFirstName" destination="fa7-nP-WlJ" id="bFD-NZ-apS"/>
                         <outlet property="fighterImage" destination="jlf-Bj-4JW" id="p5e-Cs-w3U"/>

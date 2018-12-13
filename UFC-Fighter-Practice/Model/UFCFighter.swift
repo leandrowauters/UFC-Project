@@ -17,10 +17,11 @@ struct UFCFighter: Codable {
     let title_holder: Bool
     let draws: Int?
     let first_name: String
-    let fighter_status: String
+    let fighter_status: String?
     let pound_for_pound_rank: String?
     let left_full_body_image: String?
     let thumbnail: String?
+    let profile_image: String?
 }
 
 

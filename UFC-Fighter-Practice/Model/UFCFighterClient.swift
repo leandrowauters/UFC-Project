@@ -19,7 +19,7 @@ enum UFCFighterErrors {
 
 final class UFCFighterClient: Codable {
     static func getFighter (completionHandler: @escaping(([UFCFighter]?, UFCFighterErrors?) -> Void)){
-        guard let url = URL.init(string: "http://ufc-data-api.ufc.com/api/v1/us/fighters") else
+        guard let url = URL.init(string: "http://ufc-data-api.ufc.com/api/v3/us/fighters") else
             {completionHandler(nil, .badURL("url failed"))
                 return
             }

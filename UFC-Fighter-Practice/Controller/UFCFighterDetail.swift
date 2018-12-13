@@ -20,6 +20,7 @@ class UFCFighterDetail: UIViewController {
     @IBOutlet weak var fighterLosses: UILabel!
     @IBOutlet weak var fighterDraws: UILabel!
     @IBOutlet weak var fighterStatus: UILabel!
+    @IBOutlet weak var fighterBackgroundImage: UIImageView!
     
     
     
@@ -28,16 +29,20 @@ class UFCFighterDetail: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         updateUI()
-
-//        view.backgroundColor = UIColor(patternImage: UIImage(named: "ufcBackground")!)//FOR BACKGORUNG
+        //FOR BACKGORUNG
     }
     
     func updateUI(){
-        if let imageUrl = fighter.thumbnail {
-            if let image = ImageClient.getImage(stringURL: imageUrl){
-                fighterImage.image = image
-            }
-        }
+        let imageUrl = fighter.profile_image
+//        if let image = ImageClient.getImage(stringURL: imageUrl!){
+//                fighterImage.image = image
+//            }
+//        
+//        if let backgroundImageUrl = fighter.left_full_body_image{
+//            if let image = ImageClient.getImage(stringURL: backgroundImageUrl){
+//                fighterBackgroundImage.image = image
+//            }
+//        }
         fighterLastName.text = fighter.last_name
         fighterFirstName.text = fighter.first_name
         fighterWeightClass.text = fighter.weight_class
