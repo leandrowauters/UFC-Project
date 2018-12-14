@@ -9,7 +9,7 @@
 import Foundation
 
 struct UFCEvent: Codable {
-    let event_dategmt: String
+    let event_dategmt: String//REMOVE _ //ALSO USE NSCAChE (LOOK EVENT PROJECT)
     let base_title: String
     let title_tag_line: String?
     let feature_image: String

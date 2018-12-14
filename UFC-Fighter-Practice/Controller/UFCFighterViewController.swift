@@ -189,4 +189,9 @@ extension UFCFighterViewController: UISearchBarDelegate {
         }
     }
     }
+//    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+//        DispatchQueue.main.async {
+//            self.searchFighter(keyword: searchBar.text!)
+//        }
+//    }
 }
