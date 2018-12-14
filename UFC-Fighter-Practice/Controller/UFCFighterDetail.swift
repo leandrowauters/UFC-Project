@@ -33,16 +33,16 @@ class UFCFighterDetail: UIViewController {
     }
     
     func updateUI(){
-        let imageUrl = fighter.profile_image
-//        if let image = ImageClient.getImage(stringURL: imageUrl!){
-//                fighterImage.image = image
-//            }
-//        
-//        if let backgroundImageUrl = fighter.left_full_body_image{
-//            if let image = ImageClient.getImage(stringURL: backgroundImageUrl){
-//                fighterBackgroundImage.image = image
-//            }
-//        }
+        if let imageUrl = fighter.profile_image {
+            if let image = ImageClient.getImage(stringURL: imageUrl){
+                fighterImage.image = image
+            }
+        }
+        if let backgroundImageUrl = fighter.left_full_body_image{
+            if let image = ImageClient.getImage(stringURL: backgroundImageUrl){
+                fighterBackgroundImage.image = image
+            }
+        }
         fighterLastName.text = fighter.last_name
         fighterFirstName.text = fighter.first_name
         fighterWeightClass.text = fighter.weight_class
