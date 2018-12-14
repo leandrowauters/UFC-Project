@@ -12,13 +12,13 @@ class UFCFighterViewController: UIViewController {
   
     
     @IBOutlet var filterByButtons: [UIButton]!
+    @IBOutlet weak var fighterActivityIndicator: UIActivityIndicatorView!
     
     @IBOutlet weak var fighterSearchBar: UISearchBar!
     
     @IBOutlet weak var fighterTableView: UITableView!
     
     var buttonTaps = 1
-    private var sortedFighters = [UFCFighter]()
     var fighters = [UFCFighter]() {
         didSet{
             DispatchQueue.main.async {
@@ -28,16 +28,20 @@ class UFCFighterViewController: UIViewController {
     }
     
     override func viewDidLoad() {
+        fighterActivityIndicator.startAnimating()
         fighterTableView.tableFooterView = UIView()
         fighterSearchBar.delegate = self
         super.viewDidLoad()
         fighterTableView.dataSource = self
         UFCFighterClient.getFighter {(fighters, error) in
+            DispatchQueue.main.async {
             if let error = error {
                 print(error)
             }
             if let fighters = fighters {
+                self.fighterActivityIndicator.stopAnimating()
               self.fighters = fighters
+            }
             }
         }
         
@@ -54,7 +58,9 @@ class UFCFighterViewController: UIViewController {
     func searchFighter (keyword: String){
         UFCFighterClient.getFighter{fighter, error in
             if let fighterResult = fighter{
-                self.fighters = fighterResult.filter{$0.first_name.lowercased().contains(keyword.lowercased())||($0.last_name?.lowercased().contains(keyword.lowercased()))!}
+                var fighterWithLastNames = [UFCFighter]()
+                fighterResult.forEach{$0.last_name != nil ? fighterWithLastNames.append($0) : print("notingh")}
+                self.fighters = fighterWithLastNames.filter{$0.first_name.lowercased().contains(keyword.lowercased())||(($0.last_name?.lowercased().contains(keyword.lowercased()))!)}
             }
         }
         }
@@ -142,7 +148,6 @@ class UFCFighterViewController: UIViewController {
         filterByButtons.forEach{(button) in
             UIView.animate(withDuration: 0.5, animations: {button.isHidden = !button.isHidden})
             self.view.layoutIfNeeded()
-
         }
     }
 }

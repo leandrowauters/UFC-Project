@@ -24,6 +24,7 @@ class UFCEventViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         eventTableView.dataSource = self
         UFCEventClinet.getEvent{(event, error) in
             if let error = error {
