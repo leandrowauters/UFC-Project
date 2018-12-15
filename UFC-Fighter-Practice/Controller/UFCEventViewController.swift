@@ -12,7 +12,7 @@ class UFCEventViewController: UIViewController {
 
     @IBOutlet weak var eventTableView: UITableView!
     
-    var event = [UFCEvent](){
+    var events = [UFCEvent](){
         didSet{
             DispatchQueue.main.async {
                 self.eventTableView.reloadData()
@@ -31,36 +31,31 @@ class UFCEventViewController: UIViewController {
                 print(error)
             }
             if let event = event {
-                self.event = event
-                print(self.event.count)
+                self.events = event
             }
         }
-        
     }
     
     func getDates(event: UFCEvent) -> String {
-        let date = event.event_dategmt.components(separatedBy: "T")
-        return date[0]
+        let date = event.eventDategmt.components(separatedBy: "T")
+        return date[0]// USE THE DATE NOTES SEE MEDIUM ARTICLE
     }
 }
 extension UFCEventViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return event.count
+        return events.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = eventTableView.dequeueReusableCell(withIdentifier: "eventCell", for: indexPath)
-        let eventToSet = event[indexPath.row]
-        cell.textLabel?.text = "\(eventToSet.base_title): \(eventToSet.title_tag_line ?? "NO TITLE")"
+        let eventToSet = events[indexPath.row]
+        cell.textLabel?.text = "\(eventToSet.baseTitle): \(eventToSet.titleTagLine ?? "NO TITLE")"
         let date = getDates(event: eventToSet)
         cell.detailTextLabel?.text = date
-        
-        
-        let imageURL = eventToSet.feature_image
+        let imageURL = eventToSet.featureImage
         if let image = ImageClient.getImage(stringURL: imageURL){
             cell.imageView?.image = image
         }
-        
         return cell
     }
     

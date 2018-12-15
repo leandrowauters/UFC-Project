@@ -59,7 +59,28 @@ final class UFCEventClinet: Codable{
         }.resume()
     }
 }
-
+final class UFCNewsClient: Codable {
+    static func getNews (completionHandler: @escaping(([UFCNews]?, UFCFighterErrors?) -> Void )) {
+        guard let url = URL.init(string: "http://ufc-data-api.ufc.com/api/v3/us/news") else
+        {completionHandler(nil, .badURL("url failed"))
+            return
+        }
+        URLSession.shared.dataTask(with: url){(data, response, error) in
+            if let error = error {
+                completionHandler(nil, .badData(error))
+            }
+            if let data = data {
+                do {
+                    let newsData = try JSONDecoder().decode([UFCNews].self, from: data)
+                    completionHandler(newsData, nil)
+            } catch {
+                completionHandler(nil, .badDecoding(error))
+            }
+        }
+        
+    }.resume()
+}
+}
 final class ImageClient {
     static func getImage(stringURL: String) -> UIImage? {
         guard let myImageURL = URL.init(string: stringURL) else {
@@ -75,4 +96,5 @@ final class ImageClient {
         }
     }
 }
+
 

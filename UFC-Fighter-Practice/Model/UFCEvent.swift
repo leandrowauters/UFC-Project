@@ -9,10 +9,18 @@
 import Foundation
 
 struct UFCEvent: Codable {
-    let event_dategmt: String//REMOVE _ //ALSO USE NSCAChE (LOOK EVENT PROJECT)
-    let base_title: String
-    let title_tag_line: String?
-    let feature_image: String
+    let eventDategmt: String//REMOVE _ //ALSO USE NSCAChE (LOOK EVENT PROJECT)
+    let baseTitle: String
+    let titleTagLine: String?
+    let featureImage: String
     let arena: String
     let location: String
+    private enum CodingKeys: String, CodingKey{
+        case eventDategmt = "event_dategmt"//REMOVE _ //ALSO USE NSCAChE (LOOK EVENT PROJECT)
+        case baseTitle = "base_title"
+        case titleTagLine = "title_tag_line"
+        case featureImage = "feature_image"
+        case arena
+        case location
+    }
 }
