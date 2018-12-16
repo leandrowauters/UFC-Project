@@ -10,7 +10,13 @@ import Foundation
 
 struct UFCNews: Codable {
     let title: String
-    let article_date: String
+    let articleDate: String
     let thumbnail: String
-    let url_name: String
+    let urlName: String
+    private enum CodingKeys: String, CodingKey{
+        case title
+        case articleDate = "article_date"
+        case thumbnail
+        case urlName = "url_name"
+    }
 }

@@ -59,8 +59,8 @@ class UFCFighterViewController: UIViewController {
         UFCFighterClient.getFighter{fighter, error in
             if let fighterResult = fighter{
                 var fighterWithLastNames = [UFCFighter]()
-                fighterResult.forEach{$0.last_name != nil ? fighterWithLastNames.append($0) : print("notingh")}
-                self.fighters = fighterWithLastNames.filter{$0.first_name.lowercased().contains(keyword.lowercased())||(($0.last_name?.lowercased().contains(keyword.lowercased()))!)}
+                fighterResult.forEach{$0.lastName != nil ? fighterWithLastNames.append($0) : print("notingh")}
+                self.fighters = fighterWithLastNames.filter{$0.firstName.lowercased().contains(keyword.lowercased())||(($0.lastName?.lowercased().contains(keyword.lowercased()))!)}
             }
         }
         }
@@ -79,9 +79,9 @@ class UFCFighterViewController: UIViewController {
             DispatchQueue.main.async {
                 self.buttonTaps += 1
                 if self.buttonTaps % 2 == 0 {
-                var fighterLastName = [UFCFighter]()
-                    self.fighters.forEach{$0.last_name != nil ? fighterLastName.append($0) : print("nothing")}
-                    self.fighters = fighterLastName.sorted{$0.last_name!.capitalized < $1.last_name!.capitalized}
+                    var fighterLastName = [UFCFighter]()
+                    self.fighters.forEach{$0.lastName != nil ? fighterLastName.append($0) : print("nothing")}
+                    self.fighters = fighterLastName.sorted{$0.lastName!.capitalized < $1.lastName!.capitalized}
             } else {
                     self.fighters = self.fighters.reversed()
             }
@@ -91,8 +91,8 @@ class UFCFighterViewController: UIViewController {
                 self.buttonTaps += 1
                 if self.buttonTaps % 2 == 0 {
                 var fighterWeight = [UFCFighter]()
-                    self.fighters.forEach{$0.weight_class != nil ? fighterWeight.append($0) : print("nothing")}
-                    self.fighters = fighterWeight.sorted{$0.weight_class! < $1.weight_class!}
+                    self.fighters.forEach{$0.weightClass != nil ? fighterWeight.append($0) : print("nothing")}
+                    self.fighters = fighterWeight.sorted{$0.weightClass! < $1.weightClass!}
             } else {
                     self.fighters = self.fighters.reversed()
                 }
@@ -135,13 +135,11 @@ class UFCFighterViewController: UIViewController {
                 self.buttonTaps += 1
                 if self.buttonTaps % 2 == 0 {
                 var fighterStatus = [UFCFighter]()
-                    self.fighters.forEach{$0.fighter_status != nil ? fighterStatus.append($0) : print("nothing") }
-                    
-                
+                    self.fighters.forEach{$0.fighterStatus != nil ? fighterStatus.append($0) : print("nothing") }
             } else {
-                    self.fighters = self.fighters.reversed()
+                self.fighters = self.fighters.reversed()
             }
-            }
+        }
         default:
             print("error")
         }
@@ -160,9 +158,9 @@ extension UFCFighterViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = fighterTableView.dequeueReusableCell(withIdentifier: "fighterCell", for: indexPath)
         let fighterToSet = fighters[indexPath.row]
-        cell.textLabel?.text = "\(fighterToSet.last_name ?? "No Name"), \(fighterToSet.first_name)"
+        cell.textLabel?.text = "\(fighterToSet.lastName ?? "No Name"), \(fighterToSet.firstName)"
         
-        cell.detailTextLabel?.text = fighterToSet.weight_class?.replacingOccurrences(of: "_", with: " ")
+        cell.detailTextLabel?.text = fighterToSet.weightClass?.replacingOccurrences(of: "_", with: " ")
         if let imageUrl = fighterToSet.thumbnail {
             if let image = ImageClient.getImage(stringURL: imageUrl){
                 cell.imageView?.image = image

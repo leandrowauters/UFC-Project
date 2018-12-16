@@ -37,7 +37,6 @@ final class UFCFighterClient: Codable {
             }
         }.resume()
     }
-
 }
 final class UFCEventClinet: Codable{
     static func getEvent (completionHandler: @escaping(([UFCEvent]?, UFCFighterErrors?) -> Void)){

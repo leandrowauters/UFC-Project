@@ -24,7 +24,8 @@ class UFCEventViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        let today = DateClient.getToday()
+        print("Today is: \(today)")
         eventTableView.dataSource = self
         UFCEventClinet.getEvent{(event, error) in
             if let error = error {
@@ -36,10 +37,7 @@ class UFCEventViewController: UIViewController {
         }
     }
     
-    func getDates(event: UFCEvent) -> String {
-        let date = event.eventDategmt.components(separatedBy: "T")
-        return date[0]// USE THE DATE NOTES SEE MEDIUM ARTICLE
-    }
+
 }
 extension UFCEventViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -50,7 +48,10 @@ extension UFCEventViewController: UITableViewDataSource {
         let cell = eventTableView.dequeueReusableCell(withIdentifier: "eventCell", for: indexPath)
         let eventToSet = events[indexPath.row]
         cell.textLabel?.text = "\(eventToSet.baseTitle): \(eventToSet.titleTagLine ?? "NO TITLE")"
-        let date = getDates(event: eventToSet)
+        let date = DateClient.getDatesAsyyyyMMdd(date: eventToSet.eventDategmt)
+        let ufcDate = DateClient.convertDateToLocalDate(str: eventToSet.eventDategmt)
+ 
+        print("UFC Event date is: \(ufcDate)")
         cell.detailTextLabel?.text = date
         let imageURL = eventToSet.featureImage
         if let image = ImageClient.getImage(stringURL: imageURL){

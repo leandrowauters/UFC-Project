@@ -9,19 +9,32 @@
 import Foundation
 
 struct UFCFighter: Codable {
-    let nickname: String?
     let wins: Int?
     let losses: Int?
-    let last_name: String?
-    let weight_class: String?
-    let title_holder: Bool
+    let lastName: String?
+    let weightClass: String?
+    let titleHolder: Bool
     let draws: Int?
-    let first_name: String
-    let fighter_status: String?
-    let pound_for_pound_rank: String?
-    let left_full_body_image: String?
+    let firstName: String
+    let fighterStatus: String?
+    let poundForPoundRank: String?
+    let leftFullBodyImage: String?
     let thumbnail: String?
-    let profile_image: String?
+    let profileImage: String?
+    private enum CodingKeys: String, CodingKey {
+        case wins
+        case losses
+        case lastName = "last_name"
+        case weightClass = "weight_class"
+        case titleHolder = "title_holder"
+        case draws
+        case firstName = "first_name"
+        case fighterStatus = "fighter_status"
+        case poundForPoundRank = "pound_for_pound_rank"
+        case leftFullBodyImage = "left_full_body_image"
+        case thumbnail
+        case profileImage = "profile_image"
+    }
 }
 
 

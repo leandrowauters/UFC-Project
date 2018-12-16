@@ -47,10 +47,10 @@ extension UFCNewsViewController: UITableViewDataSource{
         guard let cell = newsTableView.dequeueReusableCell(withIdentifier: "newsCell", for: indexPath) as?
             NewsCell else {return UITableViewCell()}
         cell.newsCellTitle.text = articleToSet.title
-        cell.newsCellDate.text = articleToSet.article_date
+        cell.newsCellDate.text = articleToSet.articleDate
         let imageURL = articleToSet.thumbnail
         if let image = ImageClient.getImage(stringURL: imageURL){
-            cell.imageView?.image = image
+            cell.newsCellImage.image = image
         }
         return cell
     }

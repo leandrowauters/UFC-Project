@@ -20,8 +20,8 @@ class UFCFighterDetail: UIViewController {
     @IBOutlet weak var fighterLosses: UILabel!
     @IBOutlet weak var fighterDraws: UILabel!
     @IBOutlet weak var fighterStatus: UILabel!
-    @IBOutlet weak var fighterBackgroundImage: UIImageView!
     
+    @IBOutlet weak var fighterImage: UIImageView!
     
     
     
@@ -33,18 +33,22 @@ class UFCFighterDetail: UIViewController {
     }
     
     func updateUI(){
-        if let backgroundImageUrl = fighter.left_full_body_image{
+        if let backgroundImageUrl = fighter.leftFullBodyImage{
             if let image = ImageClient.getImage(stringURL: backgroundImageUrl){
-                fighterBackgroundImage.image = image
+                fighterImage.image = image
             }
+        } else {
+            fighterImage.contentMode = .scaleToFill
+            fighterImage.image = UIImage(named: "fighterNil")
+            
         }
-        fighterLastName.text = fighter.last_name
-        fighterFirstName.text = fighter.first_name
-        fighterWeightClass.text = fighter.weight_class?.replacingOccurrences(of: "_", with: " ")
+        fighterLastName.text = fighter.lastName
+        fighterFirstName.text = fighter.firstName
+        fighterWeightClass.text = fighter.weightClass?.replacingOccurrences(of: "_", with: " ")
         fighterWins.text = fighter.wins?.description
         fighterLosses.text = fighter.losses?.description
         fighterDraws.text = fighter.draws?.description
-        fighterStatus.text = fighter.fighter_status
+        fighterStatus.text = fighter.fighterStatus
         
         
     }
