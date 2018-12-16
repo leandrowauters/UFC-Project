@@ -22,6 +22,7 @@ class UFCFighterDetail: UIViewController {
     @IBOutlet weak var fighterStatus: UILabel!
     
     @IBOutlet weak var fighterImage: UIImageView!
+    @IBOutlet weak var fighterRank: UILabel!
     
     @IBOutlet weak var backgroundImage: UIImageView!
     
@@ -46,10 +47,11 @@ class UFCFighterDetail: UIViewController {
         fighterLastName.text = fighter.lastName
         fighterFirstName.text = fighter.firstName
         fighterWeightClass.text = fighter.weightClass?.replacingOccurrences(of: "_", with: " ")
-        fighterWins.text = fighter.wins?.description
-        fighterLosses.text = fighter.losses?.description
-        fighterDraws.text = fighter.draws?.description
-        fighterStatus.text = fighter.fighterStatus
+        fighterRank.text = "Rank: #\(fighter.poundForPoundRank ?? "Unknown")"
+        fighterWins.text = "Wins: \(fighter.wins ?? 0)"
+        fighterLosses.text = "Losses: \(fighter.losses ?? 0)"
+        fighterDraws.text = "Draws: \(fighter.draws ?? 0)"
+        fighterStatus.text = "Status: \(fighter.fighterStatus ?? "Unknown")"
         
         
     }
