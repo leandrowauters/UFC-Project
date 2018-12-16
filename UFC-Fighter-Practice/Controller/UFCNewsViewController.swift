@@ -47,7 +47,7 @@ extension UFCNewsViewController: UITableViewDataSource{
         guard let cell = newsTableView.dequeueReusableCell(withIdentifier: "newsCell", for: indexPath) as?
             NewsCell else {return UITableViewCell()}
         cell.newsCellTitle.text = articleToSet.title
-        cell.newsCellDate.text = articleToSet.articleDate
+        cell.newsCellDate.text = DateClient.convertDateToLocalDate(str: articleToSet.articleDate, dateFormat: "MMMM yyyy")
         let imageURL = articleToSet.thumbnail
         if let image = ImageClient.getImage(stringURL: imageURL){
             cell.newsCellImage.image = image
@@ -63,8 +63,8 @@ extension UFCNewsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //SHOW MODULE SEGUE
         
-//        let article = news[indexPath.row].url_name
-//        guard let url = URL(string: article) else {return}
-//        UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        let article = "http://ufc-data-api.ufc.com/api/v3/iphone/news/\(news[indexPath.row].id)"
+        guard let url = URL(string: article) else {return}
+        UIApplication.shared.open(url, options: [:], completionHandler: nil)
     }
 }
