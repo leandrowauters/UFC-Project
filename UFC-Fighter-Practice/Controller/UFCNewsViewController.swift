@@ -61,7 +61,6 @@ extension UFCNewsViewController: UITableViewDelegate {
         return 150
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //SHOW MODULE SEGUE
         
         let article = "http://ufc-data-api.ufc.com/api/v3/iphone/news/\(news[indexPath.row].id)"
         guard let url = URL(string: article) else {return}

@@ -88,6 +88,7 @@
 				D57C239421C431C000A5CC68 /* UFCNews.swift */,
 				D5445BD521BEE2DC00EDA9C3 /* UFCFighter.swift */,
 				D5EDA70F21C1AA1A00B5F963 /* UFCEvent.swift */,
+				D57C23A221C5CD2C00A5CC68 /* DateClient.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -97,7 +98,6 @@
 			children = (
 				D5445BC521BEE16300EDA9C3 /* UFCFighterViewController.swift */,
 				D5EDA71521C1AE6F00B5F963 /* UFCEventViewController.swift */,
-				D57C23A221C5CD2C00A5CC68 /* DateClient.swift */,
 				D57C239221C4318800A5CC68 /* UFCNewsViewController.swift */,
 				D5EDA70D21C1A13A00B5F963 /* UFCFighterDetail.swift */,
 			);

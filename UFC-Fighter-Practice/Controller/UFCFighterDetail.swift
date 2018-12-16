@@ -23,18 +23,19 @@ class UFCFighterDetail: UIViewController {
     
     @IBOutlet weak var fighterImage: UIImageView!
     
+    @IBOutlet weak var backgroundImage: UIImageView!
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         updateUI()
-        //FOR BACKGORUNG
+        
     }
     
     func updateUI(){
-        if let backgroundImageUrl = fighter.leftFullBodyImage{
-            if let image = ImageClient.getImage(stringURL: backgroundImageUrl){
+        if let fighterPhoto = fighter.leftFullBodyImage{
+            if let image = ImageClient.getImage(stringURL: fighterPhoto){
                 fighterImage.image = image
             }
         } else {
