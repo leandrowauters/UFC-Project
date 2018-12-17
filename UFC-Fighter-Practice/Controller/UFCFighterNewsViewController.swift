@@ -28,7 +28,9 @@ class UFCFighterNewsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        fighterTableView.dataSource = self
+        fighterTableView.delegate = self
+        updateUI()
         UFCFighterNewsClient.getFighterNews(fighterId: fighter.id!.description){(article, error) in
             DispatchQueue.main.async {
                 if let error = error {
@@ -36,11 +38,41 @@ class UFCFighterNewsViewController: UIViewController {
                 }
                 if let article = article{
                     self.articles = article
-                    dump(article)
                 }
             }
         }
     }
+    func updateUI(){
+        if let imageUrl = fighter.thumbnail{
+            if let image = ImageClient.getImage(stringURL: imageUrl){
+                fighterImage.image = image
+            }
+        }
+        fighterLastName.text = fighter.lastName
+        fighterFirstName.text = fighter.firstName
+    }
     
+}
+extension UFCFighterNewsViewController: UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return articles.count
+    }
     
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let articleToSet = articles[indexPath.row]
+        let cell = fighterTableView.dequeueReusableCell(withIdentifier: "fighterNewsCell", for: indexPath)
+        cell.textLabel?.text = articleToSet.title
+        cell.detailTextLabel?.text = DateClient.convertDateToLocalDate(str: articleToSet.articleDate, dateFormat: "MMM d, h:mm a")
+        let imageURL = articleToSet.thumbnail
+        if let image = ImageClient.getImage(stringURL: imageURL){
+            cell.imageView?.image = image
+        }
+        return cell
+    }
+}
+
+extension UFCFighterNewsViewController: UITableViewDelegate{
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
+    }
 }
