@@ -13,9 +13,9 @@ class UFCFighterNewsViewController: UIViewController {
     @IBOutlet weak var fighterImage: UIImageView!
     @IBOutlet weak var fighterLastName: UILabel!
     @IBOutlet weak var fighterFirstName: UILabel!
-    
+    @IBOutlet weak var fighterClass: UILabel!
     @IBOutlet weak var fighterTableView: UITableView!
-    
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var fighter: UFCFighter!
     var articles = [UFCFighterArticle](){
@@ -37,11 +37,13 @@ class UFCFighterNewsViewController: UIViewController {
                     print(error)
                 }
                 if let article = article{
+                    self.activityIndicator.stopAnimating()
                     self.articles = article
                 }
             }
         }
     }
+
     func updateUI(){
         if let imageUrl = fighter.thumbnail{
             if let image = ImageClient.getImage(stringURL: imageUrl){
@@ -50,6 +52,7 @@ class UFCFighterNewsViewController: UIViewController {
         }
         fighterLastName.text = fighter.lastName
         fighterFirstName.text = fighter.firstName
+        fighterClass.text = fighter.weightClass
     }
     
 }
@@ -74,5 +77,10 @@ extension UFCFighterNewsViewController: UITableViewDataSource{
 extension UFCFighterNewsViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let article = "http://ufc-data-api.ufc.com/api/v3/iphone/news/\(articles[indexPath.row].id)"
+        guard let url = URL(string: article) else {return}
+        UIApplication.shared.open(url, options: [:], completionHandler: nil)
     }
 }

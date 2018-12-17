@@ -22,24 +22,28 @@ class UFCFighterViewController: UIViewController {
     var fighters = [UFCFighter]() {
         didSet{
             DispatchQueue.main.async {
+                self.fighterActivityIndicator.startAnimating()
+                
                 self.fighterTableView.reloadData()
+                self.fighterActivityIndicator.stopAnimating()
             }
         }
     }
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         fighterActivityIndicator.startAnimating()
         fighterTableView.tableFooterView = UIView()
         fighterSearchBar.delegate = self
-        super.viewDidLoad()
         fighterTableView.dataSource = self
         UFCFighterClient.getFighter {(fighters, error) in // REPEATS SO  MAKE IT ITO FUNC
             DispatchQueue.main.async {
+            self.fighterActivityIndicator.stopAnimating()
             if let error = error {
                 print(error)
             }
             if let fighters = fighters {
-                self.fighterActivityIndicator.stopAnimating()
+                
               self.fighters = fighters
             }
             }
