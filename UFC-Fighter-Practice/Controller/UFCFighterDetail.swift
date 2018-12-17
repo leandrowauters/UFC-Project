@@ -34,6 +34,11 @@ class UFCFighterDetail: UIViewController {
         
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let destination = segue.destination as? UFCFighterNewsViewController else {return}
+        let fighter = self.fighter
+        destination.fighter = fighter
+    }
     func updateUI(){
         if let fighterPhoto = fighter.leftFullBodyImage{
             if let image = ImageClient.getImage(stringURL: fighterPhoto){

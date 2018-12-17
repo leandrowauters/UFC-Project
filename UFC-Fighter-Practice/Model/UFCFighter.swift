@@ -9,6 +9,7 @@
 import Foundation
 
 struct UFCFighter: Codable {
+    let id: Int?
     let wins: Int?
     let losses: Int?
     let lastName: String?
@@ -22,6 +23,7 @@ struct UFCFighter: Codable {
     let thumbnail: String?
     let profileImage: String?
     private enum CodingKeys: String, CodingKey {
+        case id
         case wins
         case losses
         case lastName = "last_name"

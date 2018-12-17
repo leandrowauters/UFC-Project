@@ -33,7 +33,7 @@ class UFCFighterViewController: UIViewController {
         fighterSearchBar.delegate = self
         super.viewDidLoad()
         fighterTableView.dataSource = self
-        UFCFighterClient.getFighter {(fighters, error) in
+        UFCFighterClient.getFighter {(fighters, error) in // REPEATS SO  MAKE IT ITO FUNC
             DispatchQueue.main.async {
             if let error = error {
                 print(error)
