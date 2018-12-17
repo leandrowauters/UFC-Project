@@ -358,51 +358,30 @@
                                 <rect key="frame" x="0.0" y="7.5" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="newsCell" rowHeight="150" id="5yl-X7-76r" customClass="NewsCell" customModule="UFC_Fighter_Practice" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="150"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="newsCell" textLabel="4WC-jo-MIS" detailTextLabel="S9M-e5-D0M" rowHeight="101" style="IBUITableViewCellStyleSubtitle" id="Gii-rK-Ah3">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="101"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5yl-X7-76r" id="cso-9B-4Nw">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="149.5"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Gii-rK-Ah3" id="NNn-lF-VhG">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="100.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LAp-Vd-RMk">
-                                                    <rect key="frame" x="5" y="33" width="140" height="84"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="84" id="KsL-gh-Xnd"/>
-                                                        <constraint firstAttribute="width" constant="140" id="UOi-zK-jMc"/>
-                                                    </constraints>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0E7-LV-m0y">
-                                                    <rect key="frame" x="156" y="33.5" width="193" height="23"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="19"/>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4WC-jo-MIS">
+                                                    <rect key="frame" x="15" y="28" width="37.5" height="22.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jq4-ql-lfu">
-                                                    <rect key="frame" x="156" y="95" width="193" height="20"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="S9M-e5-D0M">
+                                                    <rect key="frame" x="15" y="53.5" width="40" height="16"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="12"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <constraints>
-                                                <constraint firstItem="LAp-Vd-RMk" firstAttribute="leading" secondItem="cso-9B-4Nw" secondAttribute="leading" constant="5" id="0cm-85-HIb"/>
-                                                <constraint firstItem="0E7-LV-m0y" firstAttribute="leading" secondItem="LAp-Vd-RMk" secondAttribute="trailing" constant="11" id="8zG-mE-WuM"/>
-                                                <constraint firstItem="LAp-Vd-RMk" firstAttribute="top" secondItem="cso-9B-4Nw" secondAttribute="top" constant="33" id="Dnf-P3-oGE"/>
-                                                <constraint firstItem="Jq4-ql-lfu" firstAttribute="centerY" secondItem="LAp-Vd-RMk" secondAttribute="centerY" multiplier="1.4" id="M0P-sx-CYh"/>
-                                                <constraint firstItem="Jq4-ql-lfu" firstAttribute="leading" secondItem="LAp-Vd-RMk" secondAttribute="trailing" constant="11" id="Mmu-kh-IX3"/>
-                                                <constraint firstAttribute="bottom" secondItem="LAp-Vd-RMk" secondAttribute="bottom" constant="32.5" id="Tpo-AW-W1G"/>
-                                                <constraint firstItem="0E7-LV-m0y" firstAttribute="centerY" secondItem="LAp-Vd-RMk" secondAttribute="centerY" multiplier="0.6" id="cvO-sm-BBq"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="0E7-LV-m0y" secondAttribute="trailing" constant="11" id="kb3-tg-Gjk"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="Jq4-ql-lfu" secondAttribute="trailing" constant="11" id="zQJ-fr-J81"/>
-                                            </constraints>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="newsCellDate" destination="Jq4-ql-lfu" id="gHW-KY-w13"/>
-                                            <outlet property="newsCellImage" destination="LAp-Vd-RMk" id="BCw-NU-uD2"/>
-                                            <outlet property="newsCellTitle" destination="0E7-LV-m0y" id="ZlG-1v-PKb"/>
-                                        </connections>
+                                        <color key="backgroundColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -423,7 +402,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qm2-Mw-gU6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2009" y="906"/>
+            <point key="canvasLocation" x="2008.8" y="905.3973013493254"/>
         </scene>
         <!--Fighter Detail-->
         <scene sceneID="OtK-Ll-Yku">

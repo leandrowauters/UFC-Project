@@ -44,14 +44,13 @@ extension UFCNewsViewController: UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let articleToSet = news[indexPath.row]
-        guard let cell = newsTableView.dequeueReusableCell(withIdentifier: "newsCell", for: indexPath) as?
-            NewsCell else {return UITableViewCell()}
+        let cell = newsTableView.dequeueReusableCell(withIdentifier: "newsCell", for: indexPath)
         ColorClient.changeCellColor(indexPathRow: indexPath.row, cell: cell)
-        cell.newsCellTitle.text = articleToSet.title
-        cell.newsCellDate.text = DateClient.convertDateToLocalDate(str: articleToSet.articleDate, dateFormat: "MMMM yyyy")
+        cell.textLabel?.text = articleToSet.title
+        cell.detailTextLabel?.text = DateClient.convertDateToLocalDate(str: articleToSet.articleDate, dateFormat: "MMM d, yyyy")
         let imageURL = articleToSet.thumbnail
         if let image = ImageClient.getImage(stringURL: imageURL){
-            cell.newsCellImage.image = image
+            cell.imageView?.image = image
         }
         return cell
     }
@@ -59,7 +58,7 @@ extension UFCNewsViewController: UITableViewDataSource{
 
 extension UFCNewsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 150
+        return 100
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
