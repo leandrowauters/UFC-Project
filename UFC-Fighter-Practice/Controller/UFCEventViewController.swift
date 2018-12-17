@@ -47,6 +47,7 @@ extension UFCEventViewController: UITableViewDataSource {
         let cell = eventTableView.dequeueReusableCell(withIdentifier: "eventCell", for: indexPath)
         let eventToSet = events[indexPath.row]
         cell.textLabel?.text = "\(eventToSet.baseTitle): \(eventToSet.titleTagLine ?? "NO TITLE")"
+        ColorClient.changeCellColor(indexPathRow: indexPath.row, cell: cell)
         let date = DateClient.convertDateToLocalDate(str: eventToSet.eventDategmt, dateFormat: "MMM d, h:mm a")
         cell.detailTextLabel?.text = date
         let imageURL = eventToSet.featureImage

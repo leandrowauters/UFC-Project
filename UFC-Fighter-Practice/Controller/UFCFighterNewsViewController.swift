@@ -64,6 +64,7 @@ extension UFCFighterNewsViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let articleToSet = articles[indexPath.row]
         let cell = fighterTableView.dequeueReusableCell(withIdentifier: "fighterNewsCell", for: indexPath)
+        ColorClient.changeCellColor(indexPathRow: indexPath.row, cell: cell)
         cell.textLabel?.text = articleToSet.title
         cell.detailTextLabel?.text = DateClient.convertDateToLocalDate(str: articleToSet.articleDate, dateFormat: "MMM d, h:mm a")
         let imageURL = articleToSet.thumbnail

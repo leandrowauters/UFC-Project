@@ -162,8 +162,8 @@ extension UFCFighterViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = fighterTableView.dequeueReusableCell(withIdentifier: "fighterCell", for: indexPath)
         let fighterToSet = fighters[indexPath.row]
-        cell.textLabel?.text = "\(fighterToSet.lastName ?? "No Name"), \(fighterToSet.firstName)"
-        
+        ColorClient.changeCellColor(indexPathRow: indexPath.row, cell: cell)
+        cell.textLabel?.text = "\(fighterToSet.lastName ?? "No Name"), \(fighterToSet.firstName)" 
         cell.detailTextLabel?.text = fighterToSet.weightClass?.replacingOccurrences(of: "_", with: " ")
         if let imageUrl = fighterToSet.thumbnail {
             if let image = ImageClient.getImage(stringURL: imageUrl){

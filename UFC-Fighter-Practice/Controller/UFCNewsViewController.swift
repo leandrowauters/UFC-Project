@@ -46,6 +46,7 @@ extension UFCNewsViewController: UITableViewDataSource{
         let articleToSet = news[indexPath.row]
         guard let cell = newsTableView.dequeueReusableCell(withIdentifier: "newsCell", for: indexPath) as?
             NewsCell else {return UITableViewCell()}
+        ColorClient.changeCellColor(indexPathRow: indexPath.row, cell: cell)
         cell.newsCellTitle.text = articleToSet.title
         cell.newsCellDate.text = DateClient.convertDateToLocalDate(str: articleToSet.articleDate, dateFormat: "MMMM yyyy")
         let imageURL = articleToSet.thumbnail

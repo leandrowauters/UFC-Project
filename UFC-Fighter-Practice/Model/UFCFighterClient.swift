@@ -117,4 +117,13 @@ final class ImageClient {
     }
 }
 
+final class ColorClient{
+    static func changeCellColor (indexPathRow: Int, cell: UITableViewCell){
+        if indexPathRow % 2 == 0{
+            cell.backgroundColor = #colorLiteral(red: 0.1298420429, green: 0.1298461258, blue: 0.1298439503, alpha: 1)
+        } else {
+            cell.backgroundColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
+        }
+    }
+}
 
