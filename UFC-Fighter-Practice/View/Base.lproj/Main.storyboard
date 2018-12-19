@@ -28,7 +28,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zDx-Za-iO0">
-                                <rect key="frame" x="189" y="153" width="175" height="22.5"/>
+                                <rect key="frame" x="189" y="153" width="175" height="23"/>
                                 <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -310,6 +310,10 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mg8-wZ-NMx">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="144.5"/>
                                                 </imageView>
+                                                <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZlM-zu-YjP">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="145"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bvf-YS-ISz">
                                                     <rect key="frame" x="26" y="97" width="323" height="22.5"/>
                                                     <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
@@ -349,6 +353,12 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="ZlM-zu-YjP" firstAttribute="centerY" secondItem="qzb-uI-gD5" secondAttribute="centerY" id="KRh-cx-9cZ"/>
+                                            <constraint firstItem="ZlM-zu-YjP" firstAttribute="width" secondItem="qzb-uI-gD5" secondAttribute="width" id="fgH-Mn-FPV"/>
+                                            <constraint firstItem="ZlM-zu-YjP" firstAttribute="centerX" secondItem="qzb-uI-gD5" secondAttribute="centerX" id="j2e-ZZ-qQC"/>
+                                            <constraint firstItem="ZlM-zu-YjP" firstAttribute="height" secondItem="qzb-uI-gD5" secondAttribute="height" id="kKV-Bx-VjO"/>
+                                        </constraints>
                                         <connections>
                                             <outlet property="cellImage" destination="mg8-wZ-NMx" id="PeL-OV-W6h"/>
                                             <outlet property="eventDate" destination="bvf-YS-ISz" id="scK-pT-HgV"/>
