@@ -9,16 +9,16 @@
 import UIKit
 
 class UFCFighterViewController: UIViewController {
-  
     
     @IBOutlet var filterByButtons: [UIButton]!
+    
     @IBOutlet weak var fighterActivityIndicator: UIActivityIndicatorView!
     
     @IBOutlet weak var fighterSearchBar: UISearchBar!
     
     @IBOutlet weak var fighterTableView: UITableView!
     
-    var buttonTaps = 1
+    var buttonTaps = [1,1,1,1,1,1]
     var fighters = [UFCFighter]() {
         didSet{
             DispatchQueue.main.async {
@@ -38,17 +38,14 @@ class UFCFighterViewController: UIViewController {
         fighterTableView.dataSource = self
         UFCFighterClient.getFighter {(fighters, error) in // REPEATS SO  MAKE IT ITO FUNC
             DispatchQueue.main.async {
-            self.fighterActivityIndicator.stopAnimating()
             if let error = error {
                 print(error)
             }
             if let fighters = fighters {
-                
               self.fighters = fighters
             }
             }
         }
-        
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let indexPath = fighterTableView.indexPathForSelectedRow,
@@ -81,8 +78,8 @@ class UFCFighterViewController: UIViewController {
         switch sender.tag {
         case 0:
             DispatchQueue.main.async {
-                self.buttonTaps += 1
-                if self.buttonTaps % 2 == 0 {
+                self.buttonTaps[sender.tag] += 1
+                if self.buttonTaps[sender.tag] % 2 == 0 {
                     var fighterLastName = [UFCFighter]()
                     self.fighters.forEach{$0.lastName != nil ? fighterLastName.append($0) : print("nothing")}
                     self.fighters = fighterLastName.sorted{$0.lastName!.capitalized < $1.lastName!.capitalized}
@@ -92,8 +89,8 @@ class UFCFighterViewController: UIViewController {
             }
         case 1:
             DispatchQueue.main.async {
-                self.buttonTaps += 1
-                if self.buttonTaps % 2 == 0 {
+                self.buttonTaps[sender.tag] += 1
+                if self.buttonTaps[sender.tag] % 2 == 0 {
                 var fighterWeight = [UFCFighter]()
                     self.fighters.forEach{$0.weightClass != nil ? fighterWeight.append($0) : print("nothing")}
                     self.fighters = fighterWeight.sorted{$0.weightClass! < $1.weightClass!}
@@ -103,8 +100,8 @@ class UFCFighterViewController: UIViewController {
         }
         case 2:
             DispatchQueue.main.async{
-                self.buttonTaps += 1
-                if self.buttonTaps % 2 == 0 {
+                self.buttonTaps[sender.tag] += 1
+                if self.buttonTaps[sender.tag] % 2 == 0 {
                 var fighterWins = [UFCFighter]()
                     self.fighters.forEach{$0.wins != nil ? fighterWins.append($0) : print("nothing")}
                     self.fighters = fighterWins.sorted{$0.wins! < $1.wins!}
@@ -114,8 +111,8 @@ class UFCFighterViewController: UIViewController {
             }
         case 3:
             DispatchQueue.main.async{
-                self.buttonTaps += 1
-                if self.buttonTaps % 2 == 0 {
+                self.buttonTaps[sender.tag] += 1
+                if self.buttonTaps[sender.tag] % 2 == 0 {
                 var fighterLosses = [UFCFighter]()
                     self.fighters.forEach{$0.losses != nil ? fighterLosses.append($0) : print("nothing")}
                     self.fighters = fighterLosses.sorted{$0.losses! < $1.losses!}
@@ -125,8 +122,8 @@ class UFCFighterViewController: UIViewController {
             }
         case 4:
             DispatchQueue.main.async{
-                self.buttonTaps += 1
-                if self.buttonTaps % 2 == 0 {
+                self.buttonTaps[sender.tag] += 1
+                if self.buttonTaps[sender.tag] % 2 == 0 {
                 var fighterDraws = [UFCFighter]()
                     self.fighters.forEach{$0.draws != nil ? fighterDraws.append($0) : print("nothing")}
                     self.fighters = fighterDraws.sorted{$0.draws! < $1.draws!}
@@ -136,8 +133,8 @@ class UFCFighterViewController: UIViewController {
             }
         case 5:
             DispatchQueue.main.async{
-                self.buttonTaps += 1
-                if self.buttonTaps % 2 == 0 {
+                self.buttonTaps[sender.tag] += 1
+                if self.buttonTaps[sender.tag] % 2 == 0 {
                 var fighterStatus = [UFCFighter]()
                     self.fighters.forEach{$0.fighterStatus != nil ? fighterStatus.append($0) : print("nothing") }
             } else {
@@ -162,6 +159,7 @@ extension UFCFighterViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = fighterTableView.dequeueReusableCell(withIdentifier: "fighterCell", for: indexPath)
         let fighterToSet = fighters[indexPath.row]
+//        print("fighterID: \(UFCFighterClient.getFighterFromId(id: fighterToSet.id!))")
         ColorClient.changeCellColor(indexPathRow: indexPath.row, cell: cell)
         cell.textLabel?.text = "\(fighterToSet.lastName ?? "No Name"), \(fighterToSet.firstName)" 
         cell.detailTextLabel?.text = fighterToSet.weightClass?.replacingOccurrences(of: "_", with: " ")

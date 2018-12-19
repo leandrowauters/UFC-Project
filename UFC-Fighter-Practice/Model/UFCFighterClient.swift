@@ -37,6 +37,16 @@ final class UFCFighterClient: Codable {
             }
         }.resume()
     }
+    static func getFighterFromId (fighters: [UFCFighter], id: Int) -> String {
+        var fighterName = String()
+        for fighter in fighters {
+            if fighter.id == id {
+                guard let name = fighter.lastName else {return "no name"}
+                fighterName = name
+            }
+        }
+        return fighterName
+    }
 }
 final class UFCEventClinet: Codable{
     static func getEvent (completionHandler: @escaping(([UFCEvent]?, UFCFighterErrors?) -> Void)){
@@ -102,6 +112,7 @@ final class UFCFighterNewsClient {
     }
 }
 final class ImageClient {
+    static let defaultImageURL = "http://imagec.ufc.com/http%253A%252F%252Fmedia.ufc.tv%252Ffeatures%252F019907_WEB_EventPlaceholderRebrand_PPV.jpg?-mw500-mh500-tc1"
     static func getImage(stringURL: String) -> UIImage? {
         guard let myImageURL = URL.init(string: stringURL) else {
             return nil

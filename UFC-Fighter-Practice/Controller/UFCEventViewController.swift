@@ -12,6 +12,7 @@ class UFCEventViewController: UIViewController {
 
     @IBOutlet weak var eventTableView: UITableView!
     
+    
     var events = [UFCEvent](){
         didSet{
             DispatchQueue.main.async {
@@ -25,7 +26,7 @@ class UFCEventViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         eventTableView.dataSource = self
-        
+        eventTableView.delegate = self
         UFCEventClinet.getEvent{(event, error) in
             if let error = error {
                 print(error)
@@ -44,18 +45,30 @@ extension UFCEventViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = eventTableView.dequeueReusableCell(withIdentifier: "eventCell", for: indexPath)
+        guard let cell = eventTableView.dequeueReusableCell(withIdentifier: "eventCell", for: indexPath) as? UFCEventCell else {return UITableViewCell()}
         let eventToSet = events[indexPath.row]
-        cell.textLabel?.text = "\(eventToSet.baseTitle): \(eventToSet.titleTagLine ?? "NO TITLE")"
-        ColorClient.changeCellColor(indexPathRow: indexPath.row, cell: cell)
         let date = DateClient.convertDateToLocalDate(str: eventToSet.eventDategmt, dateFormat: "MMM d, h:mm a")
-        cell.detailTextLabel?.text = date
+        cell.eventName.text = eventToSet.baseTitle
+        cell.eventSubtitle.text = eventToSet.titleTagLine
+        cell.eventDate.text = "\(date)  \(eventToSet.arena) - \(eventToSet.location)"
         let imageURL = eventToSet.featureImage
-        if let image = ImageClient.getImage(stringURL: imageURL){
-            cell.imageView?.image = image
+        
+        if eventToSet.featureImage == "" {
+            let image = ImageClient.getImage(stringURL: ImageClient.defaultImageURL)
+            cell.cellImage.image = image
+        } else if let image = ImageClient.getImage(stringURL: imageURL){
+            cell.cellImage.image = image
+            
         }
+        
         return cell
     }
     
     
+}
+
+extension UFCEventViewController: UITableViewDelegate{
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 145
+    }
 }

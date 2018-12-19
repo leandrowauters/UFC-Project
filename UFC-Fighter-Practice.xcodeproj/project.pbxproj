@@ -14,6 +14,8 @@
 		D5445BCE21BEE16400EDA9C3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5445BCC21BEE16400EDA9C3 /* LaunchScreen.storyboard */; };
 		D5445BD621BEE2DC00EDA9C3 /* UFCFighter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5445BD521BEE2DC00EDA9C3 /* UFCFighter.swift */; };
 		D5445BD821BEE42800EDA9C3 /* UFCFighterClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5445BD721BEE42800EDA9C3 /* UFCFighterClient.swift */; };
+		D56EDDD421CAF4BD009245A8 /* UFCFighterFavoriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D56EDDD321CAF4BD009245A8 /* UFCFighterFavoriteButton.swift */; };
+		D570CDD521C9B1EC00BD443A /* UFCEventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D570CDD421C9B1EC00BD443A /* UFCEventCell.swift */; };
 		D57C239321C4318800A5CC68 /* UFCNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57C239221C4318800A5CC68 /* UFCNewsViewController.swift */; };
 		D57C239521C431C000A5CC68 /* UFCNews.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57C239421C431C000A5CC68 /* UFCNews.swift */; };
 		D57C23A321C5CD2C00A5CC68 /* DateClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57C23A221C5CD2C00A5CC68 /* DateClient.swift */; };
@@ -34,6 +36,8 @@
 		D5445BCF21BEE16500EDA9C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D5445BD521BEE2DC00EDA9C3 /* UFCFighter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UFCFighter.swift; sourceTree = "<group>"; };
 		D5445BD721BEE42800EDA9C3 /* UFCFighterClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UFCFighterClient.swift; sourceTree = "<group>"; };
+		D56EDDD321CAF4BD009245A8 /* UFCFighterFavoriteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UFCFighterFavoriteButton.swift; sourceTree = "<group>"; };
+		D570CDD421C9B1EC00BD443A /* UFCEventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UFCEventCell.swift; sourceTree = "<group>"; };
 		D57C239221C4318800A5CC68 /* UFCNewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UFCNewsViewController.swift; sourceTree = "<group>"; };
 		D57C239421C431C000A5CC68 /* UFCNews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UFCNews.swift; sourceTree = "<group>"; };
 		D57C23A221C5CD2C00A5CC68 /* DateClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateClient.swift; sourceTree = "<group>"; };
@@ -74,6 +78,7 @@
 		D5445BC221BEE16300EDA9C3 /* UFC-Fighter-Practice */ = {
 			isa = PBXGroup;
 			children = (
+				D56EDDD521CAF4C6009245A8 /* Subclass */,
 				D5EDA71121C1ADC200B5F963 /* Model */,
 				D5EDA71421C1AE0C00B5F963 /* Supporting Files */,
 				D5EDA71221C1ADF800B5F963 /* Controller */,
@@ -81,6 +86,14 @@
 				D5445BCF21BEE16500EDA9C3 /* Info.plist */,
 			);
 			path = "UFC-Fighter-Practice";
+			sourceTree = "<group>";
+		};
+		D56EDDD521CAF4C6009245A8 /* Subclass */ = {
+			isa = PBXGroup;
+			children = (
+				D56EDDD321CAF4BD009245A8 /* UFCFighterFavoriteButton.swift */,
+			);
+			path = Subclass;
 			sourceTree = "<group>";
 		};
 		D5EDA71121C1ADC200B5F963 /* Model */ = {
@@ -112,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				D5445BC721BEE16300EDA9C3 /* Main.storyboard */,
+				D570CDD421C9B1EC00BD443A /* UFCEventCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -197,6 +211,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D56EDDD421CAF4BD009245A8 /* UFCFighterFavoriteButton.swift in Sources */,
 				D57C23A521C718C700A5CC68 /* UFCFighterNewsViewController.swift in Sources */,
 				D57C239321C4318800A5CC68 /* UFCNewsViewController.swift in Sources */,
 				D57C23A321C5CD2C00A5CC68 /* DateClient.swift in Sources */,
@@ -208,6 +223,7 @@
 				D57C23A721C7211100A5CC68 /* UFCFighterArticle.swift in Sources */,
 				D5445BD621BEE2DC00EDA9C3 /* UFCFighter.swift in Sources */,
 				D5EDA71021C1AA1A00B5F963 /* UFCEvent.swift in Sources */,
+				D570CDD521C9B1EC00BD443A /* UFCEventCell.swift in Sources */,
 				D5445BC421BEE16300EDA9C3 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

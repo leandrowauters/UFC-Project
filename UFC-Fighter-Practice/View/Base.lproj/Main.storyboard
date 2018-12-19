@@ -111,7 +111,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sah-sJ-bUE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3653.5999999999999" y="131.78410794602701"/>
+            <point key="canvasLocation" x="3630" y="126"/>
         </scene>
         <!--Fighters-->
         <scene sceneID="tne-QT-ifu">
@@ -286,7 +286,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2015.2" y="132.68365817091455"/>
+            <point key="canvasLocation" x="2015" y="127"/>
         </scene>
         <!--Events-->
         <scene sceneID="KfN-1a-ZaS">
@@ -300,30 +300,61 @@
                                 <rect key="frame" x="0.0" y="7.5" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="eventCell" textLabel="dq6-Jp-cS6" detailTextLabel="Zd7-eQ-bis" style="IBUITableViewCellStyleSubtitle" id="qzb-uI-gD5">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="eventCell" rowHeight="145" id="qzb-uI-gD5" customClass="UFCEventCell" customModule="UFC_Fighter_Practice" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="145"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qzb-uI-gD5" id="c1L-uD-dMb">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="144.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dq6-Jp-cS6">
-                                                    <rect key="frame" x="15" y="5" width="33.5" height="20.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mg8-wZ-NMx">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="144.5"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bvf-YS-ISz">
+                                                    <rect key="frame" x="26" y="97" width="323" height="22.5"/>
+                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Zd7-eQ-bis">
-                                                    <rect key="frame" x="15" y="25.5" width="44" height="14.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ONS-om-fTE">
+                                                    <rect key="frame" x="26" y="25" width="323" height="29"/>
+                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="22"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DNo-MY-6uO">
+                                                    <rect key="frame" x="26" y="61" width="323" height="23"/>
+                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="DNo-MY-6uO" secondAttribute="trailing" constant="11" id="6Yq-mh-GcL"/>
+                                                <constraint firstItem="bvf-YS-ISz" firstAttribute="leading" secondItem="c1L-uD-dMb" secondAttribute="leadingMargin" constant="11" id="9BZ-Ne-QaP"/>
+                                                <constraint firstItem="mg8-wZ-NMx" firstAttribute="centerY" secondItem="c1L-uD-dMb" secondAttribute="centerY" id="9ff-wV-wvb"/>
+                                                <constraint firstItem="mg8-wZ-NMx" firstAttribute="width" secondItem="c1L-uD-dMb" secondAttribute="width" id="B3D-cL-Ogx"/>
+                                                <constraint firstItem="mg8-wZ-NMx" firstAttribute="centerX" secondItem="c1L-uD-dMb" secondAttribute="centerX" id="B5p-m5-Zpb"/>
+                                                <constraint firstItem="bvf-YS-ISz" firstAttribute="centerX" secondItem="mg8-wZ-NMx" secondAttribute="centerX" id="DP8-G8-Aar"/>
+                                                <constraint firstItem="ONS-om-fTE" firstAttribute="leading" secondItem="c1L-uD-dMb" secondAttribute="leadingMargin" constant="11" id="MIh-Ix-sx0"/>
+                                                <constraint firstItem="ONS-om-fTE" firstAttribute="centerX" secondItem="mg8-wZ-NMx" secondAttribute="centerX" id="Tob-8M-U17"/>
+                                                <constraint firstItem="bvf-YS-ISz" firstAttribute="centerY" secondItem="mg8-wZ-NMx" secondAttribute="centerY" multiplier="1.5" id="a4z-Ly-wcK"/>
+                                                <constraint firstItem="ONS-om-fTE" firstAttribute="centerY" secondItem="mg8-wZ-NMx" secondAttribute="centerY" multiplier="0.55" id="aSN-mh-jsF"/>
+                                                <constraint firstItem="DNo-MY-6uO" firstAttribute="centerY" secondItem="mg8-wZ-NMx" secondAttribute="centerY" id="c20-SD-37H"/>
+                                                <constraint firstItem="DNo-MY-6uO" firstAttribute="centerX" secondItem="mg8-wZ-NMx" secondAttribute="centerX" id="cDX-7o-kkT"/>
+                                                <constraint firstItem="mg8-wZ-NMx" firstAttribute="height" secondItem="c1L-uD-dMb" secondAttribute="height" id="ehM-Ja-BHS"/>
+                                                <constraint firstItem="DNo-MY-6uO" firstAttribute="leading" secondItem="c1L-uD-dMb" secondAttribute="leadingMargin" constant="11" id="fed-fi-6Mb"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="bvf-YS-ISz" secondAttribute="trailing" constant="11" id="nXh-1o-qjv"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="ONS-om-fTE" secondAttribute="trailing" constant="11" id="y26-vm-bcz"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <outlet property="cellImage" destination="mg8-wZ-NMx" id="PeL-OV-W6h"/>
+                                            <outlet property="eventDate" destination="bvf-YS-ISz" id="scK-pT-HgV"/>
+                                            <outlet property="eventName" destination="ONS-om-fTE" id="qb0-Z2-RNz"/>
+                                            <outlet property="eventSubtitle" destination="DNo-MY-6uO" id="dsJ-60-Oad"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -344,7 +375,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UHA-0j-UIU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1076" y="907"/>
+            <point key="canvasLocation" x="1076" y="906.29685157421295"/>
         </scene>
         <!--News-->
         <scene sceneID="WZq-BG-LMx">
@@ -402,7 +433,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qm2-Mw-gU6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2008.8" y="905.3973013493254"/>
+            <point key="canvasLocation" x="2015" y="906"/>
         </scene>
         <!--Fighter Detail-->
         <scene sceneID="OtK-Ll-Yku">
@@ -417,19 +448,40 @@
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4MY-Wh-8C8">
                                 <rect key="frame" x="0.0" y="32" width="375" height="667"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Favorite" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jWU-5r-52q">
+                                        <rect key="frame" x="105" y="49.5" width="90" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="90" id="XYf-Zu-3Kn"/>
+                                            <constraint firstAttribute="height" constant="20" id="hVv-l1-t5A"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="15"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1CB-Sb-pvT" customClass="UFCFighterFavoriteButton" customModule="UFC_Fighter_Practice" customModuleProvider="target">
+                                        <rect key="frame" x="122.5" y="69.5" width="55" height="55"/>
+                                        <state key="normal" image="starOff"/>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5213238441780822" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="1CB-Sb-pvT" firstAttribute="top" secondItem="jWU-5r-52q" secondAttribute="bottom" id="LWP-oA-otK"/>
+                                    <constraint firstItem="1CB-Sb-pvT" firstAttribute="centerX" secondItem="jWU-5r-52q" secondAttribute="centerX" id="Nwa-BD-Rgm"/>
+                                    <constraint firstItem="jWU-5r-52q" firstAttribute="leading" secondItem="4MY-Wh-8C8" secondAttribute="leading" constant="105" id="Nwi-xJ-SOV"/>
+                                </constraints>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Khm-G3-saE">
                                 <rect key="frame" x="19" y="165.5" width="150" height="400"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s5c-Ar-omk">
-                                <rect key="frame" x="180" y="171.5" width="184" height="22.5"/>
+                                <rect key="frame" x="180" y="171.5" width="184" height="23"/>
                                 <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fa7-nP-WlJ">
-                                <rect key="frame" x="180" y="205.5" width="184" height="22.5"/>
+                                <rect key="frame" x="180" y="205" width="184" height="23"/>
                                 <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -459,13 +511,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6zN-7I-Yv4">
-                                <rect key="frame" x="180" y="427.5" width="184" height="22.5"/>
+                                <rect key="frame" x="180" y="427" width="184" height="23"/>
                                 <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZjX-S4-VQ9">
-                                <rect key="frame" x="180" y="464" width="184" height="22.5"/>
+                                <rect key="frame" x="180" y="463.5" width="184" height="23"/>
                                 <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -505,6 +557,8 @@
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="cJc-fE-mx4" firstAttribute="centerX" secondItem="agV-dQ-mYO" secondAttribute="centerX" id="1aJ-Eg-bVY"/>
+                            <constraint firstItem="jWU-5r-52q" firstAttribute="centerY" secondItem="agV-dQ-mYO" secondAttribute="centerY" id="1ll-Fy-V31"/>
+                            <constraint firstItem="1CB-Sb-pvT" firstAttribute="width" secondItem="cJc-fE-mx4" secondAttribute="width" id="21p-IS-3B8"/>
                             <constraint firstItem="cJc-fE-mx4" firstAttribute="centerY" secondItem="Khm-G3-saE" secondAttribute="centerY" multiplier="0.35" id="6VW-Ql-z8t"/>
                             <constraint firstItem="73Q-Vz-4Jg" firstAttribute="leading" secondItem="Khm-G3-saE" secondAttribute="trailing" constant="11" id="6le-Df-ZiS"/>
                             <constraint firstItem="6zN-7I-Yv4" firstAttribute="leading" secondItem="Khm-G3-saE" secondAttribute="trailing" constant="11" id="BT8-FZ-oQO"/>
@@ -546,10 +600,12 @@
                             <constraint firstItem="fIN-gJ-57n" firstAttribute="centerX" secondItem="nJL-r2-VDk" secondAttribute="centerX" id="npj-N9-NEu"/>
                             <constraint firstItem="6zN-7I-Yv4" firstAttribute="centerY" secondItem="Khm-G3-saE" secondAttribute="centerY" multiplier="1.2" id="oIw-pD-S70"/>
                             <constraint firstItem="s5c-Ar-omk" firstAttribute="leading" secondItem="Khm-G3-saE" secondAttribute="trailing" constant="11" id="oJb-4l-n2S"/>
+                            <constraint firstItem="1CB-Sb-pvT" firstAttribute="height" secondItem="cJc-fE-mx4" secondAttribute="height" id="pMT-el-Rl5"/>
                             <constraint firstItem="8hx-PM-gw5" firstAttribute="trailing" secondItem="ZjX-S4-VQ9" secondAttribute="trailing" constant="11" id="sav-o5-rch"/>
                             <constraint firstItem="73Q-Vz-4Jg" firstAttribute="centerY" secondItem="Khm-G3-saE" secondAttribute="centerY" id="u8S-bM-jt6"/>
                             <constraint firstItem="4MY-Wh-8C8" firstAttribute="width" secondItem="9mM-w8-rit" secondAttribute="width" id="usX-ag-YUu"/>
                             <constraint firstItem="ZjX-S4-VQ9" firstAttribute="leading" secondItem="Khm-G3-saE" secondAttribute="trailing" constant="11" id="vpT-qp-dhs"/>
+                            <constraint firstItem="jWU-5r-52q" firstAttribute="centerY" secondItem="agV-dQ-mYO" secondAttribute="centerY" id="wvm-od-A8w"/>
                             <constraint firstItem="fa7-nP-WlJ" firstAttribute="centerY" secondItem="Khm-G3-saE" secondAttribute="centerY" multiplier="0.59" constant="1" id="yLn-3V-VNz"/>
                             <constraint firstItem="1cb-mL-csy" firstAttribute="leading" secondItem="Khm-G3-saE" secondAttribute="trailing" constant="11" id="z1z-pS-cSd"/>
                         </constraints>
@@ -569,7 +625,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rRq-3h-TBQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2792.8000000000002" y="131.78410794602701"/>
+            <point key="canvasLocation" x="2805.5999999999999" y="125.4872563718141"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="2a1-X8-doZ">
@@ -585,7 +641,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="57j-VE-GqY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="124" y="133"/>
+            <point key="canvasLocation" x="121" y="127"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="mK5-A9-9iw">
@@ -616,6 +672,7 @@
         <image name="newIconBotton" width="512" height="512"/>
         <image name="newsIcon" width="25" height="25"/>
         <image name="ringIcon" width="25" height="25"/>
+        <image name="starOff" width="50" height="50"/>
         <image name="ufcBackground2" width="640" height="980"/>
     </resources>
 </document>
