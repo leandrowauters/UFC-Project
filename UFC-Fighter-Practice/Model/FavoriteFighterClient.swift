@@ -8,15 +8,25 @@
 
 import Foundation
 
-struct UFCData {
+struct FavoriteFighterClient {
     static var favoriteFighterId = [Int]()
-    static func saveIdToArray(fighterId: String) {
+    
+    static func saveIdToArray() {
         let defaults = UserDefaults.standard
-        defaults.set(favoriteFighterId, forKey: fighterId)
+        defaults.set(favoriteFighterId, forKey: "favoriteFighters")
     }
-    static func retrieveArray(fighterId: String) ->[Int] {
+    static func removeFighter(fighterId: Int){
+        var index = 0
+        for id in favoriteFighterId {
+            if id == fighterId {
+                favoriteFighterId.remove(at: index)
+            }
+            index += 1
+        }
+    }
+    static func retrieveArray() ->[Int] {
         let defaults = UserDefaults.standard
-        let array = defaults.array(forKey: fighterId)  as? [Int] ?? [Int]()
+        let array = defaults.array(forKey: "favoriteFighters")  as? [Int] ?? [Int]()
         return array
     }
     static func printAllDefaults(){

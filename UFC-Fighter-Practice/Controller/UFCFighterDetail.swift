@@ -35,14 +35,14 @@ class UFCFighterDetail: UIViewController {
     
     @IBAction func favoriteButtonTapped(_ sender: UFCFighterFavoriteButton) {
         if sender.isOn {
+            FavoriteFighterClient.favoriteFighterId.append(fighter.id!)//USE ENUMS FOR ERRORS
             print("Button is on")
         } else {
+            FavoriteFighterClient.removeFighter(fighterId: fighter.id!)
             print("Button is off")
         }
-//        UFCData.favoriteFighterId.append(fighter.id!)
-//        UFCData.saveIdToArray(fighterId: String(fighter.id!))
-//        print(UFCData.retrieveArray(fighterId: String(fighter.id!)))
-//        UFCData.printAllDefaults()
+            FavoriteFighterClient.saveIdToArray()
+            print(FavoriteFighterClient.retrieveArray())
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let destination = segue.destination as? UFCFighterNewsViewController else {return}
