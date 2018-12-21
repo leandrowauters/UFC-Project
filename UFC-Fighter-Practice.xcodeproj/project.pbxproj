@@ -15,6 +15,8 @@
 		D5445BD621BEE2DC00EDA9C3 /* UFCFighter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5445BD521BEE2DC00EDA9C3 /* UFCFighter.swift */; };
 		D5445BD821BEE42800EDA9C3 /* UFCFighterClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5445BD721BEE42800EDA9C3 /* UFCFighterClient.swift */; };
 		D550680321CB027C00F3C6F4 /* FavoriteFighterClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D550680221CB027B00F3C6F4 /* FavoriteFighterClient.swift */; };
+		D550681821CC530B00F3C6F4 /* UFCFighterStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = D550681721CC530B00F3C6F4 /* UFCFighterStats.swift */; };
+		D550681B21CC54CD00F3C6F4 /* FavoriteFightersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D550681A21CC54CD00F3C6F4 /* FavoriteFightersViewController.swift */; };
 		D56EDDD421CAF4BD009245A8 /* UFCFighterFavoriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D56EDDD321CAF4BD009245A8 /* UFCFighterFavoriteButton.swift */; };
 		D570CDD521C9B1EC00BD443A /* UFCEventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D570CDD421C9B1EC00BD443A /* UFCEventCell.swift */; };
 		D57C239321C4318800A5CC68 /* UFCNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57C239221C4318800A5CC68 /* UFCNewsViewController.swift */; };
@@ -38,6 +40,8 @@
 		D5445BD521BEE2DC00EDA9C3 /* UFCFighter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UFCFighter.swift; sourceTree = "<group>"; };
 		D5445BD721BEE42800EDA9C3 /* UFCFighterClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UFCFighterClient.swift; sourceTree = "<group>"; };
 		D550680221CB027B00F3C6F4 /* FavoriteFighterClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteFighterClient.swift; sourceTree = "<group>"; };
+		D550681721CC530B00F3C6F4 /* UFCFighterStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UFCFighterStats.swift; sourceTree = "<group>"; };
+		D550681A21CC54CD00F3C6F4 /* FavoriteFightersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteFightersViewController.swift; sourceTree = "<group>"; };
 		D56EDDD321CAF4BD009245A8 /* UFCFighterFavoriteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UFCFighterFavoriteButton.swift; sourceTree = "<group>"; };
 		D570CDD421C9B1EC00BD443A /* UFCEventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UFCEventCell.swift; sourceTree = "<group>"; };
 		D57C239221C4318800A5CC68 /* UFCNewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UFCNewsViewController.swift; sourceTree = "<group>"; };
@@ -90,6 +94,16 @@
 			path = "UFC-Fighter-Practice";
 			sourceTree = "<group>";
 		};
+		D550681921CC548C00F3C6F4 /* Clients */ = {
+			isa = PBXGroup;
+			children = (
+				D5445BD721BEE42800EDA9C3 /* UFCFighterClient.swift */,
+				D550680221CB027B00F3C6F4 /* FavoriteFighterClient.swift */,
+				D57C23A221C5CD2C00A5CC68 /* DateClient.swift */,
+			);
+			path = Clients;
+			sourceTree = "<group>";
+		};
 		D56EDDD521CAF4C6009245A8 /* Subclass */ = {
 			isa = PBXGroup;
 			children = (
@@ -101,13 +115,12 @@
 		D5EDA71121C1ADC200B5F963 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				D5445BD721BEE42800EDA9C3 /* UFCFighterClient.swift */,
+				D550681921CC548C00F3C6F4 /* Clients */,
+				D550681721CC530B00F3C6F4 /* UFCFighterStats.swift */,
 				D57C23A621C7211100A5CC68 /* UFCFighterArticle.swift */,
 				D57C239421C431C000A5CC68 /* UFCNews.swift */,
 				D5445BD521BEE2DC00EDA9C3 /* UFCFighter.swift */,
-				D550680221CB027B00F3C6F4 /* FavoriteFighterClient.swift */,
 				D5EDA70F21C1AA1A00B5F963 /* UFCEvent.swift */,
-				D57C23A221C5CD2C00A5CC68 /* DateClient.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -115,6 +128,7 @@
 		D5EDA71221C1ADF800B5F963 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				D550681A21CC54CD00F3C6F4 /* FavoriteFightersViewController.swift */,
 				D5445BC521BEE16300EDA9C3 /* UFCFighterViewController.swift */,
 				D5EDA70D21C1A13A00B5F963 /* UFCFighterDetail.swift */,
 				D57C23A421C718C700A5CC68 /* UFCFighterNewsViewController.swift */,
@@ -214,12 +228,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D550681B21CC54CD00F3C6F4 /* FavoriteFightersViewController.swift in Sources */,
 				D550680321CB027C00F3C6F4 /* FavoriteFighterClient.swift in Sources */,
 				D56EDDD421CAF4BD009245A8 /* UFCFighterFavoriteButton.swift in Sources */,
 				D57C23A521C718C700A5CC68 /* UFCFighterNewsViewController.swift in Sources */,
 				D57C239321C4318800A5CC68 /* UFCNewsViewController.swift in Sources */,
 				D57C23A321C5CD2C00A5CC68 /* DateClient.swift in Sources */,
 				D57C239521C431C000A5CC68 /* UFCNews.swift in Sources */,
+				D550681821CC530B00F3C6F4 /* UFCFighterStats.swift in Sources */,
 				D5445BD821BEE42800EDA9C3 /* UFCFighterClient.swift in Sources */,
 				D5EDA70E21C1A13A00B5F963 /* UFCFighterDetail.swift in Sources */,
 				D5EDA71621C1AE6F00B5F963 /* UFCEventViewController.swift in Sources */,

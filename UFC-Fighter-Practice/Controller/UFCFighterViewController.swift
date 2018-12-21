@@ -19,6 +19,7 @@ class UFCFighterViewController: UIViewController {
     @IBOutlet weak var fighterTableView: UITableView!
     
     var buttonTaps = [1,1,1,1,1,1]
+    var everyFighter = FavoriteFighterClient.everyFighter
     var fighters = [UFCFighter]() {
         didSet{
             DispatchQueue.main.async {
@@ -32,18 +33,24 @@ class UFCFighterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        FavoriteFighterClient.favoriteFighterId = FavoriteFighterClient.retriveFighters()
         fighterActivityIndicator.startAnimating()
         fighterTableView.tableFooterView = UIView()
         fighterSearchBar.delegate = self
         fighterTableView.dataSource = self
+        getFighters()
+    }
+    
+    func getFighters() {
         UFCFighterClient.getFighter {(fighters, error) in // REPEATS SO  MAKE IT ITO FUNC
             DispatchQueue.main.async {
-            if let error = error {
-                print(error)
-            }
-            if let fighters = fighters {
-              self.fighters = fighters
-            }
+                if let error = error {
+                    print(error)
+                }
+                if let fighters = fighters {
+                    self.fighters = fighters
+                    FavoriteFighterClient.everyFighter = fighters
+                }
             }
         }
     }
@@ -133,13 +140,13 @@ class UFCFighterViewController: UIViewController {
             }
         case 5:
             DispatchQueue.main.async{
+                let favorites = FavoriteFighterClient.getFightersFromId(fighterIds: FavoriteFighterClient.retriveFighters(), fighters: self.fighters)
                 self.buttonTaps[sender.tag] += 1
                 if self.buttonTaps[sender.tag] % 2 == 0 {
-                var fighterStatus = [UFCFighter]()
-                    self.fighters.forEach{$0.fighterStatus != nil ? fighterStatus.append($0) : print("nothing") }
-            } else {
-                self.fighters = self.fighters.reversed()
-            }
+                    self.fighters = favorites.sorted{$0.lastName!.capitalized < $1.lastName!.capitalized}
+                } else {
+                    self.fighters = self.fighters.reversed()
+                }
         }
         default:
             print("error")
@@ -178,14 +185,7 @@ extension UFCFighterViewController: UISearchBarDelegate {
         DispatchQueue.main.async{
         self.searchFighter(keyword: searchText)
         if searchBar.text!.isEmpty{
-            UFCFighterClient.getFighter {(fighters, error) in
-                if let error = error {
-                    print(error)
-                }
-                if let fighters = fighters {
-                    self.fighters = fighters
-                }
-            }
+            self.getFighters()
         }
     }
     }

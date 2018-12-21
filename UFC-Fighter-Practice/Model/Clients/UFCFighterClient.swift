@@ -31,6 +31,8 @@ final class UFCFighterClient: Codable {
                 do{
                     let fighterData = try JSONDecoder().decode([UFCFighter].self, from: data)
                     completionHandler(fighterData, nil)
+                    
+                    
                 } catch {
                    completionHandler(nil, .badDecoding(error))
                 }
@@ -103,6 +105,27 @@ final class UFCFighterNewsClient {
                 do {
                     let newsData = try JSONDecoder().decode([UFCFighterArticle].self, from: data)
                     completionHandler(newsData, nil)
+                } catch {
+                    completionHandler(nil, .badDecoding(error))
+                }
+            }
+            
+            }.resume()
+    }
+}
+final class UFCFighterStatsClient {
+    static func getFighterNews(fighterId: String, completionHandler: @escaping(([UFCFighterStats]?, UFCFighterErrors?) -> Void)) {
+        guard let url = URL.init(string: "http://ufc-data-api.ufc.com/api/v1/us/fighters\(fighterId)") else {completionHandler(nil, .badURL("url failed"))
+            return
+        }
+        URLSession.shared.dataTask(with: url){(data, response, error) in
+            if let error = error {
+                completionHandler(nil, .badData(error))
+            }
+            if let data = data {
+                do {
+                    let statsData = try JSONDecoder().decode([UFCFighterStats].self, from: data)
+                    completionHandler(statsData, nil)
                 } catch {
                     completionHandler(nil, .badDecoding(error))
                 }

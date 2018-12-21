@@ -23,6 +23,7 @@ class UFCFighterDetail: UIViewController {
     
     @IBOutlet weak var fighterImage: UIImageView!
     @IBOutlet weak var fighterRank: UILabel!
+    @IBOutlet weak var favoriteButton: UFCFighterFavoriteButton!
     
     
     
@@ -30,20 +31,25 @@ class UFCFighterDetail: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if FavoriteFighterClient.containsId(fighterId: fighter.id!){
+            favoriteButton.imageView?.image = UIImage(named: "starOn")
+            favoriteButton.isOn = true
+        }
         updateUI()
     }
     
     @IBAction func favoriteButtonTapped(_ sender: UFCFighterFavoriteButton) {
         if sender.isOn {
             FavoriteFighterClient.favoriteFighterId.append(fighter.id!)//USE ENUMS FOR ERRORS
+            FavoriteFighterClient.saveIdToArray()
             print("Button is on")
         } else {
             FavoriteFighterClient.removeFighter(fighterId: fighter.id!)
             print("Button is off")
         }
-            FavoriteFighterClient.saveIdToArray()
-            print(FavoriteFighterClient.retrieveArray())
+            print(FavoriteFighterClient.retriveFighters())
     }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let destination = segue.destination as? UFCFighterNewsViewController else {return}
         let fighter = self.fighter
