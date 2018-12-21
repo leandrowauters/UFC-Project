@@ -28,6 +28,12 @@ var favorites = [UFCFighter]() {
     override func viewWillAppear(_ animated: Bool) {
                 favorites = FavoriteFighterClient.getFightersFromId(fighterIds: FavoriteFighterClient.retriveFighters(), fighters: FavoriteFighterClient.everyFighter)
     }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let indexPath = favoriteTableView.indexPathForSelectedRow,
+            let destination = segue.destination as? UFCFighterStatsViewController else {return}
+        let fighter = favorites[indexPath.row]
+        destination.fighter = fighter
+    }
 }
 
 extension FavoriteFightersViewController: UITableViewDataSource{

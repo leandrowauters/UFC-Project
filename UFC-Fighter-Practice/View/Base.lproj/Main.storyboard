@@ -659,6 +659,40 @@
             </objects>
             <point key="canvasLocation" x="121" y="127"/>
         </scene>
+        <!--Fighter Stats View Controller-->
+        <scene sceneID="QWW-jE-36M">
+            <objects>
+                <viewController id="t6o-ff-cly" customClass="UFCFighterStatsViewController" customModule="UFC_Fighter_Practice" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fKi-jJ-Njf">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kmj-r9-qly">
+                                <rect key="frame" x="0.0" y="32" width="375" height="667"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="kmj-r9-qly" firstAttribute="centerX" secondItem="eAo-bO-wzG" secondAttribute="centerX" id="Rrq-fk-DQN"/>
+                            <constraint firstItem="kmj-r9-qly" firstAttribute="centerY" secondItem="eAo-bO-wzG" secondAttribute="centerY" id="Yx7-SY-MhI"/>
+                            <constraint firstItem="kmj-r9-qly" firstAttribute="width" secondItem="fKi-jJ-Njf" secondAttribute="width" id="cmZ-Wh-z1y"/>
+                            <constraint firstItem="kmj-r9-qly" firstAttribute="height" secondItem="fKi-jJ-Njf" secondAttribute="height" id="tdo-YC-CE8"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="eAo-bO-wzG"/>
+                    </view>
+                    <connections>
+                        <outlet property="myWebView" destination="kmj-r9-qly" id="HpZ-q3-GTN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gxd-TJ-5pe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-756" y="884"/>
+        </scene>
         <!--Item-->
         <scene sceneID="obq-Du-Za8">
             <objects>
@@ -678,6 +712,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="t6o-ff-cly" kind="show" id="FHt-ui-wnJ"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
