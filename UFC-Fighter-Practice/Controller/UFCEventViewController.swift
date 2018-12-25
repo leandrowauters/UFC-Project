@@ -36,7 +36,14 @@ class UFCEventViewController: UIViewController {
             }
         }
     }
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let indexPath = eventTableView.indexPathForSelectedRow,
+            let ufcEventDetails = segue.destination as? UFCEventDetailsViewController else {
+                return
+        }
+        let event = events[indexPath.row]
+        ufcEventDetails.event = event
+    }
 
 }
 extension UFCEventViewController: UITableViewDataSource {
@@ -47,6 +54,7 @@ extension UFCEventViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = eventTableView.dequeueReusableCell(withIdentifier: "eventCell", for: indexPath) as? UFCEventCell else {return UITableViewCell()}
         let eventToSet = events[indexPath.row]
+        print(eventToSet.id)
         let date = DateClient.convertDateToLocalDate(str: eventToSet.eventDategmt, dateFormat: "MMM d, h:mm a")
         cell.eventName.text = eventToSet.baseTitle
         cell.eventSubtitle.text = eventToSet.titleTagLine

@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct UFCFighter: Codable {
+class UFCFighter: Codable {
     let id: Int?
     let wins: Int?
     let losses: Int?

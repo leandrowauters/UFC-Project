@@ -113,6 +113,27 @@ final class UFCFighterNewsClient {
             }.resume()
     }
 }
+final class UFCEventDetailsClient: Codable{
+    static func getEventDetails (eventId: String, completionHandler: @escaping(([UFCEventDetails]?, UFCFighterErrors?) -> Void)){
+        guard let url = URL.init(string: "http://ufc-data-api.ufc.com/api/v3/events/\(eventId)/fights") else {completionHandler(nil, .badURL("url failed"))
+            return
+        }
+        URLSession.shared.dataTask(with: url){(data, response, error) in
+            if let error = error {
+                completionHandler(nil, .badData(error))
+            }
+            if let data = data {
+                do{
+                    let eventData = try JSONDecoder().decode([UFCEventDetails].self, from: data)
+                    completionHandler(eventData, nil)
+                }catch{
+                    completionHandler(nil, .badDecoding(error))
+                }
+            }
+            }.resume()
+    }
+}
+
 final class ImageClient {
     static let defaultImageURL = "http://imagec.ufc.com/http%253A%252F%252Fmedia.ufc.tv%252Ffeatures%252F019907_WEB_EventPlaceholderRebrand_PPV.jpg?-mw500-mh500-tc1"
     static func getImage(stringURL: String) -> UIImage? {

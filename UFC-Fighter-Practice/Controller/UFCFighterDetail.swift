@@ -38,6 +38,8 @@ class UFCFighterDetail: UIViewController {
         updateUI()
     }
     
+    @IBAction func linkButtonTapped(_ sender: UIButton!) {
+    }
     @IBAction func favoriteButtonTapped(_ sender: UFCFighterFavoriteButton) {
         if sender.isOn {
             FavoriteFighterClient.favoriteFighterId.append(fighter.id!)//USE ENUMS FOR ERRORS

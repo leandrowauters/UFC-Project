@@ -6,7 +6,7 @@
 //  Copyright © 2018 Leandro Wauters. All rights reserved.
 //
 
-import Foundation
+import EventKit
 
 class DateClient {
     static func getDatesAsyyyyMMdd(date: String) -> String {
@@ -31,14 +31,45 @@ class DateClient {
         var dateToReturn = Date()
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-        
-//        dateFormatter.timeZone = T
+        dateFormatter.timeZone = TimeZone.current
         if let date2 = dateFormatter.date(from: dateString) {
             dateFormatter.dateFormat = dateFormat
             dateToReturn = date2
         }
-        dateFormatter.timeZone = TimeZone.current
         return dateFormatter.string(from: dateToReturn)
+    }
+    
+    static func createEvent (eventDate: String) -> EKEventStore {
+        var dateToSet = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        dateFormatter.timeZone = TimeZone.current
+        if let date = dateFormatter.date(from: eventDate) {
+            dateToSet = date
+        }
+        let eventStore : EKEventStore = EKEventStore()
+        eventStore.requestAccess(to: .event, completion: {
+            granted, error in
+            if granted && error == nil {
+                print("granted \(granted)")
+                print(String(describing: error))
+                
+                let event:EKEvent = EKEvent(eventStore: eventStore)
+                event.title = "Test Title"
+                event.startDate = dateToSet
+                event.notes = "This is a note"
+                event.calendar = eventStore.defaultCalendarForNewEvents
+//                eventStore.save(event, span: .thisEvent)
+                do {
+                    try eventStore.save(event, span: .thisEvent)
+                    print("Saved \(String(describing: event.title)) \(String(describing: event.location)) in \(event.calendar.title)")
+                } catch {
+                    print("failed to save event with error : \(error as NSError)")
+                }
+                print("Saved Event")
+            }
+        })
+        return eventStore
     }
     
 }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct FavoriteFighterClient {
+class FavoriteFighterClient {
     static var favoriteFighterId = [Int]()
     static var everyFighter = [UFCFighter]()
     static func saveIdToArray() {

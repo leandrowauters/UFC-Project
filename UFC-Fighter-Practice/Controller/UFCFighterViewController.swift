@@ -19,12 +19,11 @@ class UFCFighterViewController: UIViewController {
     @IBOutlet weak var fighterTableView: UITableView!
     
     var buttonTaps = [1,1,1,1,1,1]
-    var everyFighter = FavoriteFighterClient.everyFighter
+    var everyFighter = [UFCFighter]()
     var fighters = [UFCFighter]() {
         didSet{
+            fighterActivityIndicator.startAnimating()
             DispatchQueue.main.async {
-                self.fighterActivityIndicator.startAnimating()
-                
                 self.fighterTableView.reloadData()
                 self.fighterActivityIndicator.stopAnimating()
             }
@@ -39,6 +38,7 @@ class UFCFighterViewController: UIViewController {
         fighterSearchBar.delegate = self
         fighterTableView.dataSource = self
         getFighters()
+        fighterActivityIndicator.stopAnimating()
     }
     
     func getFighters() {
@@ -48,8 +48,10 @@ class UFCFighterViewController: UIViewController {
                     print(error)
                 }
                 if let fighters = fighters {
+                    let fighters = fighters.filter{$0.lastName != nil}
                     self.fighters = fighters
                     FavoriteFighterClient.everyFighter = fighters
+                    self.everyFighter = fighters
                 }
             }
         }
@@ -81,7 +83,7 @@ class UFCFighterViewController: UIViewController {
         
     }
     @IBAction func filterByWasTapped(_ sender: UIButton) {
-
+        self.fighters = everyFighter
         switch sender.tag {
         case 0:
             DispatchQueue.main.async {
@@ -93,7 +95,7 @@ class UFCFighterViewController: UIViewController {
             } else {
                     self.fighters = self.fighters.reversed()
             }
-            }
+        }
         case 1:
             DispatchQueue.main.async {
                 self.buttonTaps[sender.tag] += 1
