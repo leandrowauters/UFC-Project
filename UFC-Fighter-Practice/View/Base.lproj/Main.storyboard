@@ -836,7 +836,7 @@
             </objects>
             <point key="canvasLocation" x="-756" y="884"/>
         </scene>
-        <!--Item-->
+        <!--Favorites-->
         <scene sceneID="obq-Du-Za8">
             <objects>
                 <viewController id="J3k-KC-Gso" customClass="FavoriteFightersViewController" customModule="UFC_Fighter_Practice" customModuleProvider="target" sceneMemberID="viewController">
@@ -871,7 +871,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="5fv-U0-ooL"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="sAx-Aj-u3x"/>
+                    <tabBarItem key="tabBarItem" title="Favorites" image="Fav" id="sAx-Aj-u3x"/>
                     <connections>
                         <outlet property="favoriteTableView" destination="Lx5-Vw-EuW" id="mtg-Ly-OsN"/>
                     </connections>
@@ -905,6 +905,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Fav" width="25" height="25"/>
         <image name="fighterIcon" width="25" height="25"/>
         <image name="linkIcon" width="70" height="52"/>
         <image name="newIconBotton" width="512" height="512"/>
