@@ -92,11 +92,16 @@ extension UFCEventDetailsViewController: UITableViewDataSource {
             cell.fighter2Image.image = image
         }
         if let winner1 = eventToSet.fighter1IsWinner,
-            let _ = eventToSet.fighter2IsWinner{
+            let winner2 = eventToSet.fighter2IsWinner{
             if winner1{
-                cell.fighter2Image.alpha = 0.5
+                cell.fighter1Image.alpha = 1
             } else {
                 cell.fighter1Image.alpha = 0.5
+            }
+            if winner2 {
+                cell.fighter2Image.alpha = 1
+            } else {
+                cell.fighter2Image.alpha = 0.5
             }
         } else {
             cell.fighter1Image.alpha = 1
