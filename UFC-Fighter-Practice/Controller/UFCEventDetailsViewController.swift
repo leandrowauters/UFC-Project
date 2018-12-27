@@ -28,6 +28,7 @@ class UFCEventDetailsViewController: UIViewController {
         super.viewDidLoad()
         eventDetailsTableview.dataSource = self
         eventDetailsTableview.delegate = self
+        getImage()
         getEventDetails()
     }
     
@@ -41,7 +42,6 @@ class UFCEventDetailsViewController: UIViewController {
                     self.eventDetails = eventDetails
                 }
             }
-            
         }
     }
         func getFighterFromId (fighterId: String) -> UFCFighter {
@@ -58,6 +58,12 @@ class UFCEventDetailsViewController: UIViewController {
         return fighterToReturn
     }
 
+    func getImage(){
+        let imageURL = event.featureImage
+        if let image = ImageClient.getImage(stringURL: imageURL){
+        self.image.image = image
+        }
+    }
 }
 
 extension UFCEventDetailsViewController: UITableViewDataSource {
@@ -70,19 +76,31 @@ extension UFCEventDetailsViewController: UITableViewDataSource {
         let fighter1 = getFighterFromId(fighterId: eventToSet.fighter1Id.description)
         let fighter2 = getFighterFromId(fighterId: eventToSet.fighter2Id.description)
         guard let cell = eventDetailsTableview.dequeueReusableCell(withIdentifier: "fightCell", for: indexPath) as? UFCEventDetailCell else {return UITableViewCell()}
+        ColorClient.changeCellColor(indexPathRow: indexPath.row, cell: cell)
         cell.fighter1Name.text = "\(fighter1.lastName ?? "NO NAME"), \(fighter1.firstName)"
         cell.fighter1Record.text = eventToSet.fighter1record
-        cell.fighter1Weight.text = fighter1.weightClass
+        cell.fighter1Weight.text = fighter1.weightClass?.replacingOccurrences(of: "_", with: " ")
         if let imageURL = fighter1.profileImage{
         let image = ImageClient.getImage(stringURL: imageURL)
         cell.fighter1Image.image = image
         }
         cell.fighter2Name.text = "\(fighter2.lastName ?? "NO NAME"), \(fighter2.firstName)"
         cell.fighter2Record.text = eventToSet.fighter2record
-        cell.fighter2Weight.text = fighter2.weightClass
+        cell.fighter2Weight.text = fighter2.weightClass?.replacingOccurrences(of: "_", with: " ")
         if let imageURL = fighter2.profileImage{
             let image = ImageClient.getImage(stringURL: imageURL)
             cell.fighter2Image.image = image
+        }
+        if let winner1 = eventToSet.fighter1IsWinner,
+            let _ = eventToSet.fighter2IsWinner{
+            if winner1{
+                cell.fighter2Image.alpha = 0.5
+            } else {
+                cell.fighter1Image.alpha = 0.5
+            }
+        } else {
+            cell.fighter1Image.alpha = 1
+            cell.fighter1Image.alpha = 1
         }
         return cell
     }

@@ -54,7 +54,8 @@ extension UFCEventViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = eventTableView.dequeueReusableCell(withIdentifier: "eventCell", for: indexPath) as? UFCEventCell else {return UITableViewCell()}
         let eventToSet = events[indexPath.row]
-        print(eventToSet.id)
+        
+        
         let date = DateClient.convertDateToLocalDate(str: eventToSet.eventDategmt, dateFormat: "MMM d, h:mm a")
         cell.eventName.text = eventToSet.baseTitle
         cell.eventSubtitle.text = eventToSet.titleTagLine
