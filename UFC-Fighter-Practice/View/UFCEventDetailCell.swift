@@ -18,5 +18,7 @@ class UFCEventDetailCell: UITableViewCell {
     @IBOutlet weak var fighter2Name: UILabel!
     @IBOutlet weak var fighter2Weight: UILabel!
     @IBOutlet weak var fighter2Record: UILabel!
+    @IBOutlet weak var fighter1MethodLabel: UILabel!
+    @IBOutlet weak var fighter2MethodLabel: UILabel!
     
 }

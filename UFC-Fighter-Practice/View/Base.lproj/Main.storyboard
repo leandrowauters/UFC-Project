@@ -462,24 +462,44 @@
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="rxZ-o9-RS5">
+                                                    <rect key="frame" x="9.5" y="15" width="150" height="135"/>
+                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="30"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="MmR-ZO-Ias">
+                                                    <rect key="frame" x="215.5" y="15" width="150" height="135"/>
+                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="30"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="Pbr-Ny-yPT" firstAttribute="centerY" secondItem="fD3-G0-Mr6" secondAttribute="centerY" id="0a6-3R-HTd"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="H6c-cp-kpe" secondAttribute="trailing" id="0iO-yB-DIf"/>
                                                 <constraint firstItem="QWr-Bq-ifb" firstAttribute="width" secondItem="Vz4-VX-QLr" secondAttribute="width" id="2w1-FY-sll"/>
+                                                <constraint firstItem="MmR-ZO-Ias" firstAttribute="centerX" secondItem="QWr-Bq-ifb" secondAttribute="centerX" id="4rI-u7-xp7"/>
+                                                <constraint firstItem="rxZ-o9-RS5" firstAttribute="centerY" secondItem="Vz4-VX-QLr" secondAttribute="centerY" id="5rQ-gB-tsw"/>
+                                                <constraint firstItem="rxZ-o9-RS5" firstAttribute="height" secondItem="Vz4-VX-QLr" secondAttribute="height" id="B2P-og-HHC"/>
+                                                <constraint firstItem="MmR-ZO-Ias" firstAttribute="width" secondItem="QWr-Bq-ifb" secondAttribute="width" id="BnA-3b-y9f"/>
                                                 <constraint firstItem="pd7-kc-0jz" firstAttribute="top" secondItem="Vz4-VX-QLr" secondAttribute="bottom" constant="20" id="GfI-bT-PTy"/>
+                                                <constraint firstItem="rxZ-o9-RS5" firstAttribute="centerX" secondItem="Vz4-VX-QLr" secondAttribute="centerX" id="I4l-Ju-V7W"/>
                                                 <constraint firstItem="QWr-Bq-ifb" firstAttribute="centerY" secondItem="Vz4-VX-QLr" secondAttribute="centerY" id="KUg-dT-L2O"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="Pbr-Ny-yPT" secondAttribute="trailing" id="Rxv-ky-sVL"/>
+                                                <constraint firstItem="MmR-ZO-Ias" firstAttribute="centerY" secondItem="QWr-Bq-ifb" secondAttribute="centerY" id="Sjh-Dz-Nwk"/>
                                                 <constraint firstItem="H6c-cp-kpe" firstAttribute="centerY" secondItem="pd7-kc-0jz" secondAttribute="centerY" id="U6w-tg-NdW"/>
                                                 <constraint firstItem="pd7-kc-0jz" firstAttribute="leading" secondItem="atC-qm-j1x" secondAttribute="leadingMargin" id="UgX-gq-lFE"/>
                                                 <constraint firstItem="UwI-ep-cK1" firstAttribute="centerY" secondItem="GfB-EJ-OkB" secondAttribute="centerY" id="aYl-jW-Q9j"/>
                                                 <constraint firstItem="Vz4-VX-QLr" firstAttribute="centerY" secondItem="atC-qm-j1x" secondAttribute="centerY" multiplier="0.6" id="fzm-ee-N58"/>
+                                                <constraint firstItem="rxZ-o9-RS5" firstAttribute="width" secondItem="Vz4-VX-QLr" secondAttribute="width" id="jwF-kS-VeC"/>
                                                 <constraint firstItem="QWr-Bq-ifb" firstAttribute="height" secondItem="Vz4-VX-QLr" secondAttribute="height" id="kSg-GB-xr0"/>
                                                 <constraint firstItem="Vz4-VX-QLr" firstAttribute="centerX" secondItem="atC-qm-j1x" secondAttribute="centerX" multiplier="0.45" id="nsR-lz-I8X"/>
                                                 <constraint firstItem="GfB-EJ-OkB" firstAttribute="leading" secondItem="atC-qm-j1x" secondAttribute="leadingMargin" id="pug-rY-gYi"/>
                                                 <constraint firstItem="fD3-G0-Mr6" firstAttribute="top" secondItem="GfB-EJ-OkB" secondAttribute="bottom" constant="8" id="qib-Xt-g67"/>
                                                 <constraint firstItem="fD3-G0-Mr6" firstAttribute="leading" secondItem="atC-qm-j1x" secondAttribute="leadingMargin" id="t4z-jB-eng"/>
                                                 <constraint firstItem="GfB-EJ-OkB" firstAttribute="top" secondItem="pd7-kc-0jz" secondAttribute="bottom" constant="8" id="txO-cf-ym7"/>
+                                                <constraint firstItem="MmR-ZO-Ias" firstAttribute="height" secondItem="QWr-Bq-ifb" secondAttribute="height" id="vLe-fZ-peG"/>
                                                 <constraint firstItem="QWr-Bq-ifb" firstAttribute="centerX" secondItem="atC-qm-j1x" secondAttribute="centerX" multiplier="1.55" id="w2n-JM-mfN"/>
                                                 <constraint firstItem="UwI-ep-cK1" firstAttribute="trailing" secondItem="atC-qm-j1x" secondAttribute="trailingMargin" id="x9s-ej-rdF"/>
                                             </constraints>
@@ -487,10 +507,12 @@
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="fighter1Image" destination="Vz4-VX-QLr" id="hsG-f4-MdJ"/>
+                                            <outlet property="fighter1MethodLabel" destination="rxZ-o9-RS5" id="eBS-gg-hEr"/>
                                             <outlet property="fighter1Name" destination="pd7-kc-0jz" id="2ou-gZ-Cmb"/>
                                             <outlet property="fighter1Record" destination="GfB-EJ-OkB" id="BbX-TK-6YT"/>
                                             <outlet property="fighter1Weight" destination="fD3-G0-Mr6" id="H5V-X5-5b3"/>
                                             <outlet property="fighter2Image" destination="QWr-Bq-ifb" id="WVz-gC-3fW"/>
+                                            <outlet property="fighter2MethodLabel" destination="MmR-ZO-Ias" id="Ctm-S4-5Kb"/>
                                             <outlet property="fighter2Name" destination="H6c-cp-kpe" id="CWy-at-MKS"/>
                                             <outlet property="fighter2Record" destination="UwI-ep-cK1" id="0Ty-zY-NZ8"/>
                                             <outlet property="fighter2Weight" destination="Pbr-Ny-yPT" id="LE9-c4-TD0"/>
