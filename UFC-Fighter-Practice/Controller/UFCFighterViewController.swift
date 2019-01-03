@@ -22,10 +22,10 @@ class UFCFighterViewController: UIViewController {
     var everyFighter = [UFCFighter]()
     var fighters = [UFCFighter]() {
         didSet{
-//            fighterActivityIndicator.startAnimating()
             DispatchQueue.main.async {
+                self.fighterActivityIndicator.startAnimating()
                 self.fighterTableView.reloadData()
-//                self.fighterActivityIndicator.stopAnimating()
+                self.fighterActivityIndicator.stopAnimating()
             }
         }
     }
@@ -68,9 +68,8 @@ class UFCFighterViewController: UIViewController {
     func searchFighter (keyword: String){
         UFCFighterClient.getFighter{fighter, error in
             if let fighterResult = fighter{
-                var fighterWithLastNames = [UFCFighter]()
-                fighterResult.forEach{$0.lastName != nil ? fighterWithLastNames.append($0) : print("notingh")}
-                self.fighters = fighterWithLastNames.filter{$0.firstName.lowercased().contains(keyword.lowercased())||(($0.lastName?.lowercased().contains(keyword.lowercased()))!)}
+                let fighters = fighterResult.filter{$0.lastName != nil}
+                self.fighters = fighters.filter{$0.firstName.lowercased().contains(keyword.lowercased())||(($0.lastName?.lowercased().contains(keyword.lowercased()))!)}
             }
         }
         }
