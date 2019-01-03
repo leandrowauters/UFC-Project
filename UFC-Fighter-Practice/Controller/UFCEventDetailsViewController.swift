@@ -124,7 +124,7 @@ extension UFCEventDetailsViewController: UITableViewDataSource {
         if let image = ImageHelper.shared.image(forKey: fighter2.profileImage! as NSString) {
             cell.fighter2Image.image = image
         } else {
-            ImageHelper.shared.fetchImage(urlString: fighter1.profileImage!) { (appError, image) in
+            ImageHelper.shared.fetchImage(urlString: fighter2.profileImage!) { (appError, image) in
                 if let appError = appError {
                     print(appError.errorMessage())
                 } else if let image = image {

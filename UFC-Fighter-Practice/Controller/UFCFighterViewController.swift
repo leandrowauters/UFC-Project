@@ -174,7 +174,8 @@ extension UFCFighterViewController: UITableViewDataSource{
 //                cell.imageView?.image = image
 //            }
 //        }
-        if let image = ImageHelper.shared.image(forKey: fighterToSet.thumbnail! as NSString) {
+        if let imageUrl = fighterToSet.thumbnail{
+        if let image = ImageHelper.shared.image(forKey: imageUrl as NSString) {
             cell.imageView?.image = image
         } else {
             ImageHelper.shared.fetchImage(urlString: fighterToSet.thumbnail!) { (appError, image) in
@@ -184,6 +185,7 @@ extension UFCFighterViewController: UITableViewDataSource{
                     cell.imageView?.image = image
                 }
             }
+        }
         }
         return cell
     }
