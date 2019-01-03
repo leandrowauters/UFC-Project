@@ -27,6 +27,7 @@
 		D57C23A321C5CD2C00A5CC68 /* DateClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57C23A221C5CD2C00A5CC68 /* DateClient.swift */; };
 		D57C23A521C718C700A5CC68 /* UFCFighterNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57C23A421C718C700A5CC68 /* UFCFighterNewsViewController.swift */; };
 		D57C23A721C7211100A5CC68 /* UFCFighterArticle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57C23A621C7211100A5CC68 /* UFCFighterArticle.swift */; };
+		D581497821DE78F4006C1E2F /* ImageClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D581497721DE78F4006C1E2F /* ImageClient.swift */; };
 		D5EDA70E21C1A13A00B5F963 /* UFCFighterDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5EDA70D21C1A13A00B5F963 /* UFCFighterDetail.swift */; };
 		D5EDA71021C1AA1A00B5F963 /* UFCEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5EDA70F21C1AA1A00B5F963 /* UFCEvent.swift */; };
 		D5EDA71621C1AE6F00B5F963 /* UFCEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5EDA71521C1AE6F00B5F963 /* UFCEventViewController.swift */; };
@@ -55,6 +56,7 @@
 		D57C23A221C5CD2C00A5CC68 /* DateClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateClient.swift; sourceTree = "<group>"; };
 		D57C23A421C718C700A5CC68 /* UFCFighterNewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UFCFighterNewsViewController.swift; sourceTree = "<group>"; };
 		D57C23A621C7211100A5CC68 /* UFCFighterArticle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UFCFighterArticle.swift; sourceTree = "<group>"; };
+		D581497721DE78F4006C1E2F /* ImageClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageClient.swift; sourceTree = "<group>"; };
 		D5EDA70D21C1A13A00B5F963 /* UFCFighterDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UFCFighterDetail.swift; sourceTree = "<group>"; };
 		D5EDA70F21C1AA1A00B5F963 /* UFCEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UFCEvent.swift; sourceTree = "<group>"; };
 		D5EDA71521C1AE6F00B5F963 /* UFCEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UFCEventViewController.swift; path = "UFC-Fighter-Practice/Controller/UFCEventViewController.swift"; sourceTree = SOURCE_ROOT; };
@@ -104,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				D5445BD721BEE42800EDA9C3 /* UFCFighterClient.swift */,
+				D581497721DE78F4006C1E2F /* ImageClient.swift */,
 				D550680221CB027B00F3C6F4 /* FavoriteFighterClient.swift */,
 				D57C23A221C5CD2C00A5CC68 /* DateClient.swift */,
 			);
@@ -243,6 +246,7 @@
 				D550680321CB027C00F3C6F4 /* FavoriteFighterClient.swift in Sources */,
 				D56EDDD421CAF4BD009245A8 /* UFCFighterFavoriteButton.swift in Sources */,
 				D57C23A521C718C700A5CC68 /* UFCFighterNewsViewController.swift in Sources */,
+				D581497821DE78F4006C1E2F /* ImageClient.swift in Sources */,
 				D57C239321C4318800A5CC68 /* UFCNewsViewController.swift in Sources */,
 				D57C23A321C5CD2C00A5CC68 /* DateClient.swift in Sources */,
 				D57C239521C431C000A5CC68 /* UFCNews.swift in Sources */,

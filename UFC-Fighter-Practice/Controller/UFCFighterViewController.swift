@@ -33,12 +33,10 @@ class UFCFighterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         FavoriteFighterClient.favoriteFighterId = FavoriteFighterClient.retriveFighters()
-        fighterActivityIndicator.startAnimating()
         fighterTableView.tableFooterView = UIView()
         fighterSearchBar.delegate = self
         fighterTableView.dataSource = self
         getFighters()
-        fighterActivityIndicator.stopAnimating()
     }
     
     func getFighters() {
@@ -194,8 +192,8 @@ extension UFCFighterViewController: UISearchBarDelegate {
 //        if searchBar.text!.isEmpty{
 //            getFighters()
 //        }
-//        DispatchQueue.main.async {
-//            self.searchFighter(keyword: searchBar.text!)
-//        }
+//
+//        searchFighter(keyword: searchBar.text!)
+//
 //    }
 }
