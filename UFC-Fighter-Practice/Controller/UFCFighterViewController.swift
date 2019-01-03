@@ -87,69 +87,69 @@ class UFCFighterViewController: UIViewController {
         switch sender.tag {
         case 0:
             DispatchQueue.main.async {
+                var fighterLastName = [UFCFighter]()
+                self.fighters.forEach{$0.lastName != nil ? fighterLastName.append($0) : print("nothing")}
                 self.buttonTaps[sender.tag] += 1
                 if self.buttonTaps[sender.tag] % 2 == 0 {
-                    var fighterLastName = [UFCFighter]()
-                    self.fighters.forEach{$0.lastName != nil ? fighterLastName.append($0) : print("nothing")}
                     self.fighters = fighterLastName.sorted{$0.lastName!.capitalized < $1.lastName!.capitalized}
             } else {
-                    self.fighters = self.fighters.reversed()
+                    self.fighters = fighterLastName.sorted{$0.lastName!.capitalized > $1.lastName!.capitalized}
             }
         }
         case 1:
             DispatchQueue.main.async {
                 self.buttonTaps[sender.tag] += 1
-                if self.buttonTaps[sender.tag] % 2 == 0 {
                 var fighterWeight = [UFCFighter]()
-                    self.fighters.forEach{$0.weightClass != nil ? fighterWeight.append($0) : print("nothing")}
+                self.fighters.forEach{$0.weightClass != nil ? fighterWeight.append($0) : print("nothing")}
+                if self.buttonTaps[sender.tag] % 2 == 0 {
                     self.fighters = fighterWeight.sorted{$0.weightClass! < $1.weightClass!}
             } else {
-                    self.fighters = self.fighters.reversed()
+                    self.fighters = fighterWeight.sorted{$0.weightClass! > $1.weightClass!}
                 }
         }
         case 2:
             DispatchQueue.main.async{
                 self.buttonTaps[sender.tag] += 1
-                if self.buttonTaps[sender.tag] % 2 == 0 {
                 var fighterWins = [UFCFighter]()
-                    self.fighters.forEach{$0.wins != nil ? fighterWins.append($0) : print("nothing")}
+                self.fighters.forEach{$0.wins != nil ? fighterWins.append($0) : print("nothing")}
+                if self.buttonTaps[sender.tag] % 2 == 0 {
                     self.fighters = fighterWins.sorted{$0.wins! < $1.wins!}
             } else {
-                    self.fighters = self.fighters.reversed()
+                    self.fighters = fighterWins.sorted{$0.wins! > $1.wins!}
             }
             }
         case 3:
             DispatchQueue.main.async{
                 self.buttonTaps[sender.tag] += 1
-                if self.buttonTaps[sender.tag] % 2 == 0 {
                 var fighterLosses = [UFCFighter]()
-                    self.fighters.forEach{$0.losses != nil ? fighterLosses.append($0) : print("nothing")}
+                self.fighters.forEach{$0.losses != nil ? fighterLosses.append($0) : print("nothing")}
+                if self.buttonTaps[sender.tag] % 2 == 0 {
                     self.fighters = fighterLosses.sorted{$0.losses! < $1.losses!}
             } else {
-                    self.fighters = self.fighters.reversed()
+                    self.fighters = fighterLosses.sorted{$0.losses! > $1.losses!}
             }
             }
         case 4:
             DispatchQueue.main.async{
                 self.buttonTaps[sender.tag] += 1
-                if self.buttonTaps[sender.tag] % 2 == 0 {
                 var fighterDraws = [UFCFighter]()
-                    self.fighters.forEach{$0.draws != nil ? fighterDraws.append($0) : print("nothing")}
+                self.fighters.forEach{$0.draws != nil ? fighterDraws.append($0) : print("nothing")}
+                if self.buttonTaps[sender.tag] % 2 == 0 {
                     self.fighters = fighterDraws.sorted{$0.draws! < $1.draws!}
             } else {
-                    self.fighters = self.fighters.reversed()
+                    self.fighters = fighterDraws.sorted{$0.draws! > $1.draws!}
             }
             }
-        case 5:
-            DispatchQueue.main.async{
-                let favorites = FavoriteFighterClient.getFightersFromId(fighterIds: FavoriteFighterClient.retriveFighters(), fighters: self.fighters)
-                self.buttonTaps[sender.tag] += 1
-                if self.buttonTaps[sender.tag] % 2 == 0 {
-                    self.fighters = favorites.sorted{$0.lastName!.capitalized < $1.lastName!.capitalized}
-                } else {
-                    self.fighters = self.fighters.reversed()
-                }
-        }
+//        case 5:
+//            DispatchQueue.main.async{
+//                let favorites = FavoriteFighterClient.getFightersFromId(fighterIds: FavoriteFighterClient.retriveFighters(), fighters: self.fighters)
+//                self.buttonTaps[sender.tag] += 1
+//                if self.buttonTaps[sender.tag] % 2 == 0 {
+//                    self.fighters = favorites.sorted{$0.lastName!.capitalized < $1.lastName!.capitalized}
+//                } else {
+//                    self.fighters = self.fighters.reversed()
+//                }
+//        }
         default:
             print("error")
         }
