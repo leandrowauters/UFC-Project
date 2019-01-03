@@ -60,8 +60,27 @@ class UFCEventDetailsViewController: UIViewController {
     }
 
     func getImage(){
+        if event.featureImage == "" {
+            if let image = ImageHelper.shared.image(forKey: ImageHelper.defaultImageURL as NSString) {
+                self.image.image = image
+            } else {
+                ImageHelper.shared.fetchImage(urlString: ImageHelper.defaultImageURL) { (appError, image) in
+                    if let appError = appError {
+                        print(appError.errorMessage())
+                    } else if let image = image {
+                        self.image.image = image
+                    }
+                }
+            }
+            
+            //            let image = ImageClient.getImage(stringURL: ImageClient.defaultImageURL)
+            //            cell.cellImage.image = image
+            //        } else if let image = ImageClient.getImage(stringURL: imageURL){
+            //            cell.cellImage.image = image
+            //
+        }
         if let image = ImageHelper.shared.image(forKey: event.featureImage as NSString) {
-        self.image.image = image
+            self.image.image = image
         } else {
             ImageHelper.shared.fetchImage(urlString: event.featureImage) { (appError, image) in
                 if let appError = appError {
@@ -71,10 +90,7 @@ class UFCEventDetailsViewController: UIViewController {
                 }
             }
         }
-//        let imageURL = event.featureImage
-//        if let image = ImageClient.getImage(stringURL: imageURL){
-//        self.image.image = image
-//        }
+        
     }
     @IBAction func eventButtonPressed(_ sender: UIButton) {
       let event = DateClient.createEvent(eventDate: self.event.eventDategmt, endDate: self.event.endEventDategmt, eventTitle: self.event.baseTitle, eventDetails: self.event.titleTagLine ?? "No details")
