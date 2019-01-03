@@ -62,15 +62,26 @@ class UFCFighterDetail: UIViewController {
         destination.fighter = fighter
     }
     func updateUI(){
-        if let fighterPhoto = fighter.leftFullBodyImage{
-            if let image = ImageClient.getImage(stringURL: fighterPhoto){
-                fighterImage.image = image
-            }
+        if let image = ImageHelper.shared.image(forKey: fighter.leftFullBodyImage! as NSString) {
+            fighterImage.image = image
         } else {
-            fighterImage.contentMode = .scaleToFill
-            fighterImage.image = UIImage(named: "fighterNil")
-            
+            ImageHelper.shared.fetchImage(urlString: fighter.leftFullBodyImage!) { (appError, image) in
+                if let appError = appError {
+                    print(appError.errorMessage())
+                } else if let image = image {
+                    self.fighterImage.image = image
+                }
+            }
         }
+//        if let fighterPhoto = fighter.leftFullBodyImage{
+//            if let image = ImageClient.getImage(stringURL: fighterPhoto){
+//                fighterImage.image = image
+//            }
+//        } else {
+//            fighterImage.contentMode = .scaleToFill
+//            fighterImage.image = UIImage(named: "fighterNil")
+//
+//        }
         fighterLastName.text = fighter.lastName
         fighterFirstName.text = fighter.firstName
         fighterWeightClass.text = fighter.weightClass?.replacingOccurrences(of: "_", with: " ")

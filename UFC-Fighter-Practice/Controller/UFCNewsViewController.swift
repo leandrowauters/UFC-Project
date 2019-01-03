@@ -48,9 +48,16 @@ extension UFCNewsViewController: UITableViewDataSource{
         ColorClient.changeCellColor(indexPathRow: indexPath.row, cell: cell)
         cell.textLabel?.text = articleToSet.title
         cell.detailTextLabel?.text = DateClient.convertDateToLocalDate(str: articleToSet.articleDate, dateFormat: "MMM d, yyyy")
-        let imageURL = articleToSet.thumbnail
-        if let image = ImageClient.getImage(stringURL: imageURL){
+        if let image = ImageHelper.shared.image(forKey: articleToSet.thumbnail as NSString) {
             cell.imageView?.image = image
+        } else {
+            ImageHelper.shared.fetchImage(urlString: articleToSet.thumbnail) { (appError, image) in
+                if let appError = appError {
+                    print(appError.errorMessage())
+                } else if let image = image {
+                    cell.imageView?.image = image
+                }
+            }
         }
         return cell
     }

@@ -45,9 +45,20 @@ class UFCFighterNewsViewController: UIViewController {
     }
 
     func updateUI(){
-        if let imageUrl = fighter.thumbnail{
-            if let image = ImageClient.getImage(stringURL: imageUrl){
-                fighterImage.image = image
+//        if let imageUrl = fighter.thumbnail{
+//            if let image = ImageClient.getImage(stringURL: imageUrl){
+//                fighterImage.image = image
+//            }
+//        }
+        if let image = ImageHelper.shared.image(forKey: fighter.thumbnail! as NSString) {
+            fighterImage.image = image
+        } else {
+            ImageHelper.shared.fetchImage(urlString: fighter.thumbnail!) { (appError, image) in
+                if let appError = appError {
+                    print(appError.errorMessage())
+                } else if let image = image {
+                    self.fighterImage.image = image
+                }
             }
         }
         fighterLastName.text = fighter.lastName
@@ -67,9 +78,20 @@ extension UFCFighterNewsViewController: UITableViewDataSource{
         ColorClient.changeCellColor(indexPathRow: indexPath.row, cell: cell)
         cell.textLabel?.text = articleToSet.title
         cell.detailTextLabel?.text = DateClient.convertDateToLocalDate(str: articleToSet.articleDate, dateFormat: "MMM d, h:mm a")
-        let imageURL = articleToSet.thumbnail
-        if let image = ImageClient.getImage(stringURL: imageURL){
+//        let imageURL = articleToSet.thumbnail
+//        if let image = ImageClient.getImage(stringURL: imageURL){
+//            cell.imageView?.image = image
+//        }
+        if let image = ImageHelper.shared.image(forKey: articleToSet.thumbnail as NSString) {
             cell.imageView?.image = image
+        } else {
+            ImageHelper.shared.fetchImage(urlString: articleToSet.thumbnail) { (appError, image) in
+                if let appError = appError {
+                    print(appError.errorMessage())
+                } else if let image = image {
+                    cell.imageView?.image = image
+                }
+            }
         }
         return cell
     }

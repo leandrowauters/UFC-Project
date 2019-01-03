@@ -60,10 +60,21 @@ class UFCEventDetailsViewController: UIViewController {
     }
 
     func getImage(){
-        let imageURL = event.featureImage
-        if let image = ImageClient.getImage(stringURL: imageURL){
+        if let image = ImageHelper.shared.image(forKey: event.featureImage as NSString) {
         self.image.image = image
+        } else {
+            ImageHelper.shared.fetchImage(urlString: event.featureImage) { (appError, image) in
+                if let appError = appError {
+                    print(appError.errorMessage())
+                } else if let image = image {
+                    self.image.image = image
+                }
+            }
         }
+//        let imageURL = event.featureImage
+//        if let image = ImageClient.getImage(stringURL: imageURL){
+//        self.image.image = image
+//        }
     }
     @IBAction func eventButtonPressed(_ sender: UIButton) {
         let event = DateClient.createEvent(eventDate: self.event.eventDategmt , eventTitle: self.event.baseTitle, eventDetails: self.event.titleTagLine ?? "No details")
@@ -88,16 +99,38 @@ extension UFCEventDetailsViewController: UITableViewDataSource {
         cell.fighter1Name.text = "\(fighter1.lastName ?? "NO NAME"), \(fighter1.firstName)"
         cell.fighter1Record.text = eventToSet.fighter1record
         cell.fighter1Weight.text = fighter1.weightClass?.replacingOccurrences(of: "_", with: " ")
-        if let imageURL = fighter1.profileImage{
-        let image = ImageClient.getImage(stringURL: imageURL)
-        cell.fighter1Image.image = image
+//        if let imageURL = fighter1.profileImage{
+//        let image = ImageClient.getImage(stringURL: imageURL)
+//        cell.fighter1Image.image = image
+//        }
+        if let image = ImageHelper.shared.image(forKey: fighter1.profileImage! as NSString) {
+            cell.fighter1Image.image = image
+        } else {
+            ImageHelper.shared.fetchImage(urlString: fighter1.profileImage!) { (appError, image) in
+                if let appError = appError {
+                    print(appError.errorMessage())
+                } else if let image = image {
+                    cell.fighter1Image.image = image
+                }
+            }
         }
         cell.fighter2Name.text = "\(fighter2.lastName ?? "NO NAME"), \(fighter2.firstName)"
         cell.fighter2Record.text = eventToSet.fighter2record
         cell.fighter2Weight.text = fighter2.weightClass?.replacingOccurrences(of: "_", with: " ")
-        if let imageURL = fighter2.profileImage{
-            let image = ImageClient.getImage(stringURL: imageURL)
+//        if let imageURL = fighter2.profileImage{
+//            let image = ImageClient.getImage(stringURL: imageURL)
+//            cell.fighter2Image.image = image
+//        }
+        if let image = ImageHelper.shared.image(forKey: fighter2.profileImage! as NSString) {
             cell.fighter2Image.image = image
+        } else {
+            ImageHelper.shared.fetchImage(urlString: fighter1.profileImage!) { (appError, image) in
+                if let appError = appError {
+                    print(appError.errorMessage())
+                } else if let image = image {
+                    cell.fighter2Image.image = image
+                }
+            }
         }
         if let winner1 = eventToSet.fighter1IsWinner,
         let winner2 = eventToSet.fighter2IsWinner,

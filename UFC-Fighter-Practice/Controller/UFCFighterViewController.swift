@@ -169,9 +169,20 @@ extension UFCFighterViewController: UITableViewDataSource{
         ColorClient.changeCellColor(indexPathRow: indexPath.row, cell: cell)
         cell.textLabel?.text = "\(fighterToSet.lastName ?? "No Name"), \(fighterToSet.firstName)" 
         cell.detailTextLabel?.text = fighterToSet.weightClass?.replacingOccurrences(of: "_", with: " ")
-        if let imageUrl = fighterToSet.thumbnail {
-            if let image = ImageClient.getImage(stringURL: imageUrl){
-                cell.imageView?.image = image
+//        if let imageUrl = fighterToSet.thumbnail {
+//            if let image = ImageClient.getImage(stringURL: imageUrl){
+//                cell.imageView?.image = image
+//            }
+//        }
+        if let image = ImageHelper.shared.image(forKey: fighterToSet.thumbnail! as NSString) {
+            cell.imageView?.image = image
+        } else {
+            ImageHelper.shared.fetchImage(urlString: fighterToSet.thumbnail!) { (appError, image) in
+                if let appError = appError {
+                    print(appError.errorMessage())
+                } else if let image = image {
+                    cell.imageView?.image = image
+                }
             }
         }
         return cell

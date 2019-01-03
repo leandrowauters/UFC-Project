@@ -60,14 +60,35 @@ extension UFCEventViewController: UITableViewDataSource {
         cell.eventName.text = eventToSet.baseTitle
         cell.eventSubtitle.text = eventToSet.titleTagLine
         cell.eventDate.text = "\(date)  \(eventToSet.arena) - \(eventToSet.location)"
-        let imageURL = eventToSet.featureImage
-        
         if eventToSet.featureImage == "" {
-            let image = ImageClient.getImage(stringURL: ImageClient.defaultImageURL)
-            cell.cellImage.image = image
-        } else if let image = ImageClient.getImage(stringURL: imageURL){
-            cell.cellImage.image = image
+            if let image = ImageHelper.shared.image(forKey: ImageHelper.defaultImageURL as NSString) {
+                cell.cellImage.image = image
+            } else {
+                ImageHelper.shared.fetchImage(urlString: ImageHelper.defaultImageURL) { (appError, image) in
+                    if let appError = appError {
+                        print(appError.errorMessage())
+                    } else if let image = image {
+                        cell.cellImage.image = image
+                    }
+                }
+            }
             
+//            let image = ImageClient.getImage(stringURL: ImageClient.defaultImageURL)
+//            cell.cellImage.image = image
+//        } else if let image = ImageClient.getImage(stringURL: imageURL){
+//            cell.cellImage.image = image
+//
+        }
+        if let image = ImageHelper.shared.image(forKey: eventToSet.featureImage as NSString) {
+            cell.cellImage.image = image
+        } else {
+            ImageHelper.shared.fetchImage(urlString: eventToSet.featureImage) { (appError, image) in
+                if let appError = appError {
+                    print(appError.errorMessage())
+                } else if let image = image {
+                    cell.cellImage.image = image
+                }
+            }
         }
         
         return cell
