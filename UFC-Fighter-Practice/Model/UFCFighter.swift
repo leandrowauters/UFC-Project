@@ -22,7 +22,7 @@ class UFCFighter: Codable {
     let leftFullBodyImage: String?
     let thumbnail: String?
     let profileImage: String?
-    let link: String
+    let link: String?
     private enum CodingKeys: String, CodingKey {
         case id
         case wins

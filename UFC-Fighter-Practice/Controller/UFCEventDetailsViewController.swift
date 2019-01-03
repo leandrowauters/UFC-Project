@@ -7,10 +7,11 @@
 //
 
 import UIKit
-
+import EventKit
 class UFCEventDetailsViewController: UIViewController {
 
     var event: UFCEvent!
+    var scheduleEvents = [EKEventStore]()
     var eventDetails = [UFCEventDetails](){
         didSet{
             DispatchQueue.main.async{
@@ -44,7 +45,7 @@ class UFCEventDetailsViewController: UIViewController {
             }
         }
     }
-        func getFighterFromId (fighterId: String) -> UFCFighter {
+        func getFighterFromId (fighterId: String) -> UFCFighter? {
             var fighterToReturn: UFCFighter!
             for fighter in FavoriteFighterClient.everyFighter{
                 if let id = fighter.id{
@@ -64,6 +65,11 @@ class UFCEventDetailsViewController: UIViewController {
         self.image.image = image
         }
     }
+    @IBAction func eventButtonPressed(_ sender: UIButton) {
+        let event = DateClient.createEvent(eventDate: self.event.eventDategmt , eventTitle: self.event.baseTitle, eventDetails: self.event.titleTagLine ?? "No details")
+        scheduleEvents.append(event)
+    }
+    
 }
 
 extension UFCEventDetailsViewController: UITableViewDataSource {
@@ -73,9 +79,11 @@ extension UFCEventDetailsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let eventToSet = eventDetails[indexPath.row]
-        let fighter1 = getFighterFromId(fighterId: eventToSet.fighter1Id.description)
-        let fighter2 = getFighterFromId(fighterId: eventToSet.fighter2Id.description)
         guard let cell = eventDetailsTableview.dequeueReusableCell(withIdentifier: "fightCell", for: indexPath) as? UFCEventDetailCell else {return UITableViewCell()}
+        let emptyCell = cell
+        emptyCell.fighter1Name.text = "TO BE DETERMINED"
+        guard let fighter1 = getFighterFromId(fighterId: eventToSet.fighter1Id.description) else {return emptyCell}
+        guard let fighter2 = getFighterFromId(fighterId: eventToSet.fighter2Id.description) else {return emptyCell}
         ColorClient.changeCellColor(indexPathRow: indexPath.row, cell: cell)
         cell.fighter1Name.text = "\(fighter1.lastName ?? "NO NAME"), \(fighter1.firstName)"
         cell.fighter1Record.text = eventToSet.fighter1record

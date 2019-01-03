@@ -520,11 +520,24 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xAZ-ej-ygG">
+                                <rect key="frame" x="300" y="64" width="75" height="75"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="75" id="5Qk-rZ-sEN"/>
+                                    <constraint firstAttribute="height" constant="75" id="y3B-gG-aEc"/>
+                                </constraints>
+                                <state key="normal" image="calendar"/>
+                                <connections>
+                                    <action selector="eventButtonPressed:" destination="p91-xU-2zO" eventType="touchUpInside" id="tvc-lO-zhY"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="WN5-Dk-Tc2" firstAttribute="top" secondItem="vAy-fb-W8c" secondAttribute="bottom" id="1uk-f7-psL"/>
                             <constraint firstItem="vAy-fb-W8c" firstAttribute="top" secondItem="RxF-Sb-9SS" secondAttribute="top" id="2HI-Ii-2o9"/>
+                            <constraint firstItem="RxF-Sb-9SS" firstAttribute="trailing" secondItem="xAZ-ej-ygG" secondAttribute="trailing" id="7vL-Se-roM"/>
                             <constraint firstItem="vAy-fb-W8c" firstAttribute="leading" secondItem="RxF-Sb-9SS" secondAttribute="leading" id="Emi-lx-mmW"/>
                             <constraint firstItem="RxF-Sb-9SS" firstAttribute="trailing" secondItem="WN5-Dk-Tc2" secondAttribute="trailing" id="PMu-Vq-OuK"/>
                             <constraint firstItem="WN5-Dk-Tc2" firstAttribute="leading" secondItem="RxF-Sb-9SS" secondAttribute="leading" id="PjJ-RE-nJB"/>
@@ -533,6 +546,7 @@
                             <constraint firstItem="WN5-Dk-Tc2" firstAttribute="leading" secondItem="RxF-Sb-9SS" secondAttribute="leading" id="aig-ma-fL9"/>
                             <constraint firstAttribute="bottom" secondItem="WN5-Dk-Tc2" secondAttribute="bottom" id="p2s-YE-TBu"/>
                             <constraint firstItem="RxF-Sb-9SS" firstAttribute="bottom" secondItem="WN5-Dk-Tc2" secondAttribute="bottom" id="xLR-Ne-p4J"/>
+                            <constraint firstItem="xAZ-ej-ygG" firstAttribute="top" secondItem="RxF-Sb-9SS" secondAttribute="top" id="zcV-Qk-18l"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="RxF-Sb-9SS"/>
                     </view>
@@ -543,7 +557,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yb0-bY-FZF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1076" y="1572.8635682158922"/>
+            <point key="canvasLocation" x="1076" y="1712"/>
         </scene>
         <!--News-->
         <scene sceneID="WZq-BG-LMx">
@@ -805,6 +819,7 @@
         <!--Navigation Controller-->
         <scene sceneID="2a1-X8-doZ">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="57j-VE-GqY" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="mIf-8r-sqy" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="wTf-C9-Uq1">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -814,7 +829,6 @@
                         <segue destination="782-9u-JkQ" kind="relationship" relationship="rootViewController" id="tvC-ZQ-CE0"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="57j-VE-GqY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="121" y="127"/>
         </scene>
@@ -929,6 +943,7 @@
     </scenes>
     <resources>
         <image name="Fav" width="25" height="25"/>
+        <image name="calendar" width="75" height="50"/>
         <image name="fighterIcon" width="25" height="25"/>
         <image name="linkIcon" width="70" height="52"/>
         <image name="newIconBotton" width="512" height="512"/>

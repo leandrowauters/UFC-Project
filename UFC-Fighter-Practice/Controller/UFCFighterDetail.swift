@@ -39,9 +39,10 @@ class UFCFighterDetail: UIViewController {
     }
     
     @IBAction func linkButtonTapped(_ sender: UIButton!) {
-        let fighterLink = fighter.link
+        if let fighterLink = fighter.link {
         guard let url = URL(string: fighterLink) else {return}
         UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        }
     }
     @IBAction func favoriteButtonTapped(_ sender: UFCFighterFavoriteButton) {
         if sender.isOn {

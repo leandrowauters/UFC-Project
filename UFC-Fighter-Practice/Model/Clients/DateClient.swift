@@ -39,7 +39,7 @@ class DateClient {
         return dateFormatter.string(from: dateToReturn)
     }
     
-    static func createEvent (eventDate: String) -> EKEventStore {
+    static func createEvent (eventDate: String, eventTitle: String, eventDetails: String) -> EKEventStore {
         var dateToSet = Date()
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
@@ -55,9 +55,9 @@ class DateClient {
                 print(String(describing: error))
                 
                 let event:EKEvent = EKEvent(eventStore: eventStore)
-                event.title = "Test Title"
+                event.title = eventTitle
                 event.startDate = dateToSet
-                event.notes = "This is a note"
+                event.notes = eventDetails
                 event.calendar = eventStore.defaultCalendarForNewEvents
 //                eventStore.save(event, span: .thisEvent)
                 do {
