@@ -77,7 +77,7 @@ class UFCEventDetailsViewController: UIViewController {
 //        }
     }
     @IBAction func eventButtonPressed(_ sender: UIButton) {
-        let event = DateClient.createEvent(eventDate: self.event.eventDategmt , eventTitle: self.event.baseTitle, eventDetails: self.event.titleTagLine ?? "No details")
+      let event = DateClient.createEvent(eventDate: self.event.eventDategmt, endDate: self.event.endEventDategmt, eventTitle: self.event.baseTitle, eventDetails: self.event.titleTagLine ?? "No details")
         scheduleEvents.append(event)
     }
     

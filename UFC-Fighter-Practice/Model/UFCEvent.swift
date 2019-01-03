@@ -14,11 +14,13 @@ struct UFCEvent: Codable {
     let baseTitle: String
     let titleTagLine: String?
     let featureImage: String
+    let endEventDategmt: String
     let arena: String
     let location: String
     private enum CodingKeys: String, CodingKey{
         case id
         case eventDategmt = "event_dategmt"//REMOVE _ //ALSO USE NSCAChE (LOOK EVENT PROJECT)
+        case endEventDategmt = "end_event_dategmt"
         case baseTitle = "base_title"
         case titleTagLine = "title_tag_line"
         case featureImage = "feature_image"

@@ -39,13 +39,17 @@ class DateClient {
         return dateFormatter.string(from: dateToReturn)
     }
     
-    static func createEvent (eventDate: String, eventTitle: String, eventDetails: String) -> EKEventStore {
+    static func createEvent (eventDate: String, endDate: String, eventTitle: String, eventDetails: String) -> EKEventStore {
         var dateToSet = Date()
+        var endDate = Date()
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
         dateFormatter.timeZone = TimeZone.current
         if let date = dateFormatter.date(from: eventDate) {
             dateToSet = date
+        }
+        if let date = dateFormatter.date(from: eventDate) {
+            endDate = date
         }
         let eventStore : EKEventStore = EKEventStore()
         eventStore.requestAccess(to: .event, completion: {
@@ -57,6 +61,7 @@ class DateClient {
                 let event:EKEvent = EKEvent(eventStore: eventStore)
                 event.title = eventTitle
                 event.startDate = dateToSet
+                event.endDate = endDate
                 event.notes = eventDetails
                 event.calendar = eventStore.defaultCalendarForNewEvents
 //                eventStore.save(event, span: .thisEvent)
