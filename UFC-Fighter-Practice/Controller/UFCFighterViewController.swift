@@ -22,10 +22,10 @@ class UFCFighterViewController: UIViewController {
     var everyFighter = [UFCFighter]()
     var fighters = [UFCFighter]() {
         didSet{
-            fighterActivityIndicator.startAnimating()
+//            fighterActivityIndicator.startAnimating()
             DispatchQueue.main.async {
                 self.fighterTableView.reloadData()
-                self.fighterActivityIndicator.stopAnimating()
+//                self.fighterActivityIndicator.stopAnimating()
             }
         }
     }
