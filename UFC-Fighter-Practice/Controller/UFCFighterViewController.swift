@@ -183,20 +183,20 @@ extension UFCFighterViewController: UITableViewDataSource{
     
 }
 extension UFCFighterViewController: UISearchBarDelegate {
-//    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-//        DispatchQueue.main.async{
-//        self.searchFighter(keyword: searchText)
-//        if searchBar.text!.isEmpty{
-//            self.getFighters()
-//        }
-//    }
-//    }
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-    if searchBar.text!.isEmpty{
-    self.getFighters()
-    }
-        DispatchQueue.main.async {
-            self.searchFighter(keyword: searchBar.text!)
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        DispatchQueue.main.async{
+        self.searchFighter(keyword: searchText)
+        if searchBar.text!.isEmpty{
+            self.getFighters()
+            }
         }
     }
+//    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+//        if searchBar.text!.isEmpty{
+//            getFighters()
+//        }
+//        DispatchQueue.main.async {
+//            self.searchFighter(keyword: searchBar.text!)
+//        }
+//    }
 }

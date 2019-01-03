@@ -39,6 +39,7 @@ class UFCFighterDetail: UIViewController {
     }
     
     @IBAction func linkButtonTapped(_ sender: UIButton!) {
+        
     }
     @IBAction func favoriteButtonTapped(_ sender: UFCFighterFavoriteButton) {
         if sender.isOn {
