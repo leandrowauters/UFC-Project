@@ -72,7 +72,7 @@ class DateClient {
                     print("failed to save event with error : \(error as NSError)")
                 }
                 print("Saved Event")
-                let alert = UIAlertController(title: "Event Saved!", message: "\(eventTitle) successfully saved in \(event.calendar.title)", preferredStyle: .alert)
+                let alert = UIAlertController(title: "Event Saved!", message: "\(eventTitle) scheduled for \(convertDateToLocalDate(str: eventDate, dateFormat: "MMM d, h:mm a")) successfully saved in \(event.calendar.title)", preferredStyle: .alert)
                 let OKAction = UIAlertAction(title: "OK", style: .default, handler: nil)
                 alert.addAction(OKAction)
                 vc.present(alert, animated: true, completion: nil)

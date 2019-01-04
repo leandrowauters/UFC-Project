@@ -398,7 +398,7 @@
             </objects>
             <point key="canvasLocation" x="1076" y="906.29685157421295"/>
         </scene>
-        <!--Event Details View Controller-->
+        <!--Title-->
         <scene sceneID="e2b-wt-RCp">
             <objects>
                 <viewController id="p91-xU-2zO" customClass="UFCEventDetailsViewController" customModule="UFC_Fighter_Practice" customModuleProvider="target" sceneMemberID="viewController">
@@ -528,24 +528,11 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xAZ-ej-ygG">
-                                <rect key="frame" x="300" y="64" width="75" height="75"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="75" id="5Qk-rZ-sEN"/>
-                                    <constraint firstAttribute="height" constant="75" id="y3B-gG-aEc"/>
-                                </constraints>
-                                <state key="normal" image="calendar"/>
-                                <connections>
-                                    <action selector="eventButtonPressed:" destination="p91-xU-2zO" eventType="touchUpInside" id="tvc-lO-zhY"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="WN5-Dk-Tc2" firstAttribute="top" secondItem="vAy-fb-W8c" secondAttribute="bottom" id="1uk-f7-psL"/>
                             <constraint firstItem="vAy-fb-W8c" firstAttribute="top" secondItem="RxF-Sb-9SS" secondAttribute="top" id="2HI-Ii-2o9"/>
-                            <constraint firstItem="RxF-Sb-9SS" firstAttribute="trailing" secondItem="xAZ-ej-ygG" secondAttribute="trailing" id="7vL-Se-roM"/>
                             <constraint firstItem="vAy-fb-W8c" firstAttribute="leading" secondItem="RxF-Sb-9SS" secondAttribute="leading" id="Emi-lx-mmW"/>
                             <constraint firstItem="RxF-Sb-9SS" firstAttribute="trailing" secondItem="WN5-Dk-Tc2" secondAttribute="trailing" id="PMu-Vq-OuK"/>
                             <constraint firstItem="WN5-Dk-Tc2" firstAttribute="leading" secondItem="RxF-Sb-9SS" secondAttribute="leading" id="PjJ-RE-nJB"/>
@@ -554,10 +541,16 @@
                             <constraint firstItem="WN5-Dk-Tc2" firstAttribute="leading" secondItem="RxF-Sb-9SS" secondAttribute="leading" id="aig-ma-fL9"/>
                             <constraint firstAttribute="bottom" secondItem="WN5-Dk-Tc2" secondAttribute="bottom" id="p2s-YE-TBu"/>
                             <constraint firstItem="RxF-Sb-9SS" firstAttribute="bottom" secondItem="WN5-Dk-Tc2" secondAttribute="bottom" id="xLR-Ne-p4J"/>
-                            <constraint firstItem="xAZ-ej-ygG" firstAttribute="top" secondItem="RxF-Sb-9SS" secondAttribute="top" id="zcV-Qk-18l"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="RxF-Sb-9SS"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="wJj-w2-dhD">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="calendar" id="8He-Yt-rIr">
+                            <connections>
+                                <action selector="savedToCalendarPressed:" destination="p91-xU-2zO" id="i3p-Vy-pmG"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="eventDetailsTableview" destination="WN5-Dk-Tc2" id="kSf-WM-WRu"/>
                         <outlet property="image" destination="vAy-fb-W8c" id="oLU-Cp-Rdb"/>
@@ -955,7 +948,7 @@
     </scenes>
     <resources>
         <image name="Fav" width="25" height="25"/>
-        <image name="calendar" width="75" height="50"/>
+        <image name="calendar" width="18.75" height="18.75"/>
         <image name="fighterIcon" width="25" height="25"/>
         <image name="linkIcon" width="70" height="52"/>
         <image name="newIconBotton" width="512" height="512"/>

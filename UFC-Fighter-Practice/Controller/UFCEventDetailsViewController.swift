@@ -31,6 +31,7 @@ class UFCEventDetailsViewController: UIViewController {
         eventDetailsTableview.delegate = self
         getImage()
         getEventDetails()
+        title = event.baseTitle
     }
     
     func getEventDetails() {
@@ -91,6 +92,9 @@ class UFCEventDetailsViewController: UIViewController {
             }
         }
         
+    }
+    @IBAction func savedToCalendarPressed(_ sender: UIBarButtonItem) {
+        _ = DateClient.createEvent(eventDate: self.event.eventDategmt, endDate: self.event.endEventDategmt, eventTitle: self.event.baseTitle, eventDetails: self.event.titleTagLine ?? "No details", vc: self)
     }
     @IBAction func eventButtonPressed(_ sender: UIButton) {
         let event = DateClient.createEvent(eventDate: self.event.eventDategmt, endDate: self.event.endEventDategmt, eventTitle: self.event.baseTitle, eventDetails: self.event.titleTagLine ?? "No details", vc: self)
