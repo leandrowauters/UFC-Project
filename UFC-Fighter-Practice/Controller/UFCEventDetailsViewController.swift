@@ -23,6 +23,7 @@ class UFCEventDetailsViewController: UIViewController {
     
     @IBOutlet weak var image: UIImageView!
 
+    @IBOutlet weak var saveToCalendarButton: UIBarButtonItem!
     
     
     override func viewDidLoad() {
@@ -32,6 +33,7 @@ class UFCEventDetailsViewController: UIViewController {
         getImage()
         getEventDetails()
         title = event.baseTitle
+        hideButton()
     }
     
     func getEventDetails() {
@@ -92,6 +94,17 @@ class UFCEventDetailsViewController: UIViewController {
             }
         }
         
+    }
+    func hideButton() {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        dateFormatter.timeZone = TimeZone.current
+        let eventDateStr = event.eventDategmt
+        let today = Date().addingTimeInterval(5000)
+        guard let eventDate = dateFormatter.date(from: eventDateStr) else {return}
+        if eventDate < today {
+            saveToCalendarButton.isEnabled = false
+        }
     }
     @IBAction func savedToCalendarPressed(_ sender: UIBarButtonItem) {
         _ = DateClient.createEvent(eventDate: self.event.eventDategmt, endDate: self.event.endEventDategmt, eventTitle: self.event.baseTitle, eventDetails: self.event.titleTagLine ?? "No details", vc: self)

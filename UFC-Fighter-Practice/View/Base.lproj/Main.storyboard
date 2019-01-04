@@ -554,6 +554,7 @@
                     <connections>
                         <outlet property="eventDetailsTableview" destination="WN5-Dk-Tc2" id="kSf-WM-WRu"/>
                         <outlet property="image" destination="vAy-fb-W8c" id="oLU-Cp-Rdb"/>
+                        <outlet property="saveToCalendarButton" destination="8He-Yt-rIr" id="3Af-0c-Awd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yb0-bY-FZF" userLabel="First Responder" sceneMemberID="firstResponder"/>
