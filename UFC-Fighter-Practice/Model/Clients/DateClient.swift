@@ -7,7 +7,7 @@
 //
 
 import EventKit
-
+import UIKit
 class DateClient {
     static func getDatesAsyyyyMMdd(date: String) -> String {
         let date = date.components(separatedBy: "T")
@@ -39,7 +39,7 @@ class DateClient {
         return dateFormatter.string(from: dateToReturn)
     }
     
-    static func createEvent (eventDate: String, endDate: String, eventTitle: String, eventDetails: String) -> EKEventStore {
+    static func createEvent (eventDate: String, endDate: String, eventTitle: String, eventDetails: String, vc: UIViewController) -> EKEventStore {
         var dateToSet = Date()
         var endDate = Date()
         let dateFormatter = DateFormatter()
@@ -72,6 +72,11 @@ class DateClient {
                     print("failed to save event with error : \(error as NSError)")
                 }
                 print("Saved Event")
+                let alert = UIAlertController(title: "Event Saved!", message: "\(eventTitle) successfully saved in \(event.calendar.title)", preferredStyle: .alert)
+                let OKAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                alert.addAction(OKAction)
+                vc.present(alert, animated: true, completion: nil)
+                
             }
         })
         return eventStore
