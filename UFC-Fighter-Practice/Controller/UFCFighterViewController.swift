@@ -143,9 +143,9 @@ class UFCFighterViewController: UIViewController {
                 var fighterWins = [UFCFighter]()
                 self.fighters.forEach{$0.wins != nil ? fighterWins.append($0) : print("nothing")}
                 if self.buttonTaps[sender.tag] % 2 == 0 {
-                    self.fighters = fighterWins.sorted{$0.wins! < $1.wins!}
-            } else {
                     self.fighters = fighterWins.sorted{$0.wins! > $1.wins!}
+            } else {
+                    self.fighters = fighterWins.sorted{$0.wins! < $1.wins!}
             }
             }
         case 3:
