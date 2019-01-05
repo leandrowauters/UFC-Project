@@ -73,15 +73,6 @@ class UFCFighterDetail: UIViewController {
                 }
             }
         }
-//        if let fighterPhoto = fighter.leftFullBodyImage{
-//            if let image = ImageClient.getImage(stringURL: fighterPhoto){
-//                fighterImage.image = image
-//            }
-//        } else {
-//            fighterImage.contentMode = .scaleToFill
-//            fighterImage.image = UIImage(named: "fighterNil")
-//
-//        }
         fighterLastName.text = fighter.lastName
         fighterFirstName.text = fighter.firstName
         fighterWeightClass.text = fighter.weightClass?.replacingOccurrences(of: "_", with: " ")
