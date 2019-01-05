@@ -62,7 +62,8 @@ class UFCFighterDetail: UIViewController {
         destination.fighter = fighter
     }
     func updateUI(){
-        if let image = ImageHelper.shared.image(forKey: fighter.leftFullBodyImage! as NSString) {
+        if let image = fighter.leftFullBodyImage{
+        if let image = ImageHelper.shared.image(forKey: image as NSString) {
             fighterImage.image = image
         } else {
             ImageHelper.shared.fetchImage(urlString: fighter.leftFullBodyImage!) { (appError, image) in
@@ -73,6 +74,9 @@ class UFCFighterDetail: UIViewController {
                 }
             }
         }
+        } else {
+            fighterImage.image = UIImage(named: "fighterNil")
+        }
         fighterLastName.text = fighter.lastName
         fighterFirstName.text = fighter.firstName
         fighterWeightClass.text = fighter.weightClass?.replacingOccurrences(of: "_", with: " ")
@@ -81,8 +85,17 @@ class UFCFighterDetail: UIViewController {
         fighterLosses.text = "Losses: \(fighter.losses ?? 0)"
         fighterDraws.text = "Draws: \(fighter.draws ?? 0)"
         fighterStatus.text = "Status: \(fighter.fighterStatus ?? "Unknown")"
-        
-        
+        if LanguageClient.chosenLanguage == .spanish {
+            if let weighClass = fighter.weightClass{
+                fighterWeightClass.text = LanguageClient.translateToSpanish(word: weighClass)
+                fighterRank.text = "Rank: #\(fighter.rank ?? "No Ranking")"
+                fighterWins.text = "Ganadas: \(fighter.wins ?? 0)"
+                fighterLosses.text = "Perdidas: \(fighter.losses ?? 0)"
+                fighterDraws.text = "Empates: \(fighter.draws ?? 0)"
+                fighterStatus.text = "Status: \(fighter.fighterStatus ?? "Desconocido")"
+                
+        }
+        }
     }
 
 }
