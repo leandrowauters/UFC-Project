@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="mIf-8r-sqy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0yg-LY-QtT">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -175,7 +175,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="AEY-iw-rWY">
                                 <rect key="frame" x="0.0" y="120" width="375" height="40"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7k2-R2-v4F">
+                                    <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7k2-R2-v4F">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
                                         <color key="backgroundColor" red="0.99593228099999997" green="0.27651777859999999" blue="0.36207842829999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -287,6 +287,7 @@
                         <outlet property="fighterActivityIndicator" destination="R0T-5g-tTQ" id="QWN-83-AP0"/>
                         <outlet property="fighterSearchBar" destination="pba-vB-Ehh" id="mdi-iT-lWa"/>
                         <outlet property="fighterTableView" destination="R0G-SF-dyY" id="6Hg-aq-gfH"/>
+                        <outlet property="sortByButton" destination="7k2-R2-v4F" id="poi-Oo-kRe"/>
                         <outletCollection property="filterByButtons" destination="Cii-ii-qxj" collectionClass="NSMutableArray" id="JWX-EX-RSj"/>
                         <outletCollection property="filterByButtons" destination="JH2-hP-XXr" collectionClass="NSMutableArray" id="Sss-lS-h0H"/>
                         <outletCollection property="filterByButtons" destination="s11-u5-Eyz" collectionClass="NSMutableArray" id="hgI-oJ-CbP"/>
@@ -822,21 +823,41 @@
             </objects>
             <point key="canvasLocation" x="2805.5999999999999" y="125.4872563718141"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="2a1-X8-doZ">
+        <!--Main Screen View Controller-->
+        <scene sceneID="QCz-qd-AIz">
             <objects>
-                <navigationController id="mIf-8r-sqy" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="wTf-C9-Uq1">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="782-9u-JkQ" kind="relationship" relationship="rootViewController" id="tvC-ZQ-CE0"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="57j-VE-GqY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cBT-4w-pPo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="Ebk-0w-pxj" customClass="MainScreenViewController" customModule="UFC_Fighter_Practice" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Kze-oV-KvH">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HaV-eT-PiC">
+                                <rect key="frame" x="103" y="546" width="50" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="English"/>
+                                <connections>
+                                    <action selector="languageButtonPressed:" destination="Ebk-0w-pxj" eventType="touchUpInside" id="xyr-Vm-yIu"/>
+                                    <segue destination="782-9u-JkQ" kind="show" id="5fs-xt-DmW"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6B3-3v-6Tq">
+                                <rect key="frame" x="199" y="546" width="55" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Spanish"/>
+                                <connections>
+                                    <action selector="languageButtonPressed:" destination="Ebk-0w-pxj" eventType="touchUpInside" id="pj8-RL-VwN"/>
+                                    <segue destination="782-9u-JkQ" kind="show" id="q7w-I4-RSM"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="3df-u1-xgG"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="2Qq-N1-XV5"/>
+                </viewController>
             </objects>
-            <point key="canvasLocation" x="121" y="127"/>
+            <point key="canvasLocation" x="2952.8000000000002" y="-653.52323838080963"/>
         </scene>
         <!--Fighter Stats View Controller-->
         <scene sceneID="QWW-jE-36M">
@@ -946,6 +967,24 @@
             </objects>
             <point key="canvasLocation" x="1076" y="128"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="QbW-dT-LUe">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0yg-LY-QtT" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="yO1-rn-d5k">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Ebk-0w-pxj" kind="relationship" relationship="rootViewController" id="2gg-pO-jDk"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rDe-N6-Twx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2013.5999999999999" y="-653.52323838080963"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Fav" width="25" height="25"/>
@@ -959,4 +998,7 @@
         <image name="starOff" width="50" height="50"/>
         <image name="ufcBackground2" width="640" height="980"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="q7w-I4-RSM"/>
+    </inferredMetricsTieBreakers>
 </document>

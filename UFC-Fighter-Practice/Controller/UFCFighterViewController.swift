@@ -17,6 +17,7 @@ class UFCFighterViewController: UIViewController {
     @IBOutlet weak var fighterSearchBar: UISearchBar!
     
     @IBOutlet weak var fighterTableView: UITableView!
+    @IBOutlet weak var sortByButton: UIButton!
     
     var buttonTaps = [1,1,1,1,1,1]
     var everyFighter = [UFCFighter]()
@@ -37,8 +38,31 @@ class UFCFighterViewController: UIViewController {
         fighterSearchBar.delegate = self
         fighterTableView.dataSource = self
         getFighters()
+        print(LanguageClient.chosenLanguage)
+        translateUIToSpanish()
     }
-    
+    func translateUIToSpanish(){
+        if LanguageClient.chosenLanguage == .spanish {
+            sortByButton.setTitle("Ordenar", for: .normal)
+            for button in filterByButtons {
+                switch button.tag{
+                case 0:
+                    button.setTitle("Nombre", for: .normal)
+                case 1:
+                    button.setTitle("Categoria", for: .normal)
+                case 2:
+                    button.setTitle("Ganadas", for: .normal)
+                case 3:
+                    button.setTitle("Perdidas", for: .normal)
+                case 4:
+                    button.setTitle("Empates", for: .normal)
+                default:
+                    print("Error")
+                }
+            }
+            
+        }
+    }
     func getFighters() {
         UFCFighterClient.getFighter {(fighters, error) in // REPEATS SO  MAKE IT ITO FUNC
             DispatchQueue.main.async {
@@ -169,6 +193,12 @@ extension UFCFighterViewController: UITableViewDataSource{
         ColorClient.changeCellColor(indexPathRow: indexPath.row, cell: cell)
         cell.textLabel?.text = "\(fighterToSet.lastName ?? "No Name"), \(fighterToSet.firstName)" 
         cell.detailTextLabel?.text = fighterToSet.weightClass?.replacingOccurrences(of: "_", with: " ")
+        if LanguageClient.chosenLanguage == .spanish{
+            if let weigthClass = fighterToSet.weightClass{
+                let translateWord = LanguageClient.translateToSpanish(word: weigthClass)
+                cell.detailTextLabel?.text = translateWord
+            }
+    }
 //        if let imageUrl = fighterToSet.thumbnail {
 //            if let image = ImageClient.getImage(stringURL: imageUrl){
 //                cell.imageView?.image = image
@@ -201,12 +231,12 @@ extension UFCFighterViewController: UISearchBarDelegate {
             }
         }
     }
-//    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-//        if searchBar.text!.isEmpty{
-//            getFighters()
-//        }
-//
-//        searchFighter(keyword: searchBar.text!)
-//
-//    }
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+        DispatchQueue.main.async{
+            if searchBar.text!.isEmpty{
+                self.getFighters()
+            }
+        }
+    }
 }

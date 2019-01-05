@@ -18,7 +18,7 @@ class UFCFighter: Codable {
     let draws: Int?
     let firstName: String
     let fighterStatus: String?
-    let poundForPoundRank: String?
+    let rank: String?
     let leftFullBodyImage: String?
     let thumbnail: String?
     let profileImage: String?
@@ -33,7 +33,7 @@ class UFCFighter: Codable {
         case draws
         case firstName = "first_name"
         case fighterStatus = "fighter_status"
-        case poundForPoundRank = "pound_for_pound_rank"
+        case rank
         case leftFullBodyImage = "left_full_body_image"
         case thumbnail
         case profileImage = "profile_image"

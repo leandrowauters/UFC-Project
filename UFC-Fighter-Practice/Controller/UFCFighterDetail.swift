@@ -85,7 +85,7 @@ class UFCFighterDetail: UIViewController {
         fighterLastName.text = fighter.lastName
         fighterFirstName.text = fighter.firstName
         fighterWeightClass.text = fighter.weightClass?.replacingOccurrences(of: "_", with: " ")
-        fighterRank.text = "Rank: #\(fighter.poundForPoundRank ?? "Unknown")"
+        fighterRank.text = "Rank: #\(fighter.rank ?? "Unranked")"
         fighterWins.text = "Wins: \(fighter.wins ?? 0)"
         fighterLosses.text = "Losses: \(fighter.losses ?? 0)"
         fighterDraws.text = "Draws: \(fighter.draws ?? 0)"

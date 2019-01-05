@@ -30,6 +30,8 @@
 		D581497821DE78F4006C1E2F /* ImageClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D581497721DE78F4006C1E2F /* ImageClient.swift */; };
 		D58149AB21DEB3E2006C1E2F /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58149AA21DEB3E2006C1E2F /* AppError.swift */; };
 		D58149AD21DEB422006C1E2F /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58149AC21DEB422006C1E2F /* NetworkHelper.swift */; };
+		D5991B2E21DFFEC300337C21 /* LanguageClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5991B2D21DFFEC300337C21 /* LanguageClient.swift */; };
+		D5991B3021E000C800337C21 /* MainScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5991B2F21E000C800337C21 /* MainScreenViewController.swift */; };
 		D5EDA70E21C1A13A00B5F963 /* UFCFighterDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5EDA70D21C1A13A00B5F963 /* UFCFighterDetail.swift */; };
 		D5EDA71021C1AA1A00B5F963 /* UFCEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5EDA70F21C1AA1A00B5F963 /* UFCEvent.swift */; };
 		D5EDA71621C1AE6F00B5F963 /* UFCEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5EDA71521C1AE6F00B5F963 /* UFCEventViewController.swift */; };
@@ -61,6 +63,8 @@
 		D581497721DE78F4006C1E2F /* ImageClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageClient.swift; sourceTree = "<group>"; };
 		D58149AA21DEB3E2006C1E2F /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		D58149AC21DEB422006C1E2F /* NetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
+		D5991B2D21DFFEC300337C21 /* LanguageClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageClient.swift; sourceTree = "<group>"; };
+		D5991B2F21E000C800337C21 /* MainScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewController.swift; sourceTree = "<group>"; };
 		D5EDA70D21C1A13A00B5F963 /* UFCFighterDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UFCFighterDetail.swift; sourceTree = "<group>"; };
 		D5EDA70F21C1AA1A00B5F963 /* UFCEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UFCEvent.swift; sourceTree = "<group>"; };
 		D5EDA71521C1AE6F00B5F963 /* UFCEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UFCEventViewController.swift; path = "UFC-Fighter-Practice/Controller/UFCEventViewController.swift"; sourceTree = SOURCE_ROOT; };
@@ -115,6 +119,7 @@
 				D58149AA21DEB3E2006C1E2F /* AppError.swift */,
 				D550680221CB027B00F3C6F4 /* FavoriteFighterClient.swift */,
 				D57C23A221C5CD2C00A5CC68 /* DateClient.swift */,
+				D5991B2D21DFFEC300337C21 /* LanguageClient.swift */,
 			);
 			path = Clients;
 			sourceTree = "<group>";
@@ -143,6 +148,7 @@
 		D5EDA71221C1ADF800B5F963 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				D5991B2F21E000C800337C21 /* MainScreenViewController.swift */,
 				D5445BC521BEE16300EDA9C3 /* UFCFighterViewController.swift */,
 				D5EDA70D21C1A13A00B5F963 /* UFCFighterDetail.swift */,
 				D57C23A421C718C700A5CC68 /* UFCFighterNewsViewController.swift */,
@@ -251,6 +257,7 @@
 				D5313FD421D08D8700875B63 /* UFCEventDetails.swift in Sources */,
 				D550680321CB027C00F3C6F4 /* FavoriteFighterClient.swift in Sources */,
 				D56EDDD421CAF4BD009245A8 /* UFCFighterFavoriteButton.swift in Sources */,
+				D5991B3021E000C800337C21 /* MainScreenViewController.swift in Sources */,
 				D58149AD21DEB422006C1E2F /* NetworkHelper.swift in Sources */,
 				D57C23A521C718C700A5CC68 /* UFCFighterNewsViewController.swift in Sources */,
 				D581497821DE78F4006C1E2F /* ImageClient.swift in Sources */,
@@ -264,6 +271,7 @@
 				D5313FD621D0931F00875B63 /* UFCEventDetailsViewController.swift in Sources */,
 				D5445BC621BEE16300EDA9C3 /* UFCFighterViewController.swift in Sources */,
 				D57C23A721C7211100A5CC68 /* UFCFighterArticle.swift in Sources */,
+				D5991B2E21DFFEC300337C21 /* LanguageClient.swift in Sources */,
 				D5445BD621BEE2DC00EDA9C3 /* UFCFighter.swift in Sources */,
 				D5EDA71021C1AA1A00B5F963 /* UFCEvent.swift in Sources */,
 				D570CDD521C9B1EC00BD443A /* UFCEventCell.swift in Sources */,
