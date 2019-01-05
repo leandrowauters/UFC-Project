@@ -29,6 +29,8 @@ struct LanguageClient {
         case womenFlyweight = "Women_Flyweight"
         case womenBantamweight = "Women_Bantamweight"
         case womenFeatherweight = "Women_Featherweight"
+        case notFighting = "NotFighting"
+        case active = "Active"
         }
         let wordToTranslate = SpanishTranslations(rawValue: word)!
         switch wordToTranslate {
@@ -54,6 +56,10 @@ struct LanguageClient {
             return "Peso gallo femenino"
         case .womenFeatherweight:
             return "Peso pluma femenino"
+        case .notFighting:
+            return "Retirado"
+        case .active:
+            return "Activo"
         default:
             return "Translation Error"
         }

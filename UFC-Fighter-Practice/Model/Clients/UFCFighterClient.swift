@@ -76,7 +76,12 @@ final class UFCNewsClient: Codable {
         {completionHandler(nil, .badURL("url failed"))
             return
         }
-        URLSession.shared.dataTask(with: url){(data, response, error) in
+        guard let spanishUrl = URL.init(string: "http://ufc-data-api.ufc.com/api/v3/5/news") else
+            {completionHandler(nil, .badURL("url failed"))
+                return
+        }
+        if LanguageClient.chosenLanguage == .spanish{
+        URLSession.shared.dataTask(with: spanishUrl){(data, response, error) in
             if let error = error {
                 completionHandler(nil, .badData(error))
             }
@@ -90,6 +95,21 @@ final class UFCNewsClient: Codable {
         }
         
         }.resume()
+        }
+        URLSession.shared.dataTask(with: url){(data, response, error) in
+            if let error = error {
+                completionHandler(nil, .badData(error))
+            }
+            if let data = data {
+                do {
+                    let newsData = try JSONDecoder().decode([UFCNews].self, from: data)
+                    completionHandler(newsData, nil)
+                } catch {
+                    completionHandler(nil, .badDecoding(error))
+                }
+            }
+            
+            }.resume()
     }
 }
 final class UFCFighterNewsClient {

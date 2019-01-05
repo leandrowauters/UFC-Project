@@ -24,6 +24,8 @@ class UFCFighterDetail: UIViewController {
     @IBOutlet weak var fighterImage: UIImageView!
     @IBOutlet weak var fighterRank: UILabel!
     @IBOutlet weak var favoriteButton: UFCFighterFavoriteButton!
+    @IBOutlet var LabelsToTranslate: [UILabel]!
+    
     
     
     
@@ -88,13 +90,26 @@ class UFCFighterDetail: UIViewController {
         if LanguageClient.chosenLanguage == .spanish {
             if let weighClass = fighter.weightClass{
                 fighterWeightClass.text = LanguageClient.translateToSpanish(word: weighClass)
+                }
                 fighterRank.text = "Rank: #\(fighter.rank ?? "No Ranking")"
                 fighterWins.text = "Ganadas: \(fighter.wins ?? 0)"
                 fighterLosses.text = "Perdidas: \(fighter.losses ?? 0)"
                 fighterDraws.text = "Empates: \(fighter.draws ?? 0)"
-                fighterStatus.text = "Status: \(fighter.fighterStatus ?? "Desconocido")"
-                
-        }
+                if let status = fighter.fighterStatus {
+                fighterStatus.text = "Status: \(LanguageClient.translateToSpanish(word: status))"
+                } else {
+                    fighterStatus.text = "Status: Desconocido"
+                }
+            let wordsToTranslate = ["Favoritos", "Noticias", "Link"]
+            for i in 0...LabelsToTranslate.count - 1{
+                switch i{
+                case 0...3:
+                    LabelsToTranslate[i].text = wordsToTranslate[i]
+                default:
+                    print("Error Translating")
+                }
+            }
+        
         }
     }
 
