@@ -40,22 +40,36 @@ class UFCFighterViewController: UIViewController {
         getFighters()
         print(LanguageClient.chosenLanguage)
         translateUIToSpanish()
+        translateTabBarToSpanish()
+        
+        
+    }
+    func translateTabBarToSpanish(){
+        if LanguageClient.chosenLanguage == .spanish{
+        for i in 0...self.tabBarController!.tabBar.items!.count - 1{
+            switch i {
+            case 0:
+                self.tabBarController?.tabBar.items?[0].title = "Peleadores"
+            case 1:
+                self.tabBarController?.tabBar.items?[1].title = "Eventos"
+            case 2:
+                self.tabBarController?.tabBar.items?[2].title = "Noticias"
+            case 3:
+                self.tabBarController?.tabBar.items?[3].title = "Favoritos"
+            default:
+                print("ERRor in tab")
+            }
+            }
+        }
     }
     func translateUIToSpanish(){
         if LanguageClient.chosenLanguage == .spanish {
+            let wordToTranslate = ["Nombre", "Categoria", "Ganadas", "Perdidas", "Empatadas"]
             sortByButton.setTitle("Ordenar", for: .normal)
             for button in filterByButtons {
                 switch button.tag{
-                case 0:
-                    button.setTitle("Nombre", for: .normal)
-                case 1:
-                    button.setTitle("Categoria", for: .normal)
-                case 2:
-                    button.setTitle("Ganadas", for: .normal)
-                case 3:
-                    button.setTitle("Perdidas", for: .normal)
-                case 4:
-                    button.setTitle("Empates", for: .normal)
+                case 0...4:
+                    button.setTitle(wordToTranslate[button.tag], for: .normal)
                 default:
                     print("Error")
                 }
