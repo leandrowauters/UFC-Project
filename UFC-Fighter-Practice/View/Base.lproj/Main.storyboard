@@ -834,17 +834,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6B3-3v-6Tq">
-                                <rect key="frame" x="211" y="496" width="103" height="105"/>
-                                <state key="normal" image="spainIcon"/>
-                                <connections>
-                                    <action selector="languageButtonPressed:" destination="Ebk-0w-pxj" eventType="touchUpInside" id="pj8-RL-VwN"/>
-                                    <segue destination="782-9u-JkQ" kind="show" id="q7w-I4-RSM"/>
-                                </connections>
-                            </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FKi-aN-m0k">
-                                <rect key="frame" x="67" y="225" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ufcBackground" translatesAutoresizingMaskIntoConstraints="NO" id="FKi-aN-m0k">
+                                <rect key="frame" x="0.0" y="32" width="375" height="667"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HaV-eT-PiC">
                                 <rect key="frame" x="42.5" y="496" width="103" height="105"/>
@@ -858,14 +849,26 @@
                                     <segue destination="782-9u-JkQ" kind="show" id="5fs-xt-DmW"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6B3-3v-6Tq">
+                                <rect key="frame" x="211" y="496" width="103" height="105"/>
+                                <state key="normal" image="spainIcon"/>
+                                <connections>
+                                    <action selector="languageButtonPressed:" destination="Ebk-0w-pxj" eventType="touchUpInside" id="pj8-RL-VwN"/>
+                                    <segue destination="782-9u-JkQ" kind="show" id="q7w-I4-RSM"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="6B3-3v-6Tq" firstAttribute="centerY" secondItem="HaV-eT-PiC" secondAttribute="centerY" id="3TY-gL-Fta"/>
                             <constraint firstItem="6B3-3v-6Tq" firstAttribute="width" secondItem="HaV-eT-PiC" secondAttribute="width" id="3Zf-uG-iCK"/>
                             <constraint firstItem="HaV-eT-PiC" firstAttribute="centerY" secondItem="3df-u1-xgG" secondAttribute="centerY" multiplier="1.5" id="Q4d-P7-dN7"/>
+                            <constraint firstItem="FKi-aN-m0k" firstAttribute="width" secondItem="Kze-oV-KvH" secondAttribute="width" id="UCi-zm-o27"/>
                             <constraint firstItem="6B3-3v-6Tq" firstAttribute="height" secondItem="HaV-eT-PiC" secondAttribute="height" id="WqN-jK-LDK"/>
+                            <constraint firstItem="FKi-aN-m0k" firstAttribute="height" secondItem="Kze-oV-KvH" secondAttribute="height" id="Ws3-w7-8uF"/>
                             <constraint firstItem="6B3-3v-6Tq" firstAttribute="centerX" secondItem="3df-u1-xgG" secondAttribute="centerX" multiplier="1.4" id="Zym-wI-UAv"/>
+                            <constraint firstItem="FKi-aN-m0k" firstAttribute="centerX" secondItem="3df-u1-xgG" secondAttribute="centerX" id="aB9-tT-myn"/>
+                            <constraint firstItem="FKi-aN-m0k" firstAttribute="centerY" secondItem="3df-u1-xgG" secondAttribute="centerY" id="agf-OM-t5i"/>
                             <constraint firstItem="HaV-eT-PiC" firstAttribute="centerX" secondItem="3df-u1-xgG" secondAttribute="centerX" multiplier="0.5" id="drd-pJ-g4c"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="3df-u1-xgG"/>
@@ -929,13 +932,23 @@
                                 <rect key="frame" x="0.0" y="7.5" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="favoriteFighterCell" id="oD4-2p-y0b">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="favoriteFighterCell" textLabel="hMx-8a-UTn" style="IBUITableViewCellStyleDefault" id="oD4-2p-y0b">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="oD4-2p-y0b" id="wyb-fW-AOU">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hMx-8a-UTn">
+                                                    <rect key="frame" x="15" y="0.0" width="345" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <segue destination="t6o-ff-cly" kind="show" id="FHt-ui-wnJ"/>
                                         </connections>
@@ -1015,6 +1028,7 @@
         <image name="ringIcon" width="25" height="25"/>
         <image name="spainIcon" width="75" height="75"/>
         <image name="starOff" width="50" height="50"/>
+        <image name="ufcBackground" width="480" height="852"/>
         <image name="ufcBackground2" width="640" height="980"/>
     </resources>
     <inferredMetricsTieBreakers>

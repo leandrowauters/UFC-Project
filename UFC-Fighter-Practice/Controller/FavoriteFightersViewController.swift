@@ -45,6 +45,7 @@ extension FavoriteFightersViewController: UITableViewDataSource{
         let fighterToSet = favorites[indexPath.row]
         let cell = favoriteTableView.dequeueReusableCell(withIdentifier: "favoriteFighterCell", for: indexPath)
         cell.textLabel?.text = fighterToSet.lastName
+        ColorClient.changeCellColor(indexPathRow: indexPath.row, cell: cell)
         return cell
     }
 }

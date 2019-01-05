@@ -46,16 +46,11 @@ class UFCFighterViewController: UIViewController {
     }
     func translateTabBarToSpanish(){
         if LanguageClient.chosenLanguage == .spanish{
+            let wordsToTranslate = ["Peleadores","Eventos","Noticias", "Favoritos"]
         for i in 0...self.tabBarController!.tabBar.items!.count - 1{
             switch i {
-            case 0:
-                self.tabBarController?.tabBar.items?[0].title = "Peleadores"
-            case 1:
-                self.tabBarController?.tabBar.items?[1].title = "Eventos"
-            case 2:
-                self.tabBarController?.tabBar.items?[2].title = "Noticias"
-            case 3:
-                self.tabBarController?.tabBar.items?[3].title = "Favoritos"
+            case 0...4:
+                self.tabBarController?.tabBar.items?[i].title = wordsToTranslate[i]
             default:
                 print("ERRor in tab")
             }
