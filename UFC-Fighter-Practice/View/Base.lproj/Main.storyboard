@@ -282,7 +282,6 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Fighters" image="fighterIcon" id="zAX-6l-k4f"/>
-                    <navigationItem key="navigationItem" id="hP2-nd-XSS"/>
                     <connections>
                         <outlet property="fighterActivityIndicator" destination="R0T-5g-tTQ" id="QWN-83-AP0"/>
                         <outlet property="fighterSearchBar" destination="pba-vB-Ehh" id="mdi-iT-lWa"/>
@@ -931,6 +930,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Lx5-Vw-EuW">
                                 <rect key="frame" x="0.0" y="7.5" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="sectionIndexBackgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="favoriteFighterCell" textLabel="hMx-8a-UTn" style="IBUITableViewCellStyleDefault" id="oD4-2p-y0b">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>

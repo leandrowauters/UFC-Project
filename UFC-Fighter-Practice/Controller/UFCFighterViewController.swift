@@ -33,6 +33,7 @@ class UFCFighterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         FavoriteFighterClient.favoriteFighterId = FavoriteFighterClient.retriveFighters()
         fighterTableView.tableFooterView = UIView()
         fighterSearchBar.delegate = self

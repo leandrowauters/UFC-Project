@@ -95,7 +95,8 @@ final class UFCNewsClient: Codable {
         }
         
         }.resume()
-        }
+        } else {
+        
         URLSession.shared.dataTask(with: url){(data, response, error) in
             if let error = error {
                 completionHandler(nil, .badData(error))
@@ -110,6 +111,7 @@ final class UFCNewsClient: Codable {
             }
             
             }.resume()
+    }
     }
 }
 final class UFCFighterNewsClient {

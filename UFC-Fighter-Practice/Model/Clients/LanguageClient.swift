@@ -52,6 +52,8 @@ struct LanguageClient {
             return "Peso pesado"
         case .womenFlyweight:
             return "Peso mosca femenino"
+        case .womenStrawweight:
+            return "Peso paja femenino"
         case .womenBantamweight:
             return "Peso gallo femenino"
         case .womenFeatherweight:
@@ -60,8 +62,6 @@ struct LanguageClient {
             return "Retirado"
         case .active:
             return "Activo"
-        default:
-            return "Translation Error"
         }
     }
 }
