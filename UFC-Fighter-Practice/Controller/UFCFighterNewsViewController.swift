@@ -20,9 +20,13 @@ class UFCFighterNewsViewController: UIViewController {
     var fighter: UFCFighter!
     var articles = [UFCFighterArticle](){
         didSet{
+            
             DispatchQueue.main.async {
+                self.activityIndicator.startAnimating()
                 self.fighterTableView.reloadData()
+                self.activityIndicator.stopAnimating()
             }
+            
         }
     }
     

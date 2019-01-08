@@ -64,15 +64,19 @@ class UFCFighterDetail: UIViewController {
         destination.fighter = fighter
     }
     func updateUI(){
-        if let image = fighter.leftFullBodyImage{
-        if let image = ImageHelper.shared.image(forKey: image as NSString) {
+        var urlString = ""
+        if let fighterImageURL = fighter.leftFullBodyImage{
+            urlString = fighterImageURL
+        if let image = ImageHelper.shared.image(forKey: fighterImageURL as NSString) {
             fighterImage.image = image
         } else {
             ImageHelper.shared.fetchImage(urlString: fighter.leftFullBodyImage!) { (appError, image) in
                 if let appError = appError {
                     print(appError.errorMessage())
                 } else if let image = image {
+                    if urlString == fighterImageURL {
                     self.fighterImage.image = image
+                }
                 }
             }
         }

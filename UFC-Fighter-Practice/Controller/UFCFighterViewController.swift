@@ -214,16 +214,23 @@ extension UFCFighterViewController: UITableViewDataSource{
 //                cell.imageView?.image = image
 //            }
 //        }
+        var urlString = ""
+        
         if let imageUrl = fighterToSet.thumbnail{
+        urlString = imageUrl
         if let image = ImageHelper.shared.image(forKey: imageUrl as NSString) {
             cell.imageView?.image = image
         } else {
+            fighterActivityIndicator.startAnimating()
             ImageHelper.shared.fetchImage(urlString: fighterToSet.thumbnail!) { (appError, image) in
                 if let appError = appError {
                     print(appError.errorMessage())
                 } else if let image = image {
+                    if urlString == imageUrl {
                     cell.imageView?.image = image
                 }
+                }
+                self.fighterActivityIndicator.stopAnimating()
             }
         }
         }
